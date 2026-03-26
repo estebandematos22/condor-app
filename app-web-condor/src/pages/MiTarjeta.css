@@ -1,0 +1,230 @@
+/* 🔤 FUENTE */
+@font-face {
+  font-family: 'OCR A Extended';
+  src: url('/fonts/OCRAEXT.TTF') format('truetype');
+}
+
+/* CONTENEDOR */
+.mt-page {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #e8f5e9 50%, #0f7a2a 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* HEADER */
+.mt-header {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+}
+
+.mt-header::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: url("/logo.png") center/contain no-repeat;
+}
+
+.mt-username {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0b4f1e;
+}
+
+/* BOTÓN VOLVER */
+.mt-back-btn {
+  margin-left: auto;
+  margin-right: 20px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.mt-back-btn:hover {
+  transform: scale(1.05);
+}
+
+.mt-back-btn:active {
+  transform: scale(0.98);
+}
+
+.mt-bell {
+  display: none;
+}
+
+/* CONTENIDO */
+.mt-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* TITULO */
+.mt-title-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.mt-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0b4f1e;
+}
+
+.mt-icon {
+  font-size: 1.4rem;
+}
+
+/* TARJETA CENTRADA */
+.card-wrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TARJETA */
+.condor-card {
+  width: min(360px, 92vw);
+  height: 200px;
+  border-radius: 18px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #fdf1b2 0%,
+    #e6b94d 40%,
+    #d4a22b 70%,
+    #f8d87b 100%
+  );
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* TEXTO (SOLO TIPOGRAFIA AGREGADA) */
+.card-top-text h3 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 0;
+  color: rgba(0,0,0,0.70);
+
+  font-family: 'OCR A Extended', monospace;
+  font-weight: bold;
+}
+
+.card-top-text span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(0,0,0,0.65);
+
+  font-family: 'OCR A Extended', monospace;
+}
+
+/* CHIP */
+.card-chip{
+  position:absolute;
+  left:20px;
+  top:70px;
+  width:55px;
+}
+
+/* MAPA */
+.card-map {
+  position: absolute;
+  right: 5px;
+  bottom: 45px;
+  width: 150px;
+  opacity: 0.95;
+}
+
+/* NOMBRE */
+.card-name {
+  position: absolute;
+  bottom: 55px;
+  left: 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #222;
+
+  font-family: 'OCR A Extended', monospace;
+}
+
+/* CLIENTE */
+.card-client{
+  position:absolute;
+  bottom:40px;
+  left:20px;
+  font-size:18px;
+  color:#222;
+
+  font-family: 'OCR A Extended', monospace;
+  font-weight: bold;
+}
+
+/* CODIGO */
+.barcode {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  width: 85%;
+  height: 25px;
+  background: repeating-linear-gradient(
+    90deg,
+    #111,
+    #111 2px,
+    #fff 2px,
+    #fff 4px
+  );
+}
+
+/* FOOTER */
+.home4-footer {
+  width: 100%;
+  height: 70px;
+  background: #1b5e20;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  color: white;
+  font-size: 0.85rem;
+
+  margin-top: auto;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,177 @@
+/* CONTENEDOR */
+.home4-container {
+  height: 100vh; /* 🔥 CAMBIO CLAVE */
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 35%, #5cb85c 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 🔥 CAMBIO CLAVE */
+  font-family: "Helvetica", sans-serif;
+}
+
+/* HEADER */
+.home4-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.header-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.user-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* 🔔 CAMPANITA */
+.bell-btn {
+  position: relative;
+  font-size: 22px;
+  background: #d5f5d5;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
+  margin-right: 26px;
+}
+
+/* 🔴 BADGE */
+.bell-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* CARRUSEL */
+.carousel {
+  width: 90%;
+  max-width: 360px;
+  height: 170px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  border-radius: 15px;
+}
+
+/* TARJETAS */
+.quick-access {
+  width: 90%;
+  margin: 20px auto; /* 🔥 reducido un poco para que entre */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* 🔥 leve ajuste */
+}
+
+.card {
+  background: linear-gradient(to bottom, #ffffff 5%);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  color: #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* 🔥 antes 100 → esto era lo que rompía el layout */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 10px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease;
+}
+
+.card span {
+  font-size: 18px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.home4-footer {
+  width: 100%;
+  height: 70px;
+  background: #1b5e20;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-item.red {
+  color: #ffcccc;
+}
+
+/* LINK FOOTER */
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 📍 BOTÓN UBICACIÓN */
+.ubicacion-btn {
+  margin-top: 10px; /* 🔥 reducido */
+  background: white;
+  padding: 10px; /* 🔥 reducido */
+  border-radius: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #1b5e20;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 380px;
+}

@@ -1,0 +1,79 @@
+.noti-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 40%, #5cb85c 100%);
+}
+
+/* HEADER */
+.noti-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+}
+
+.noti-back-btn {
+  background: #0f7a2a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.header-btn {
+  margin-left: auto;
+  margin-right: 19px; /* 🔥 mueve hacia la izquierda */
+  margin-top: 0;
+  width: auto;
+  padding: 8px 14px;
+}
+  
+
+.noti-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.noti-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1b5e20;
+}
+
+/* CONTENT */
+.noti-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* CARD */
+.noti-card {
+  width: 90%;
+  max-width: 380px;
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* FOOTER reutilizado */
+.home4-footer {
+  width: 100%;
+  height: 70px;
+  background: #1b5e20;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}

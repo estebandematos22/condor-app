@@ -1,0 +1,64 @@
+.ubi-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #ffffff, #64B15D);
+}
+
+/* HEADER */
+.ubi-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ubi-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.ubi-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+/* BOTÓN VOLVER */
+.ubi-back {
+  background: #1b5e20;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* CONTENIDO */
+.ubi-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* BOTONES */
+.ubi-btn {
+  width: 90%;
+  max-width: 350px;
+  padding: 15px;
+  background: #1b5e20;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ubi-btn.disabled {
+  background: gray;
+}

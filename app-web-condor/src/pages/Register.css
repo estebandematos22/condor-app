@@ -1,0 +1,162 @@
+/* FONDO GENERAL CON DEGRADADO */
+.register-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffffff, #64B15D);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+/* LOGO */
+.register-logo {
+  width: 160px;
+  margin-bottom: 10px;
+}
+
+/* TÍTULO */
+.register-title {
+  font-size: 22px;
+  color: #1f3b1f;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+
+/* CARD */
+.register-card {
+  background: white;
+  width: 90%;
+  max-width: 380px;
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* FORM */
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* INPUTS */
+.register-card input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+}
+
+.row-two {
+  display: flex;
+  gap: 10px;
+}
+
+/* CHECKBOX */
+.terms-check {
+  font-size: 13px;
+  color: #2d2d2d;
+  margin-top: 4px;
+}
+
+.terms-check input {
+  margin-right: 6px;
+}
+
+/* BOTÓN PRINCIPAL */
+.register-card button {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+}
+
+/* BOTÓN VOLVER */
+.btn-secondary-full {
+  margin-top: 14px;
+  padding: 14px;
+  width: 100%;
+  border-radius: 14px;
+  background: #e5e7eb;
+  color: #1f2937;
+  border: none;
+}
+
+/* ERROR */
+.form-error {
+  color: #c62828;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* MODAL */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 85%;
+  max-width: 320px;
+}
+
+.check {
+  width: 60px;
+  height: 60px;
+  background: #00c853;
+  color: white;
+  border-radius: 50%;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+/* PASSWORD VALIDATION */
+.password-rules {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.password-rules .ok {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.password-rules .bad {
+  color: #c62828;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+  .register-container {
+    padding-top: 20px;
+  }
+
+  .register-card {
+    padding: 18px;
+  }
+
+  .row-two {
+    flex-direction: column;
+  }
+}
+
+/* 📲 TABLET */
+@media (max-width: 768px) {
+  .register-card {
+    max-width: 95%;
+  }
+}

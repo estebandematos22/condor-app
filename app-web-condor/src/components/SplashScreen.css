@@ -1,0 +1,60 @@
+.splash-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #FFFFFF, #64B15B);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* LOGO DESDE ABAJO HACIA ARRIBA */
+.splash-logo {
+  width: 500px;
+  max-width: 500%;
+
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+/* Texto */
+.splash-tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1b1b1b;
+  opacity: 0;
+  animation: fadeInText 1.4s ease-in forwards;
+  animation-delay: 0.8s; /* aparece después del logo */
+}
+
+
+/* --- ANIMACIONES --- */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(500px); /* BIEN ABAJO ❗ */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* POSICIÓN FINAL */
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

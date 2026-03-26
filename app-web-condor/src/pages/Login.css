@@ -1,0 +1,75 @@
+/* FONDO — MISMO GRADIENTE DEL HOME */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffffff 0%, #b6e6a9 35%, #1faa00 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 40px; /* espacio para el logo */
+}
+
+/* LOGO */
+.login-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 2;
+}
+
+.login-card h2 {
+  text-align: center;
+}
+
+.login-card input {
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* BOTÓN PRINCIPAL */
+.login-card button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* BOTÓN SECUNDARIO */
+.btn-secondary-full {
+  margin-top: 5px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #1faa00;
+  color: #1faa00;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ERRORES */
+.form-error {
+  color: red;
+  font-size: 0.85rem;
+  text-align: center;
+}

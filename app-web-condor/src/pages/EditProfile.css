@@ -1,0 +1,155 @@
+/* CONTENEDOR PRINCIPAL */
+.editar-perfil-container {
+  height: 100vh; /* 🔥 antes min-height */
+  background: linear-gradient(to bottom, #ffffff 0%, #d9f3d9 35%, #1faa00 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 🔥 para que el header quede arriba */
+  padding: 20px 15px;
+  box-sizing: border-box;
+  overflow: hidden; /* 🔥 sin scroll */
+}
+
+/* HEADER */
+.edit-header {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* 🔥 reducido */
+}
+
+.edit-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-logo {
+  width: 36px;
+}
+
+.edit-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0b3d14;
+}
+
+.edit-header-right {
+  display: flex;
+  gap: 8px;
+}
+
+/* BOTÓN VOLVER (🔴 AHORA VERDE) */
+.btn-volver-header {
+  background: #1faa00; /* 🔥 cambiado */
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* BOTÓN ELIMINAR */
+.btn-eliminar {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* FORMULARIO */
+.editar-perfil-container form {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 14px;
+  box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* GRUPOS */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1b1b1b;
+}
+
+/* INPUTS */
+.form-group input {
+  padding: 10px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #1faa00;
+  box-shadow: 0 0 0 3px rgba(31, 170, 0, 0.18);
+}
+
+/* INPUT DISABLED */
+.input-disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* BOTÓN GUARDAR */
+.btn-guardar {
+  margin-top: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: #046d1b;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* BOTÓN VOLVER (ABAJO) */
+.btn-volver {
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  background: #1faa00; /* 🔥 verde */
+  border: none;
+  color: white;        /* 🔥 texto blanco */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* LOADING */
+.edit-loading {
+  width: 100%;
+  max-width: 330px;
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.10);
+}

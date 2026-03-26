@@ -1,0 +1,145 @@
+.ben-page{
+  height:100vh;
+  width:100%;
+  background:linear-gradient(to bottom,#ffffff 0%,#e8f7e8 35%,#5cb85c 100%);
+  display:flex;
+  flex-direction:column;
+  font-family:"Helvetica",sans-serif;
+}
+
+/* HEADER */
+
+.ben-header{
+  width:100%;
+  background:#ffffff;
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0px 2px 4px rgba(0,0,0,0.08);
+}
+
+.ben-header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ben-logo{
+  width:40px;
+  height:40px;
+}
+
+.ben-title{
+  margin:0;
+  font-size:1.25rem;
+  font-weight:800;
+  color:#1b5e20;
+}
+
+/* BOTON VOLVER */
+
+.ben-back{
+  background:#d5f5d5;
+  border:none;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:700;
+  color:#1b5e20;
+  cursor:pointer;
+}
+
+.ben-back:hover{
+  background:#c1efc1;
+}
+
+/* CONTENIDO */
+
+.ben-content{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+/* LISTA BENEFICIOS */
+
+.ben-beneficios-list{
+  width:100%;
+  max-width:420px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* CUPON */
+
+.ben-cupon{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  box-shadow:0 10px 22px rgba(0,0,0,0.18);
+  border:2px dashed #2e7d32;
+  text-align:center;
+}
+
+/* AGUJEROS DEL CUPON */
+
+.ben-cupon:before,
+.ben-cupon:after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#e8f7e8;
+  border-radius:50%;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.ben-cupon:before{
+  left:-9px;
+}
+
+.ben-cupon:after{
+  right:-9px;
+}
+
+/* TITULO */
+
+.ben-cupon-title{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#2e7d32;
+}
+
+/* BENEFICIO */
+
+.ben-cupon-desc{
+  font-size:24px;
+  font-weight:900;
+  color:#1b5e20;
+  margin-top:6px;
+}
+
+/* SUBTEXTO */
+
+.ben-cupon-sub{
+  font-size:12px;
+  color:#666;
+  margin-top:8px;
+}
+
+/* PLACEHOLDER */
+
+.ben-placeholder{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.85);
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+}

@@ -1,0 +1,6 @@
+node_modules
+.env
+uploads
+backend/node_modules
+backend/uploads
+app-web-condor/public/*.mov
