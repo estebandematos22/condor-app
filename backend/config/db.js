@@ -1,34 +1,26 @@
 const mysql = require("mysql2/promise");
-require("dotenv").config();
 
-let db;
+// 🚀 Conexión SOLO para Railway (y fallback local opcional)
+const db = mysql.createPool({
+  host: process.env.MYSQLHOST || "localhost",
+  user: process.env.MYSQLUSER || "root",
+  password: process.env.MYSQLPASSWORD || "",
+  database: process.env.MYSQLDATABASE || "miapp",
+  port: process.env.MYSQLPORT || 3306,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
 
-if (process.env.DATABASE_URL) {
-  console.log("👉 Usando DATABASE_URL");
-
-  db = mysql.createPool(process.env.DATABASE_URL);
-
-} else {
-  console.log("👉 Usando variables locales");
-
-  db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
-  });
-}
-
-// 🔥 PRUEBA DE CONEXIÓN DETALLADA
+// 🔥 PRUEBA DE CONEXIÓN
 (async () => {
   try {
     const conn = await db.getConnection();
-    console.log("🟢 CONEXIÓN EXITOSA A MYSQL 🚀");
+    console.log("🟢 CONECTADO A MYSQL CORRECTAMENTE 🚀");
     conn.release();
   } catch (err) {
     console.error("🔴 ERROR REAL MYSQL:");
-    console.error(err); // 👈 ESTO ES LO IMPORTANTE
+    console.error(err);
   }
 })();
 
