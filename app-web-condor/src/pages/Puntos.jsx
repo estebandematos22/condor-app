@@ -43,8 +43,10 @@ function Puntos({ onBack }) {
 
       {/* HEADER */}
       <header className="puntos-header">
-        <img src="/logo.png" alt="logo" className="puntos-logo" />
+        <img src="/logoapp.png" alt="logo" className="puntos-logo" />
         <h2 className="puntos-title">Puntos</h2>
+         <button className="puntos-back-btn-header" onClick={onBack}>
+          Volver</button>
       </header>
 
       {/* CONTENIDO */}
@@ -56,9 +58,7 @@ function Puntos({ onBack }) {
           <p>Seguí comprando y sumá más beneficios</p>
         </div>
 
-        <button className="puntos-back-btn" onClick={onBack}>
-          Volver al inicio
-        </button>
+       
 
       </main>
 

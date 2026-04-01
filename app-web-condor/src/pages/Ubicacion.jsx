@@ -11,7 +11,7 @@ function Ubicacion({ onBack }) {
 
       {/* HEADER */}
       <header className="ubi-header">
-        <img src="/logo.png" alt="logo" className="ubi-logo" />
+        <img src="/logoapp.png" alt="logo" className="ubi-logo" />
         <h2 className="ubi-title">Ubicaciones</h2>
 
         <button className="ubi-back" onClick={onBack}>

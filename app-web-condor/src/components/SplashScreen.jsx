@@ -21,7 +21,10 @@ function SplashScreen({ onFinish }) {
           className="splash-logo"
         />
         
-        <p className="splash-tagline">Tu supermercado más cerca</p>
+        <p className="splash-tagline">
+  <span className="linea1">Tu supermercado</span>
+  <span className="linea2">Ahora más cerca</span>
+</p>
       </div>
     </div>
   );

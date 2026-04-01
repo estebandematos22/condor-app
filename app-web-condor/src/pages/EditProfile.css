@@ -35,6 +35,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: #0b3d14;
+  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
 }
 
 .edit-header-right {
@@ -58,10 +59,11 @@
   background: #d32f2f;
   color: white;
   border: none;
-  padding: 6px 10px;
+   padding: 6px 12px; /* 🔥 IGUALAMOS */
   border-radius: 10px;
   cursor: pointer;
   font-size: 12px;
+  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
 }
 
 /* FORMULARIO */
@@ -91,6 +93,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   color: #1b1b1b;
+  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
 }
 
 /* INPUTS */
@@ -127,20 +130,22 @@
   font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
 }
 
 /* BOTÓN VOLVER (ABAJO) */
 .btn-volver {
   margin-top: 8px;
   width: 100%;
-  padding: 12px;
+  padding: 6px 12px; /* 🔥 IGUALAMOS */
   border-radius: 14px;
   background: #1faa00; /* 🔥 verde */
   border: none;
   color: white;        /* 🔥 texto blanco */
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
 }
 
 /* LOADING */

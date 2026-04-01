@@ -149,7 +149,7 @@ export default function EditarPerfil({ onBack }) {
       {/* 🔴 HEADER AGREGADO */}
       <header className="home4-header">
         <div className="user-section">
-          <img src="/logo.png" alt="logo" className="header-logo" />
+          <img src="/logoapp.png" alt="logo" className="header-logo" />
           <h2 className="user-name">Editar Perfil</h2>
         </div>
 

@@ -51,7 +51,7 @@ function MisBeneficios({ onBack }) {
       <header className="ben-header">
 
         <div className="ben-header-left">
-          <img src="/logo.png" alt="logo" className="ben-logo" />
+          <img src="/logoapp.png" alt="logo" className="ben-logo" />
           <h2 className="ben-title">Mis Beneficios</h2>
         </div>
 

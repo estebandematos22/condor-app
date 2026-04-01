@@ -40,7 +40,7 @@ function MiTarjeta({ onBack }) {
         <div className="condor-card">
 
           <div className="card-top-text">
-            <h3>COMUNIDAD SÚPER EL CÓNDOR</h3>
+            <h3>COMUNIDAD SUPER EL CONDOR</h3>
             <span>TARJETA DE BENEFICIOS</span>
           </div>
 
@@ -64,7 +64,7 @@ function MiTarjeta({ onBack }) {
 
           <div className="barcode"></div>
 
-          <span className="card-client">Cliente: 2223</span>
+          <span className="card-client">CLIENTE: 28803999</span>
 
         </div>
       </div>

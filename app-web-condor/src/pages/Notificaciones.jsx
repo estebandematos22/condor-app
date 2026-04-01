@@ -73,7 +73,7 @@ function Notificaciones({ onBack }) {
 
       {/* HEADER */}
       <header className="noti-header">
-        <img src="/logo.png" alt="logo" className="noti-logo" />
+        <img src="/logoapp.png" alt="logo" className="noti-logo" />
         <h2 className="noti-title">Notificaciones</h2>
        <button className="noti-back-btn header-btn" onClick={onBack}>
   Volver
@@ -116,13 +116,7 @@ function Notificaciones({ onBack }) {
 
       </main>
 
-      {/* FOOTER */}
-      <footer className="home4-footer">
-        <div className="footer-item">🛒 <span>Minorista</span></div>
-        <div className="footer-item">📦 <span>Mayorista</span></div>
-        <div className="footer-item red">❓ <span>Preguntas</span></div>
-        <div className="footer-item">🔒 <span>Privacidad</span></div>
-      </footer>
+      
 
     </div>
   );

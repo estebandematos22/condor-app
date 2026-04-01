@@ -1,7 +1,9 @@
-/* 🔤 FUENTE */
+
+
 @font-face {
-  font-family: 'OCR A Extended';
-  src: url('/fonts/OCRAEXT.TTF') format('truetype');
+  font-family: 'Ocra';
+  src: url('/fonts/OCRAStd.otf') format('opentype');
+  font-display: swap;
 }
 
 /* CONTENEDOR */
@@ -32,7 +34,7 @@
   content: "";
   width: 40px;
   height: 40px;
-  background: url("/logo.png") center/contain no-repeat;
+  background: url("/logoapp.png") center/contain no-repeat;
 }
 
 .mt-username {
@@ -92,13 +94,13 @@
 }
 
 .mt-title {
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   font-weight: bold;
   color: #0b4f1e;
 }
 
 .mt-icon {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
 }
 
 /* TARJETA CENTRADA */
@@ -131,64 +133,121 @@
 }
 
 /* TEXTO (SOLO TIPOGRAFIA AGREGADA) */
-.card-top-text h3 {
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin: 0;
-  color: rgba(0,0,0,0.70);
 
-  font-family: 'OCR A Extended', monospace;
-  font-weight: bold;
+.card-top-text h3 {
+  font-size: 16.3px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  
+
+  background: linear-gradient(
+    to bottom,
+    #bfbfbf 0%,   /* gris arriba */
+    #ffffff 50%,  /* blanco centro */
+    #505050 100%  /* gris oscuro abajo */
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+
+  font-family: 'Ocra', monospace;
 }
 
 .card-top-text span {
-  font-size: 9px;
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  font-size: 15px;          /* 🔥 un poco más grande */
   letter-spacing: 2px;
-  color: rgba(0,0,0,0.65);
+  font-weight: 700;         /* 🔥 más firme */
 
-  font-family: 'OCR A Extended', monospace;
+  background: linear-gradient(
+    to bottom,
+    #eeeeee 0%,
+    #ffffff 40%,
+    #bfbfbf 70%,
+    #505050 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+
+  font-family: 'Ocra', monospace;
 }
 
 /* CHIP */
 .card-chip{
   position:absolute;
   left:20px;
-  top:70px;
+  top:80px;
   width:55px;
 }
 
 /* MAPA */
 .card-map {
   position: absolute;
-  right: 5px;
-  bottom: 45px;
-  width: 150px;
+  right: 1px;
+  bottom: 12px;
+  width: 184px;
   opacity: 0.95;
 }
 
 /* NOMBRE */
 .card-name {
   position: absolute;
-  bottom: 55px;
+  bottom: 70px;
   left: 20px;
-  font-size: 16px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: #222;
 
-  font-family: 'OCR A Extended', monospace;
+  font-size: 17px;
+  letter-spacing: 2px;
+  font-weight: 700;
+
+  background: linear-gradient(
+    to bottom,
+    #eeeeee 0%,
+    #ffffff 35%,
+    #bfbfbf 65%,
+    #505050 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.3); /* 🔥 más nitidez */
+
+  font-family: 'Ocra', monospace;
 }
 
-/* CLIENTE */
-.card-client{
-  position:absolute;
-  bottom:40px;
-  left:20px;
-  font-size:18px;
-  color:#222;
 
-  font-family: 'OCR A Extended', monospace;
-  font-weight: bold;
+/* CLIENTE */
+
+.card-client {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  font-weight: 700; /* 🔥 un poco más firme */
+
+  background: linear-gradient(
+    to bottom,
+    #e6e6e6 0%,
+    #ffffff 40%,
+    #bfbfbf 70%,
+    #505050 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.3); /* 🔥 mejora nitidez */
+
+  font-family: 'Ocra', monospace;
 }
 
 /* CODIGO */
@@ -198,13 +257,7 @@
   left: 20px;
   width: 85%;
   height: 25px;
-  background: repeating-linear-gradient(
-    90deg,
-    #111,
-    #111 2px,
-    #fff 2px,
-    #fff 4px
-  );
+  
 }
 
 /* FOOTER */

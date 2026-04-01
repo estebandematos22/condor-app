@@ -38,7 +38,7 @@ function Ofertas({ onBack }) {
       {/* HEADER */}
       <header className="of-header">
         <div className="of-header-left">
-          <img src="/logo.png" alt="logo" className="of-logo" />
+          <img src="/logoapp.png" alt="logo" className="of-logo" />
           <h2 className="of-title">Ofertas</h2>
         </div>
 

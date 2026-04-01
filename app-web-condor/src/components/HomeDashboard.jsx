@@ -180,7 +180,7 @@ function HomeDashboard({
 
       <header className="home4-header">
         <div className="user-section" onClick={onOpenEditarPerfil}>
-          <img src="/logo.png" alt="logo" className="header-logo" />
+          <img src="/logoapp.png" alt="logo" className="header-logo" />
           <h2 className="user-name">hola {userName}!</h2>
         </div>
 
@@ -212,31 +212,31 @@ function HomeDashboard({
           onClick={onOpenUbicacion}
           style={{ cursor: "pointer" }}
         >
-          📍 Nos podés encontrar
+          📍 Encontranos
         </div>
 
         <div className="quick-access">
 
           <div className="card shadow" onClick={onOpenMiTarjeta} style={{ cursor: "pointer" }}>
-            <span>Mi Tarjeta</span>
+            <span>mi tarjeta</span>
             💳
           </div>
 
           <div className="card shadow" onClick={onOpenOfertas} style={{ cursor: "pointer", position: "relative" }}>
             {ofertasNuevas && <span className="bell-badge">1</span>}
-            <span>Ofertas</span>
+            <span>ofertas</span>
             💲
           </div>
 
           <div className="card shadow" onClick={onOpenPuntos} style={{ cursor: "pointer", position: "relative" }}>
             {puntosNuevos && <span className="bell-badge">1</span>}
-            <span>Puntos</span>
+            <span>puntos</span>
             ⭐
           </div>
 
           <div className="card shadow" onClick={onOpenBeneficios} style={{ cursor: "pointer", position: "relative" }}>
             {beneficiosNuevos && <span className="bell-badge">1</span>}
-            <span>Mis Beneficios</span>
+            <span>mis beneficios</span>
             🎁
           </div>
 
