@@ -47,7 +47,7 @@ function Ofertas({ onBack }) {
         </button>
       </header>
 
-        <img src="public/queso.png" alt="" />
+        <img src="public/quesos.png" alt="" />
 
 
 
