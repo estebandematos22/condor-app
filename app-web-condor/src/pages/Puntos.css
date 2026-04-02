@@ -74,7 +74,7 @@
 /* BOTÓN HEADER (ARREGLADO) */
 .puntos-back-btn-header {
   position: absolute;
-  right: 12px; /* 🔥 control exacto */
+  right: 45px; /* 🔥 control exacto */
   top: 50%;
   transform: translateY(-50%);
 
@@ -82,10 +82,10 @@
   border: none;
   color: white;
 
-  padding: 6px 10px; /* 🔥 antes era gigante */
+  padding: 10px 20px; /* 🔥 antes era gigante */
   border-radius: 10px;
 
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Montserrat', sans-serif;
 
   width: auto;

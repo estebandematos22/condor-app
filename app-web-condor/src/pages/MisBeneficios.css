@@ -41,13 +41,15 @@
 /* BOTON VOLVER */
 
 .ben-back{
-  background:#d5f5d5;
+  background:#0a6f0a;
+  
+  right: 20px;
   border:none;
-  padding:8px 12px; /* 🔥 más compacto */
+  padding:8px 30px; /* 🔥 más compacto */
   border-radius:12px;
   font-weight:700;
-  font-size:12px;
-  color:#1b5e20;
+  font-size: 15px;
+  color:#e1e1e1;
   cursor:pointer;
 }
 
