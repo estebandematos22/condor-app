@@ -2,7 +2,7 @@
 .home4-container {
   min-height: 100vh; /* 🔥 permite crecer */
   width: 100%;
-  background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 35%, #5cb85c 100%);
+  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* 🔥 permite scroll */
@@ -11,8 +11,9 @@
 
 /* HEADER */
 .home4-header {
+  
   width: 100%;
-  background: #ffffff;
+  background: #ffe529;
   padding: 18px 20px;
   display: flex;
   justify-content: space-between;
@@ -21,6 +22,7 @@
 }
 
 .user-section {
+  
   display: flex;
   align-items: center;
   gap: 10px;
@@ -33,6 +35,7 @@
 }
 
 .user-name {
+  
   font-size: 1.25rem;
   font-weight: 700;
   color: #1b5e20;

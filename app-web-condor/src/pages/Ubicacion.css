@@ -2,13 +2,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #ffffff, #64B15D);
+  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
 }
 
 /* HEADER */
 .ubi-header {
   width: 100%;
-  background: #ffffff;
+  background: #ffe529;
   padding: 18px 20px;
   display: flex;
   align-items: center;

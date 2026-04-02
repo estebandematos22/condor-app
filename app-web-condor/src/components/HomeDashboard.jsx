@@ -218,25 +218,25 @@ function HomeDashboard({
         <div className="quick-access">
 
           <div className="card shadow" onClick={onOpenMiTarjeta} style={{ cursor: "pointer" }}>
-            <span>mi tarjeta</span>
+            <span>Mi tarjeta</span>
             💳
           </div>
 
           <div className="card shadow" onClick={onOpenOfertas} style={{ cursor: "pointer", position: "relative" }}>
             {ofertasNuevas && <span className="bell-badge">1</span>}
-            <span>ofertas</span>
+            <span>Ofertas</span>
             💲
           </div>
 
           <div className="card shadow" onClick={onOpenPuntos} style={{ cursor: "pointer", position: "relative" }}>
             {puntosNuevos && <span className="bell-badge">1</span>}
-            <span>puntos</span>
+            <span>Puntos</span>
             ⭐
           </div>
 
           <div className="card shadow" onClick={onOpenBeneficios} style={{ cursor: "pointer", position: "relative" }}>
             {beneficiosNuevos && <span className="bell-badge">1</span>}
-            <span>mis beneficios</span>
+            <span>Mis beneficios</span>
             🎁
           </div>
 

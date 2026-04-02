@@ -3,13 +3,13 @@
   overflow-y: auto;    /* 🔥 permite scroll si hace falta */
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 40%, #5cb85c 100%);
+  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
 }
 
 /* HEADER */
 .puntos-header {
   width: 100%;
-  background: #ffffff;
+  background: #ffe529;
   padding: 14px 16px; /* 🔥 más compacto */
   display: flex;
   align-items: center;

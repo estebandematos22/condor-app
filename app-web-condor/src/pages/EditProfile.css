@@ -1,7 +1,7 @@
 /* CONTENEDOR PRINCIPAL */
 .editar-perfil-container {
   min-height: 100vh; /* 🔥 antes height */
-  background: linear-gradient(to bottom, #ffffff 0%, #d9f3d9 35%, #1faa00 100%);
+  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,7 @@
 /* HEADER */
 .edit-header {
   width: 100%;
+  background: #ffe529;
   max-width: 360px;
   display: flex;
   justify-content: space-between;

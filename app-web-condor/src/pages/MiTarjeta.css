@@ -8,7 +8,7 @@
 .mt-page {
   min-height: 100vh; /* 🔥 antes height */
   width: 100%;
-  background: linear-gradient(to bottom, #ffffff 0%, #e8f5e9 50%, #0f7a2a 100%);
+  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* 🔥 permite scroll */
@@ -18,13 +18,14 @@
 /* HEADER */
 .mt-header {
   width: 100%;
+  background: #ffe529;
   padding: 12px 14px;
   border-radius: 0 0 20px 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 
-  background: rgba(255, 255, 255, 0.95);
+  
   box-shadow: 0 10px 25px rgba(0,0,0,0.10);
 }
 
@@ -128,9 +129,7 @@
 
   background: linear-gradient(
     to bottom,
-    #bfbfbf 0%,
-    #ffffff 50%,
-    #505050 100%
+    #000000
   );
 
   -webkit-background-clip: text;
@@ -150,10 +149,7 @@
 
   background: linear-gradient(
     to bottom,
-    #eeeeee 0%,
-    #ffffff 40%,
-    #bfbfbf 70%,
-    #505050 100%
+     #000000
   );
 
   -webkit-background-clip: text;
@@ -191,10 +187,7 @@
 
   background: linear-gradient(
     to bottom,
-    #eeeeee 0%,
-    #ffffff 35%,
-    #bfbfbf 65%,
-    #505050 100%
+     #000000
   );
 
   -webkit-background-clip: text;
@@ -215,10 +208,7 @@
 
   background: linear-gradient(
     to bottom,
-    #e6e6e6 0%,
-    #ffffff 40%,
-    #bfbfbf 70%,
-    #505050 100%
+     #000000
   );
 
   -webkit-background-clip: text;
@@ -237,10 +227,7 @@
 
   background: linear-gradient(
     to bottom,
-    #e6e6e6 0%,
-    #ffffff 40%,
-    #bfbfbf 70%,
-    #505050 100%
+     #000000
   );
 
   -webkit-background-clip: text;
