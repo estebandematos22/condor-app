@@ -1,10 +1,10 @@
 .of-page {
-  height: 100vh;
+  min-height: 100vh; /* 🔥 antes height */
   width: 100%;
   background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 35%, #5cb85c 100%);
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* 🔹 evita que toda la página haga scroll */
+  overflow: hidden; /* ✔ lo dejamos porque ya controlás scroll abajo */
   font-family: "Helvetica", sans-serif;
 }
 
@@ -12,12 +12,12 @@
 .of-header {
   width: 100%;
   background: #ffffff;
-  padding: 16px 18px;
+  padding: 14px 16px; /* 🔥 más compacto */
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
-  flex-shrink: 0; /* 🔹 evita que se mueva */
+  flex-shrink: 0;
 }
 
 .of-header-left {
@@ -27,13 +27,13 @@
 }
 
 .of-logo {
-  width: 40px;
-  height: 40px;
+  width: 36px; /* 🔥 más chico */
+  height: 36px;
 }
 
 .of-title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.1rem; /* 🔥 mejor mobile */
   font-weight: 800;
   color: #1b5e20;
 }
@@ -41,21 +41,22 @@
 .of-back {
   background: #d5f5d5;
   border: none;
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 8px 10px; /* 🔥 más chico */
+  border-radius: 10px;
   font-weight: 700;
+  font-size: 12px;
   cursor: pointer;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.12);
 }
 
 /* CONTENIDO SCROLLEABLE */
 .of-content {
-  flex: 1; /* 🔹 ocupa todo el espacio entre header y footer */
-  overflow-y: auto; /* 🔹 solo aquí se hace scroll */
+  flex: 1;
+  overflow-y: auto; /* ✔ scroll solo acá */
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  gap: 15px; /* 🔥 más compacto */
+  padding: 15px;
   align-items: center;
 }
 
@@ -69,17 +70,18 @@
 /* banner */
 .of-banner {
   width: 100%;
-  max-width: 360px;
+  max-width: 340px; /* 🔥 más chico para mobile */
   border-radius: 14px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
 
+/* placeholder */
 .of-placeholder {
   width: 100%;
-  max-width: 420px;
+  max-width: 340px; /* 🔥 consistente */
   background: rgba(255,255,255,0.85);
   border-radius: 16px;
-  padding: 18px;
+  padding: 16px;
   text-align: center;
   color: #1b1b1b;
   box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
@@ -87,5 +89,5 @@
 
 /* FOOTER */
 .home4-footer{
-  flex-shrink:0; /* 🔹 footer fijo abajo */
+  flex-shrink:0;
 }

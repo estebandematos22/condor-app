@@ -1,10 +1,11 @@
 .ben-page{
-  height:100vh;
+  min-height:100vh; /* 🔥 antes height */
   width:100%;
   background:linear-gradient(to bottom,#ffffff 0%,#e8f7e8 35%,#5cb85c 100%);
   display:flex;
   flex-direction:column;
   font-family:"Helvetica",sans-serif;
+  overflow-y:auto; /* 🔥 permite scroll */
 }
 
 /* HEADER */
@@ -12,7 +13,7 @@
 .ben-header{
   width:100%;
   background:#ffffff;
-  padding:16px 18px;
+  padding:14px 16px; /* 🔥 un poco más chico */
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -26,13 +27,13 @@
 }
 
 .ben-logo{
-  width:40px;
-  height:40px;
+  width:36px; /* 🔥 más chico */
+  height:36px;
 }
 
 .ben-title{
   margin:0;
-  font-size:1.25rem;
+  font-size:1.1rem; /* 🔥 ajustado */
   font-weight:800;
   color:#1b5e20;
 }
@@ -42,15 +43,12 @@
 .ben-back{
   background:#d5f5d5;
   border:none;
-  padding:10px 14px;
+  padding:8px 12px; /* 🔥 más compacto */
   border-radius:12px;
   font-weight:700;
+  font-size:12px;
   color:#1b5e20;
   cursor:pointer;
-}
-
-.ben-back:hover{
-  background:#c1efc1;
 }
 
 /* CONTENIDO */
@@ -59,18 +57,17 @@
   flex:1;
   display:flex;
   justify-content:center;
-  padding:20px;
+  padding:15px;
 }
 
 /* LISTA BENEFICIOS */
 
 .ben-beneficios-list{
   width:100%;
-  max-width:420px;
-  overflow-y:auto;
+  max-width:360px; /* 🔥 más mobile */
   display:flex;
   flex-direction:column;
-  gap:20px;
+  gap:15px;
 }
 
 /* CUPON */
@@ -78,21 +75,21 @@
 .ben-cupon{
   background:white;
   border-radius:18px;
-  padding:22px;
+  padding:18px; /* 🔥 reducido */
   position:relative;
   box-shadow:0 10px 22px rgba(0,0,0,0.18);
   border:2px dashed #2e7d32;
   text-align:center;
 }
 
-/* AGUJEROS DEL CUPON */
+/* AGUJEROS */
 
 .ben-cupon:before,
 .ben-cupon:after{
   content:"";
   position:absolute;
-  width:18px;
-  height:18px;
+  width:14px; /* 🔥 más chico */
+  height:14px;
   background:#e8f7e8;
   border-radius:50%;
   top:50%;
@@ -100,17 +97,17 @@
 }
 
 .ben-cupon:before{
-  left:-9px;
+  left:-7px;
 }
 
 .ben-cupon:after{
-  right:-9px;
+  right:-7px;
 }
 
 /* TITULO */
 
 .ben-cupon-title{
-  font-size:12px;
+  font-size:11px;
   font-weight:700;
   letter-spacing:1px;
   color:#2e7d32;
@@ -119,7 +116,7 @@
 /* BENEFICIO */
 
 .ben-cupon-desc{
-  font-size:24px;
+  font-size:20px; /* 🔥 antes 24 */
   font-weight:900;
   color:#1b5e20;
   margin-top:6px;
@@ -128,18 +125,18 @@
 /* SUBTEXTO */
 
 .ben-cupon-sub{
-  font-size:12px;
+  font-size:11px;
   color:#666;
-  margin-top:8px;
+  margin-top:6px;
 }
 
 /* PLACEHOLDER */
 
 .ben-placeholder{
   width:100%;
-  max-width:420px;
+  max-width:360px;
   background:rgba(255,255,255,0.85);
   border-radius:16px;
-  padding:18px;
+  padding:16px;
   text-align:center;
 }

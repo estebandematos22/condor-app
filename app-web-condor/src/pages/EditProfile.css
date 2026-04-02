@@ -1,14 +1,14 @@
 /* CONTENEDOR PRINCIPAL */
 .editar-perfil-container {
-  height: 100vh; /* 🔥 antes min-height */
+  min-height: 100vh; /* 🔥 antes height */
   background: linear-gradient(to bottom, #ffffff 0%, #d9f3d9 35%, #1faa00 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* 🔥 para que el header quede arriba */
+  justify-content: flex-start;
   padding: 20px 15px;
   box-sizing: border-box;
-  overflow: hidden; /* 🔥 sin scroll */
+  overflow-y: auto; /* 🔥 permite scroll */
 }
 
 /* HEADER */
@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px; /* 🔥 reducido */
+  margin-bottom: 15px;
 }
 
 .edit-header-left {
@@ -35,7 +35,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: #0b3d14;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .edit-header-right {
@@ -43,27 +43,27 @@
   gap: 8px;
 }
 
-/* BOTÓN VOLVER (🔴 AHORA VERDE) */
+/* BOTONES HEADER */
 .btn-volver-header {
-  background: #1faa00; /* 🔥 cambiado */
+  background: #1faa00;
   border: none;
   color: white;
   padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* BOTÓN ELIMINAR */
 .btn-eliminar {
   background: #d32f2f;
   color: white;
   border: none;
-   padding: 6px 12px; /* 🔥 IGUALAMOS */
+  padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 12px;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* FORMULARIO */
@@ -78,8 +78,9 @@
   flex-direction: column;
   gap: 10px;
   box-sizing: border-box;
-  margin-top: auto;
-  margin-bottom: auto;
+
+  margin-top: 10px; /* 🔥 antes auto */
+  margin-bottom: 20px; /* 🔥 espacio abajo */
 }
 
 /* GRUPOS */
@@ -93,7 +94,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   color: #1b1b1b;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* INPUTS */
@@ -104,6 +105,7 @@
   font-size: 0.9rem;
   outline: none;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .form-group input:focus {
@@ -121,7 +123,7 @@
 
 /* BOTÓN GUARDAR */
 .btn-guardar {
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 12px;
   border: none;
   border-radius: 14px;
@@ -130,22 +132,22 @@
   font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* BOTÓN VOLVER (ABAJO) */
 .btn-volver {
   margin-top: 8px;
   width: 100%;
-  padding: 6px 12px; /* 🔥 IGUALAMOS */
+  padding: 12px; /* 🔥 mejor tamaño táctil */
   border-radius: 14px;
-  background: #1faa00; /* 🔥 verde */
+  background: #1faa00;
   border: none;
-  color: white;        /* 🔥 texto blanco */
-  font-size: 12px;
+  color: white;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* LOADING */

@@ -1,6 +1,6 @@
 .puntos-container {
-  height: 100vh;   /* 🔥 CLAVE */
-  overflow: hidden; /* 🔥 SIN SCROLL */
+  min-height: 100vh;   /* 🔥 antes height */
+  overflow-y: auto;    /* 🔥 permite scroll si hace falta */
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, #ffffff 0%, #e8f7e8 40%, #5cb85c 100%);
@@ -10,26 +10,26 @@
 .puntos-header {
   width: 100%;
   background: #ffffff;
-  padding: 18px 20px;
+  padding: 14px 16px; /* 🔥 más compacto */
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
 
-  position: relative; /* 🔥 CLAVE */
+  position: relative;
 }
 
 .puntos-logo {
-  width: 42px;
-  height: 42px;
+  width: 36px; /* 🔥 más chico */
+  height: 36px;
 }
 
 .puntos-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* 🔥 más equilibrado */
   font-weight: 700;
   color: #1b5e20;
   margin: 0;
-  font-family: 'Montserrat', sans-serif; /* 🔥 NUEVO */
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* CONTENIDO */
@@ -39,75 +39,57 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px; /* 🔥 antes 20 */
+  padding: 15px;
 }
 
+/* CARD */
 .puntos-card {
   background: white;
-  width: 80%;        /* 🔥 antes 90 */
-  max-width: 300px;  /* 🔥 antes 380 */
+  width: 90%;        
+  max-width: 300px;
   border-radius: 20px;
-  padding: 30px;
+  padding: 25px;
   text-align: center;
   box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
 }
 
 .puntos-card h3 {
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   color: #1b5e20;
+  font-size: 1rem;
 }
 
 .puntos-number {
-  font-size: 3rem;
+  font-size: 2.5rem; /* 🔥 antes 3rem */
   font-weight: 800;
   color: #0f7a2a;
   margin-bottom: 10px;
 }
 
 .puntos-card p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #555;
 }
 
-.puntos-back-btn {
-  margin-top: 30px;
-  width: 30%;
-  max-width: 380px;
-  background: #0f7a2a;
-  padding: 14px;
-  border-radius: 20px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: 0.3s;
-}
-
-  .puntos-back-btn-header {
+/* BOTÓN HEADER (ARREGLADO) */
+.puntos-back-btn-header {
   position: absolute;
-  right: 50px;
-  top: 12px;
-  margin-left: auto; /* 🔥 CLAVE */
+  right: 12px; /* 🔥 control exacto */
+  top: 50%;
+  transform: translateY(-50%);
 
   background: #1c6d09;
   border: none;
   color: white;
 
-  padding: 12px 25px;
-  border-radius: 20px;
+  padding: 6px 10px; /* 🔥 antes era gigante */
+  border-radius: 10px;
 
-  font-size: 15px;
+  font-size: 12px;
   font-family: 'Montserrat', sans-serif;
 
-  width: auto;              /* 🔥 CLAVE */
-  display: inline-block;    /* 🔥 CLAVE */
-  white-space: nowrap;      /* 🔥 CLAVE */
-}
-
-
-.puntos-back-btn:hover {
-  background: #0b5e20;
-  transform: translateY(-2px);
+  width: auto;
+  white-space: nowrap;
 }
 
 /* FOOTER */
@@ -127,6 +109,11 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  font-size: 24px; /* 🔥 emoji */
+}
+
+.footer-item span {
+  font-size: 13px;
 }
 
 .footer-item.red {
