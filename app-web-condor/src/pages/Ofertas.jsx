@@ -47,6 +47,11 @@ function Ofertas({ onBack }) {
         </button>
       </header>
 
+        <img src="public/queso.png" alt="" />
+
+
+
+
       {/* CONTENIDO */}
       <main className="of-content">
 
@@ -57,7 +62,8 @@ function Ofertas({ onBack }) {
           </div>
 
         ) : (
-
+          
+              
           ofertas.map((oferta) => (
 
             <div key={oferta.id || oferta.url} className="of-banner-container">
@@ -73,6 +79,7 @@ function Ofertas({ onBack }) {
           ))
 
         )}
+       
 
       </main>
 
