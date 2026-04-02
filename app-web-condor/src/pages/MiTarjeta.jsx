@@ -67,7 +67,7 @@ function MiTarjeta({ onBack }) {
           <span className="card-client">CLIENTE:30104</span> 
           <br />
           <br />
-          <span className="card-client">DNI: 28803999</span>
+          <span className="card-dni">DNI: 28803999</span>
 
         </div>
       </div>
