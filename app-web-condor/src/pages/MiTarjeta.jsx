@@ -25,7 +25,7 @@ function MiTarjeta({ onBack }) {
       <div className="mt-header">
         <span className="mt-username">Hola {userName}</span>
         <button className="mt-back-btn" onClick={onBack}>
-        Volver </button>
+        Volve </button>
         <div className="mt-bell">🔔</div>
       </div>
 

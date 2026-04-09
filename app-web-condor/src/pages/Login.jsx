@@ -7,32 +7,49 @@ function Login({ onBack, onLoginSuccess }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-  if (!dni || !password) {
-    setError("Completá DNI y contraseña");
-    return;
-  }
-
-  setError("");
-  setLoading(true);
-
-  // 🔥 LOGIN DEMO
-  setTimeout(() => {
-    const demoUser = {
-      nombre: "Jose",
-      apellido: "Fritz"
-    };
-
-    localStorage.setItem("token", "demo-token");
-    localStorage.setItem("user", JSON.stringify(demoUser));
-
-    if (typeof onLoginSuccess === "function") {
-      onLoginSuccess();
+  const handleLogin = async () => {
+    if (!dni || !password) {
+      setError("Completá DNI y contraseña");
+      return;
     }
 
-    setLoading(false);
-  }, 800);
-};
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          dni: dni.trim(),
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Error al iniciar sesión");
+        setLoading(false);
+        return;
+      }
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      if (typeof onLoginSuccess === "function") {
+        onLoginSuccess();
+      }
+
+    } catch (err) {
+      console.error(err);
+      setError("No se pudo conectar con el servidor");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-container">
