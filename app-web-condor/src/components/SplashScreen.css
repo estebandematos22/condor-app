@@ -1,7 +1,7 @@
 .splash-container {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #FFFFFF, #64B15B);
+  background: linear-gradient(to bottom, #006439, #00c06b);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,8 +19,8 @@
 
 /* LOGO DESDE ABAJO HACIA ARRIBA */
 .splash-logo {
-  width: 500px;
-  max-width: 500%;
+  width: 350px;
+  max-width: 350%;
 
   animation: slideUp 1.2s ease-out forwards;
 }
@@ -38,14 +38,14 @@
 .linea1 {
   font-size: 1.4rem;
   font-weight: 300; /* finita */
-  color: #2e7d32;   /* verde */
+  color: #ffffff;   /* verde */
 }
 
 /* Línea 2 */
 .linea2 {
   font-size: 1.6rem;
   font-weight: 700; /* gruesa */
-  color: #2e7d32;   /* verde */
+  color: #ffffff;   /* verde */
 }
 
 

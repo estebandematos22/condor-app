@@ -11,7 +11,7 @@ function HomeAccess({ onRegister, onLogin }) {
         className="home-logo"
       />
 
-      {/* TEXTOS DE BENEFICIOS */}
+       {/* TEXTOS DE BENEFICIOS */}
       <div className="home-benefits">
         <p>Sumá puntos en cada compra</p>
         <div className="dot"></div>

@@ -16,7 +16,7 @@ function SplashScreen({ onFinish }) {
     <div className="splash-container">
       <div className="splash-content">
         <img
-          src="/logo.png"
+          src="/logo1.png"
           alt="Súper El Cóndor"
           className="splash-logo"
         />

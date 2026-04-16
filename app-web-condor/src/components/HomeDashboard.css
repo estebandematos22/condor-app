@@ -1,64 +1,162 @@
 /* CONTENEDOR */
 .home4-container {
-  min-height: 100vh; /* 🔥 permite crecer */
+  min-height: 100vh;
   width: 100%;
-  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
+  background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* 🔥 permite scroll */
+  overflow-y: auto;
   font-family: "Helvetica", sans-serif;
 }
 
 /* HEADER */
 .home4-header {
-  
   width: 100%;
-  background: #ffe529;
-  padding: 18px 20px;
+  height: 90px;
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+  justify-content: center;
+  position: relative;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* USER SECTION */
 .user-section {
-  
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
 
+/* LOGO */
 .header-logo {
-  width: 80px;
-  height: 45px;
+  position: absolute;
+  left: 15px;
+  width: 130px;
+  height: auto;
 }
 
+/* TEXTO HEADER */
 .user-name {
-  
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1b5e20;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
   margin: 0;
-  text-transform: capitalize;
+  text-align: center;
 }
 
-/* 🔔 CAMPANITA */
+/* CAMPANITA HEADER */
 .bell-btn {
-  position: relative;
-  font-size: 22px;
-  background: #d5f5d5;
-  padding: 8px 12px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
-  margin-right: 26px;
+  position: absolute;
+  right: 15px;
+  font-size: 24px;
+  background: transparent;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: none;
+  margin-right: 0;
 }
 
-/* 🔴 BADGE */
+/* BADGE CAMPANITA */
 .bell-badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: 5px;
+  right: 5px;
+  background: #ff4800;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  color: #ffffff;
+}
+
+/* BOTONES SUPERIORES */
+.top-actions {
+  width: 90%;
+  margin: 15px auto 10px auto;
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  background: #e5e5e5;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.action-btn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.action-btn span {
+  font-size: 15px;
+  font-weight: 700;
+  color: #00512a;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* GRID TARJETAS */
+.quick-access {
+  width: 90%;
+  margin: 15px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* TARJETA */
+.card {
+  
+  background: #0a7a32;
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* ICONO TARJETA */
+.card img {
+  width: 70px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* TEXTO TARJETA */
+.card span {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #00512a;
+  white-space: nowrap;
+}
+
+/* BADGE ROJO TARJETAS */
+.card-badge {
+  position: absolute;
+  top: 8px;
+  right: 10px;
   background: red;
   color: white;
   font-size: 11px;
@@ -69,19 +167,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
 }
 
-/* CARRUSEL */
 .carousel {
-  width: 90%;
+  width: 92%;
   max-width: 360px;
-  height: 150px; /* 🔥 reducido para mobile */
-  margin: 20px auto;
+  height: 170px;
+  margin: 50px auto 30px auto;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 15px;
   background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,60 +187,41 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 1;
-  border-radius: 15px;
+  border-radius: 16px;
 }
 
-/* TARJETAS */
-.quick-access {
-  width: 90%;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px; /* 🔥 más compacto */
-}
-
-.card {
-  background: linear-gradient(to bottom, #ffffff 5%);
-  border-radius: 20px;
-  padding: 18px 12px; /* 🔥 más chico */
-  text-align: center;
-  font-size: 55px; /* 🔥 emoji más equilibrado */
-  font-weight: 600;
-  color: #1b1b1b;
+.carousel-dots {
   display: flex;
-  flex-direction: column;
-  gap: 20px; /* 🔥 antes muy grande */
   justify-content: center;
-  align-items: center;
-  box-shadow: 0px 6px 10px rgba(0,0,0,0.15);
-  transition: transform 0.15s ease;
+  gap: 6px;
+  margin: 8px 0 16px 0;
 }
 
-/* TEXTO TARJETAS */
-.card span {
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #005C1F;
-  white-space: nowrap; /* 🔥 evita salto de línea */
+.carousel-dots span {
+  width: 8px;
+  height: 8px;
+  background: #cfcfcf;
+  border-radius: 50%;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.carousel-dots span.active {
+  background: #0a7a32;
 }
 
 /* FOOTER */
 .home4-footer {
   width: 100%;
-  height: 70px;
-  background: #1b5e20;
+  height: 900px;
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
+  
   margin-top: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: white;
   font-size: 0.85rem;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 /* ITEMS FOOTER */
@@ -153,15 +230,16 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  font-size: 26px; /* 🔥 emoji grande */
+  font-size: 26px;
 }
 
 .footer-item span {
-  font-size: 15px; /* 🔥 texto normal */
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .footer-item.red {
-  color: #ffcccc;
+  color: #ffffff;
 }
 
 /* LINK FOOTER */
@@ -175,6 +253,120 @@
   text-decoration: none;
   color: inherit;
 }
+/* CONTENEDOR EN LINEA */
+.quick-access {
+  width: 95%;
+  margin: 15px auto;
 
-/* BOTÓN UBICACIÓN */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 🔥 4 en línea */
+  gap: 10px;
+}
 
+/* ITEM COMPLETO */
+.quick-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* CUADRADO VERDE */
+.quick-icon {
+  width: 90px;
+  height: 90px;
+  background: #0a7a32;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ICONO */
+.quick-icon img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* TEXTO ABAJO */
+.quick-item span {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #00512a;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+}
+
+/* BADGE */
+.card-badge {
+  position: absolute;
+  top: -3px;
+  right: 8px;
+
+  background: #ff4800;
+  color: #00512a;
+  font-size: 10px;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 🔥 PROMOS BANCARIAS */
+.promo-section {
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* TITULO */
+.promo-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00512a; /* verde marketing */
+  margin-bottom: 12px;
+}
+
+/* CONTENEDOR TARJETAS */
+.promo-cards {
+  display: flex;
+  gap: 12px;
+}
+
+/* TARJETA */
+.promo-card {
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+}
+
+/* IMAGEN */
+.promo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.footer-item img {/* iconos del foother */
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.footer-item span { /*letras del foother */
+  font-size: 20px;
+  
+  color: #ffffff;
+  font-weight: 600;
+}

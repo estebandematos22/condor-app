@@ -9,7 +9,7 @@ function HomeDashboard({
   onOpenBeneficios,
   onOpenAdmin,
   onOpenNotificaciones,
-  onOpenUbicacion, // 🔴 SOLO AGREGADO
+  onOpenUbicacion,
 }) {
 
   const [userName] = useState(() => {
@@ -42,7 +42,16 @@ function HomeDashboard({
   const [beneficiosNuevos, setBeneficiosNuevos] = useState(false);
   const [ofertasNuevas, setOfertasNuevas] = useState(false);
 
-  const slides = ["/baner2.jpeg", "/baner3.jpeg"];
+  const slides = [
+    "/proveedores-10.png",
+    "/proveedores-07.png",
+    "/proveedores-12.png",
+    "/proveedores-06.png",
+    "/proveedores-13.png",
+    "/proveedores-09.png",
+    "/proveedores-11.png",
+    "/proveedores-08.png",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -180,7 +189,7 @@ function HomeDashboard({
 
       <header className="home4-header">
         <div className="user-section" onClick={onOpenEditarPerfil}>
-          <img src="/logoapp.png" alt="logo" className="header-logo" />
+          <img src="/logo1.png" alt="logo" className="header-logo" />
           <h2 className="user-name">hola {userName}!</h2>
         </div>
 
@@ -198,6 +207,63 @@ function HomeDashboard({
 
       <main className="home4-content">
 
+        <div className="top-actions">
+
+          <div className="action-btn" onClick={onOpenUbicacion}>
+            <img src="/icono-ubicacion.png" alt="ubicacion" />
+            <span>Encontranos</span>
+          </div>
+
+          <div className="action-btn" onClick={() => console.log("abrir chat")}>
+            <img src="/icono-mensajes.png" alt="chat" />
+            <span>Hablemos</span>
+          </div>
+
+        </div>
+
+        <div className="quick-access">
+
+          <div className="quick-item" onClick={onOpenMiTarjeta}>
+            <div className="quick-icon">
+              <img src="/icono-tarjeta.png" alt="tarjeta" />
+            </div>
+            <span>Mi tarjeta</span>
+          </div>
+
+          <div className="quick-item" onClick={onOpenOfertas}>
+            {ofertasNuevas && <span className="card-badge">1</span>}
+            <div className="quick-icon">
+              <img src="/icono-peso.png" alt="ofertas" />
+            </div>
+            <span>Ofertas</span>
+          </div>
+
+          <div className="quick-item" onClick={onOpenPuntos}>
+            {puntosNuevos && <span className="card-badge">1</span>}
+            <div className="quick-icon">
+              <img src="/icono-estrella.png" alt="puntos" />
+            </div>
+            <span>Puntos</span>
+          </div>
+
+          <div className="quick-item" onClick={onOpenBeneficios}>
+            {beneficiosNuevos && <span className="card-badge">1</span>}
+            <div className="quick-icon">
+              <img src="/icono-regalo.png" alt="beneficios" />
+            </div>
+            <span>Mis beneficios</span>
+          </div>
+
+          {/* 🔥 ADMIN RESTAURADO */}
+          {isAdmin && (
+            <div className="quick-item" onClick={onOpenAdmin}>
+              <div className="quick-icon">⚙️</div>
+              <span>Admin</span>
+            </div>
+          )}
+
+        </div>
+
         <div className="carousel shadow">
           <img
             src={slides[currentSlide]}
@@ -206,63 +272,74 @@ function HomeDashboard({
           />
         </div>
 
-        {/* 🔴 NUEVO BOTÓN (NO TOCA NADA MÁS) */}
-        <div
-          className="ubicacion-btn"
-          onClick={onOpenUbicacion}
-          style={{ cursor: "pointer" }}
-        >
-          📍 Encontranos
+        <div className="carousel-dots">
+          {slides.map((_, index) => (
+            <span
+              key={index}
+              className={index === currentSlide ? "active" : ""}
+            ></span>
+          ))}
         </div>
 
-        <div className="quick-access">
 
-          <div className="card shadow" onClick={onOpenMiTarjeta} style={{ cursor: "pointer" }}>
-            <span>Mi tarjeta</span>
-            💳
-          </div>
+        {/* 🔥 PROMOS BANCARIAS */}
+<div className="promo-section">
 
-          <div className="card shadow" onClick={onOpenOfertas} style={{ cursor: "pointer", position: "relative" }}>
-            {ofertasNuevas && <span className="bell-badge">1</span>}
-            <span>Ofertas</span>
-            💲
-          </div>
+  <h3 className="promo-title">Promos bancarias</h3>
 
-          <div className="card shadow" onClick={onOpenPuntos} style={{ cursor: "pointer", position: "relative" }}>
-            {puntosNuevos && <span className="bell-badge">1</span>}
-            <span>Puntos</span>
-            ⭐
-          </div>
+  <div className="promo-cards">
 
-          <div className="card shadow" onClick={onOpenBeneficios} style={{ cursor: "pointer", position: "relative" }}>
-            {beneficiosNuevos && <span className="bell-badge">1</span>}
-            <span>Mis beneficios</span>
-            🎁
-          </div>
+    <div className="promo-card">
+      <img src="/promos-bancarias-02.png" alt="promo1" />
+    </div>
 
-          {isAdmin && (
-            <div className="card shadow" onClick={onOpenAdmin} style={{ cursor: "pointer" }}>
-              <span>Panel Admin</span>
-              ⚙️
-            </div>
-          )}
+    <div className="promo-card">
+      <img src="/promos-bancarias-01.png" alt="promo2" />
+    </div>
 
-        </div>
+  </div>
+
+</div>
+
       </main>
 
       <footer className="home4-footer">
-        <a href="https://superelcondor.com.ar/" target="_blank" rel="noopener noreferrer" className="footer-link">
-          <div className="footer-item">🛒 <span>Minorista</span></div>
-        </a>
 
-        <a href="https://mayoristaelcondor.com.ar/" target="_blank" rel="noopener noreferrer" className="footer-link">
-          <div className="footer-item">📦 <span>Mayorista</span></div>
-        </a>
+  <a
+    href="https://superelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/iconominorista.png" alt="minorista" />
+      <span>Minorista</span>
+    </div>
+  </a>
 
-        <div className="footer-item red">❓ <span>Preguntas</span></div>
-        <div className="footer-item">🔒 <span>Privacidad</span></div>
-      </footer>
+  <a
+    href="https://mayoristaelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/icono-mayorista.png" alt="mayorista" />
+      <span>Mayorista</span>
+    </div>
+  </a>
 
+  <div className="footer-item">
+    <img src="/icono-pregunta.png" alt="preguntas" />
+    <span>Preguntas</span>
+  </div>
+
+  <div className="footer-item">
+    <img src="/icono-candado.png" alt="privacidad" />
+    <span>Privacidad</span>
+  </div>
+
+</footer>
     </div>
   );
 }
