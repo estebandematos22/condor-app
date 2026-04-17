@@ -17,8 +17,8 @@ function Login({ onBack, onLoginSuccess }) {
   if (dni === "123" && password === "123") {
     const fakeUser = {
       id: 1,
-      nombre: "Demo",
-      role: "admin" // 🔥 así ves todo (admin incluido)
+      nombre: "HOLA CLAUDIA",
+      
     };
 
     localStorage.setItem("token", "demo-token");
