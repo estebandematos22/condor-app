@@ -15,21 +15,22 @@ function Login({ onBack, onLoginSuccess }) {
 
   // 🔥 LOGIN DEMO (SIN BACKEND)
   if (dni === "123" && password === "123") {
-    const fakeUser = {
-      id: 1,
-      nombre: "HOLA CLAUDIA",
-      
-    };
+  const fakeUser = {
+    id: 1,
+    nombre: "José",
+    apellido: "Cliente",
+    role: "user" // 🔥 IMPORTANTE (NO admin)
+  };
 
-    localStorage.setItem("token", "demo-token");
-    localStorage.setItem("user", JSON.stringify(fakeUser));
+  localStorage.setItem("token", "demo-token");
+  localStorage.setItem("user", JSON.stringify(fakeUser));
 
-    if (typeof onLoginSuccess === "function") {
-      onLoginSuccess();
-    }
-
-    return;
+  if (typeof onLoginSuccess === "function") {
+    onLoginSuccess();
   }
+
+  return;
+}
 
   // 🔥 LOGIN REAL (tu backend)
   setError("");
