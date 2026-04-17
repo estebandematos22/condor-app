@@ -11,7 +11,7 @@ function Ubicacion({ onBack }) {
 
       {/* HEADER */}
       <header className="ubi-header">
-        <img src="/logoapp.png" alt="logo" className="ubi-logo" />
+        <img src="/logo1.png" alt="logo" className="ubi-logo" />
         <h2 className="ubi-title">Ubicaciones</h2>
 
         <button className="ubi-back" onClick={onBack}>
@@ -48,12 +48,42 @@ function Ubicacion({ onBack }) {
 
       {/* FOOTER */}
       <footer className="home4-footer">
-        <div className="footer-item">🛒 <span>Minorista</span></div>
-        <div className="footer-item">📦 <span>Mayorista</span></div>
-        <div className="footer-item red">❓ <span>Preguntas</span></div>
-        <div className="footer-item">🔒 <span>Privacidad</span></div>
-      </footer>
 
+  <a
+    href="https://superelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/iconominorista.png" alt="minorista" />
+      <span>Minorista</span>
+    </div>
+  </a>
+
+  <a
+    href="https://mayoristaelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/icono-mayorista.png" alt="mayorista" />
+      <span>Mayorista</span>
+    </div>
+  </a>
+
+  <div className="footer-item">
+    <img src="/icono-pregunta.png" alt="preguntas" />
+    <span>Preguntas</span>
+  </div>
+
+  <div className="footer-item">
+    <img src="/icono-candado.png" alt="privacidad" />
+    <span>Privacidad</span>
+  </div>
+
+</footer>
     </div>
   );
 }

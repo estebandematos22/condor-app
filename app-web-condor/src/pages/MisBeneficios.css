@@ -1,23 +1,26 @@
+/* CONTENEDOR */
 .ben-page{
-  min-height:100vh; /* 🔥 antes height */
+  min-height:100vh;
   width:100%;
-  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
+  background:#f7f7f7;
   display:flex;
   flex-direction:column;
   font-family:"Helvetica",sans-serif;
-  overflow-y:auto; /* 🔥 permite scroll */
+  overflow:hidden;
 }
 
 /* HEADER */
-
 .ben-header{
   width:100%;
-  background: #ffe529;
-  padding:14px 16px; /* 🔥 un poco más chico */
+  height:90px;
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  box-shadow:0px 2px 4px rgba(0,0,0,0.08);
+  justify-content:center;
+  position:relative;
+  border-bottom-left-radius:25px;
+  border-bottom-right-radius:25px;
+  box-shadow:0px 4px 10px rgba(0,0,0,0.15);
 }
 
 .ben-header-left{
@@ -26,58 +29,59 @@
   gap:10px;
 }
 
+/* LOGO */
 .ben-logo{
-   width: 80px;
-  height: 45px;
+  position:absolute;
+  left:15px;
+  width:120px;
+  height:auto;
 }
 
+/* TITULO */
 .ben-title{
   margin:0;
-  font-size:1.1rem; /* 🔥 ajustado */
+  font-size:1.5rem;
   font-weight:800;
-  color:#1b5e20;
+  color:#ffffff;
 }
 
 /* BOTON VOLVER */
-
 .ben-back{
-  background:#0a6f0a;
-  
-  right: 20px;
+  position:absolute;
+  right:15px;
+  background:#e5e5e5;
   border:none;
-  padding:8px 30px; /* 🔥 más compacto */
+  padding:8px 14px;
   border-radius:12px;
   font-weight:700;
-  font-size: 15px;
-  color:#e1e1e1;
+  font-size:14px;
+  color:#00512a;
   cursor:pointer;
 }
 
 /* CONTENIDO */
-
 .ben-content{
   flex:1;
   display:flex;
   justify-content:center;
   padding:15px;
+  overflow-y:auto;
 }
 
 /* LISTA BENEFICIOS */
-
 .ben-beneficios-list{
   width:100%;
-  max-width:360px; /* 🔥 más mobile */
+  max-width:360px;
   display:flex;
   flex-direction:column;
   gap:15px;
 }
 
 /* CUPON */
-
 .ben-cupon{
   background:white;
   border-radius:18px;
-  padding:18px; /* 🔥 reducido */
+  padding:18px;
   position:relative;
   box-shadow:0 10px 22px rgba(0,0,0,0.18);
   border:2px dashed #2e7d32;
@@ -85,14 +89,13 @@
 }
 
 /* AGUJEROS */
-
 .ben-cupon:before,
 .ben-cupon:after{
   content:"";
   position:absolute;
-  width:14px; /* 🔥 más chico */
+  width:14px;
   height:14px;
-  background:#e8f7e8;
+  background:#f7f7f7;
   border-radius:50%;
   top:50%;
   transform:translateY(-50%);
@@ -106,8 +109,7 @@
   right:-7px;
 }
 
-/* TITULO */
-
+/* TITULO CUPON */
 .ben-cupon-title{
   font-size:11px;
   font-weight:700;
@@ -116,16 +118,14 @@
 }
 
 /* BENEFICIO */
-
 .ben-cupon-desc{
-  font-size:20px; /* 🔥 antes 24 */
+  font-size:20px;
   font-weight:900;
   color:#1b5e20;
   margin-top:6px;
 }
 
 /* SUBTEXTO */
-
 .ben-cupon-sub{
   font-size:11px;
   color:#666;
@@ -133,7 +133,6 @@
 }
 
 /* PLACEHOLDER */
-
 .ben-placeholder{
   width:100%;
   max-width:360px;
@@ -141,4 +140,51 @@
   border-radius:16px;
   padding:16px;
   text-align:center;
+}
+
+/* FOOTER */
+.home4-footer {
+  width: 100%;
+  height: 100px;
+  background: #0a7a32; /* 🔥 mismo color que header */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  flex-shrink: 0;
+}
+
+/* ITEMS FOOTER */
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ICONOS FOOTER */
+.footer-item img {
+  width: 30px;   /* 🔥 tamaño correcto */
+  height: 30px;
+  object-fit: contain;
+}
+
+/* TEXTO FOOTER */
+.footer-item span {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* LINKS FOOTER */
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: inherit;
 }

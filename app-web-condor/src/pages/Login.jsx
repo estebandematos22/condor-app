@@ -8,89 +8,116 @@ function Login({ onBack, onLoginSuccess }) {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    if (!dni || !password) {
-      setError("Completá DNI y contraseña");
+  if (!dni || !password) {
+    setError("Completá DNI y contraseña");
+    return;
+  }
+
+  // 🔥 LOGIN DEMO (SIN BACKEND)
+  if (dni === "123" && password === "123") {
+    const fakeUser = {
+      id: 1,
+      nombre: "Demo",
+      role: "admin" // 🔥 así ves todo (admin incluido)
+    };
+
+    localStorage.setItem("token", "demo-token");
+    localStorage.setItem("user", JSON.stringify(fakeUser));
+
+    if (typeof onLoginSuccess === "function") {
+      onLoginSuccess();
+    }
+
+    return;
+  }
+
+  // 🔥 LOGIN REAL (tu backend)
+  setError("");
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://localhost:4000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        dni: dni.trim(),
+        password
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setError(data.message || "Error al iniciar sesión");
+      setLoading(false);
       return;
     }
 
-    setError("");
-    setLoading(true);
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
 
-    try {
-      const response = await fetch("http://localhost:4000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          dni: dni.trim(),
-          password
-        })
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.message || "Error al iniciar sesión");
-        setLoading(false);
-        return;
-      }
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      if (typeof onLoginSuccess === "function") {
-        onLoginSuccess();
-      }
-
-    } catch (err) {
-      console.error(err);
-      setError("No se pudo conectar con el servidor");
-    } finally {
-      setLoading(false);
+    if (typeof onLoginSuccess === "function") {
+      onLoginSuccess();
     }
-  };
+
+  } catch (err) {
+    console.error(err);
+    setError("No se pudo conectar con el servidor");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
-    <div className="login-container">
+  <div className="login-container">
 
-      {/* LOGO */}
-      <img
-        src="/logo.png"
-        alt="Logo El Cóndor"
-        className="login-logo"
-      />
+    {/* FONDO */}
+    <img src="/fondocarrito.png" className="login-bg" />
 
-      {/* CARD */}
-      <div className="login-card">
-        <h2>Iniciar sesión</h2>
+    {/* OVERLAY OSCURO */}
+    <div className="login-overlay"></div>
 
+    {/* CONTENIDO */}
+    <div className="login-content">
+
+      <h1>Bienvenido/a!</h1>
+
+      <div className="input-group">
+        <span>👤</span>
         <input
           type="text"
-          placeholder="DNI"
+          placeholder="Usuario"
           value={dni}
           onChange={(e) => setDni(e.target.value)}
         />
+      </div>
 
+      <div className="input-group">
+        <span>🔒</span>
         <input
           type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        {error && <p className="form-error">{error}</p>}
-
-        <button onClick={handleLogin} disabled={loading}>
-          {loading ? "Ingresando..." : "Ingresar"}
-        </button>
-
-        <button className="btn-secondary-full" onClick={onBack}>
-          Volver
-        </button>
       </div>
+
+      {error && <p className="form-error">{error}</p>}
+
+      <button className="btn-login" onClick={handleLogin} disabled={loading}>
+        {loading ? "Ingresando..." : "Iniciar Sesión"}
+      </button>
+
+      <p className="register-text">
+        ¿No tienes una cuenta?{" "}
+        <span onClick={onBack}>REGISTRARME</span>
+      </p>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

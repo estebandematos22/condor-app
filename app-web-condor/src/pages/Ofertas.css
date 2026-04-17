@@ -1,95 +1,135 @@
+/* CONTENEDOR */
 .of-page {
-  min-height: 100vh; /* 🔥 antes height */
+  height: 100vh; /* 🔥 CLAVE */
   width: 100%;
-  background: linear-gradient(to bottom, #f9ffcf 0%, #8bd461 50%, #286e00 100%);
+  background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* ✔ lo dejamos porque ya controlás scroll abajo */
+  overflow: hidden; /* 🔥 evita scroll general */
   font-family: "Helvetica", sans-serif;
 }
 
-/* HEADER */
+/* HEADER (FIJO) */
 .of-header {
   width: 100%;
-  background: #ffe529;
-  padding: 14px 16px; /* 🔥 más compacto */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
-  flex-shrink: 0;
-}
-
-.of-header-left {
+  height: 90px;
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  position: relative;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+
+  flex-shrink: 0; /* 🔥 CLAVE */
 }
 
+/* LOGO */
 .of-logo {
-   width: 80px;
-  height: 45px;
+  position: absolute;
+  left: 0px;
+  width: 120px;
+  height: 120px;
 }
 
+/* TITULO */
 .of-title {
-  margin: 0;
-  font-size: 1.1rem; /* 🔥 mejor mobile */
+  font-size: 1.5rem;
   font-weight: 800;
-  color: #1b5e20;
+  color: #ffffff;
 }
 
+/* BOTON VOLVER */
 .of-back {
-  background: #048004;
-  color: aliceblue;
+  position: absolute;
+  right: 15px;
+  background: #e5e5e5;
+  color: #00512a;
   border: none;
-  right: 70px;
-  padding: 8px 30px; /* 🔥 más chico */
-  border-radius: 10px;
+  padding: 8px 14px;
+  border-radius: 12px;
   font-weight: 700;
-  font-size: 14px;
   cursor: pointer;
-  
 }
 
-/* CONTENIDO SCROLLEABLE */
+/* CONTENIDO (SCROLL SOLO ACA) */
 .of-content {
   flex: 1;
-  overflow-y: auto; /* ✔ scroll solo acá */
+  overflow-y: auto; /* 🔥 SCROLL AQUÍ */
   display: flex;
   flex-direction: column;
-  gap: 15px; /* 🔥 más compacto */
+  gap: 15px;
   padding: 15px;
   align-items: center;
 }
 
-/* contenedor del banner */
-.of-banner-container{
-  width:100%;
-  display:flex;
-  justify-content:center;
+/* CONTENEDOR BANNER */
+.of-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-/* banner */
+/* IMAGEN */
 .of-banner {
   width: 100%;
-  max-width: 340px; /* 🔥 más chico para mobile */
+  max-width: 340px;
   border-radius: 14px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
 
-/* placeholder */
+/* PLACEHOLDER */
 .of-placeholder {
   width: 100%;
-  max-width: 340px; /* 🔥 consistente */
-  background: rgba(255,255,255,0.85);
+  max-width: 340px;
+  background: rgba(255,255,255,0.9);
   border-radius: 16px;
   padding: 16px;
   text-align: center;
-  color: #1b1b1b;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
 }
 
-/* FOOTER */
-.home4-footer{
-  flex-shrink:0;
+/* FOOTER (FIJO) */
+.home4-footer {
+  width: 100%;
+  height: 100px;
+  background: #0a7a32;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+
+  flex-shrink: 0; /* 🔥 CLAVE */
+}
+
+/* ITEMS */
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ICONOS */
+.footer-item img {
+  width: 30px;
+  height: 30px;
+}
+
+/* TEXTO */
+.footer-item span {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* LINKS */
+.footer-link {
+  text-decoration: none;
+  color: inherit;
 }

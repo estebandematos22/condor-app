@@ -9,22 +9,22 @@ import MiTarjeta from "./pages/MiTarjeta";
 import EditarPerfil from "./pages/EditProfile";
 import Ofertas from "./pages/Ofertas";
 import Puntos from "./pages/Puntos";
-import MisBeneficios from "./pages/MisBeneficios"; // ✅ ahora usamos el correcto
+import MisBeneficios from "./pages/MisBeneficios";
 import AdminPanel from "./pages/AdminPanel";
 import Notificaciones from "./pages/Notificaciones";
 import Ubicacion from "./pages/Ubicacion";
 
 function App() {
 
-  const [screen, setScreen] = useState("splash");
 
-  // splash | home | register | login | dashboard | mitarjeta | editarperfil | ofertas | puntos | beneficios | admin | notificaciones
+const [screen, setScreen] = useState("splash");
 
   return (
     <>
 
       {screen === "splash" && (
-        <SplashScreen onFinish={() => setScreen("home")} />
+      
+        <SplashScreen onFinish={() => setScreen("login")} />
       )}
 
       {screen === "home" && (
@@ -37,13 +37,13 @@ function App() {
       {screen === "register" && (
         <Register
           onSuccess={() => setScreen("login")}
-          onBack={() => setScreen("home")}
+          onBack={() => setScreen("login")} // 🔥 CAMBIO
         />
       )}
 
       {screen === "login" && (
         <Login
-          onBack={() => setScreen("home")}
+          onBack={() => setScreen("register")} // 🔥 CAMBIO
           onLoginSuccess={() => setScreen("dashboard")}
         />
       )}

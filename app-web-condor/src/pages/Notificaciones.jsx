@@ -73,7 +73,7 @@ function Notificaciones({ onBack }) {
 
       {/* HEADER */}
       <header className="noti-header">
-        <img src="/logoapp.png" alt="logo" className="noti-logo" />
+        <img src="/logo1.png" alt="logo" className="noti-logo" />
         <h2 className="noti-title">Notificaciones</h2>
        <button className="noti-back-btn header-btn" onClick={onBack}>
   Volver

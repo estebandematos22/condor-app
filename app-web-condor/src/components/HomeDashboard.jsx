@@ -194,15 +194,15 @@ function HomeDashboard({
         </div>
 
         <div
-          className="bell-btn"
-          onClick={handleOpenNotificaciones}
-          style={{ cursor: "pointer" }}
-        >
-          🔔
-          {notiCount > 0 && (
-            <span className="bell-badge">{notiCount}</span>
-          )}
-        </div>
+  className="bell-btn"
+  onClick={handleOpenNotificaciones}
+>
+  <img src="/icono-campana.png" alt="notificaciones" />
+
+  {notiCount > 0 && (
+    <span className="bell-badge">{notiCount}</span>
+  )}
+</div>
       </header>
 
       <main className="home4-content">

@@ -23,7 +23,7 @@ function MiTarjeta({ onBack }) {
 
       {/* HEADER */}
       <div className="mt-header">
-        <span className="mt-username">Hola {userName}</span>
+        <span className="mt-username"> {userName}</span>
         <button className="mt-back-btn" onClick={onBack}>
         Volver</button>
         <div className="mt-bell">🔔</div>
@@ -76,42 +76,41 @@ function MiTarjeta({ onBack }) {
       {/* FOOTER */}
       <footer className="home4-footer">
 
-        <a
-          href="https://superelcondor.com.ar/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer-link"
-        >
-          <div className="footer-item">
-            🛒
-            <span>Minorista</span>
-          </div>
-        </a>
+  <a
+    href="https://superelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/iconominorista.png" alt="minorista" />
+      <span>Minorista</span>
+    </div>
+  </a>
 
-        <a
-          href="https://mayoristaelcondor.com.ar/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer-link"
-        >
-          <div className="footer-item">
-            📦
-            <span>Mayorista</span>
-          </div>
-        </a>
+  <a
+    href="https://mayoristaelcondor.com.ar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    <div className="footer-item">
+      <img src="/icono-mayorista.png" alt="mayorista" />
+      <span>Mayorista</span>
+    </div>
+  </a>
 
-        <div className="footer-item red">
-          ❓
-          <span>Preguntas</span>
-        </div>
+  <div className="footer-item">
+    <img src="/icono-pregunta.png" alt="preguntas" />
+    <span>Preguntas</span>
+  </div>
 
-        <div className="footer-item">
-          🔒
-          <span>Privacidad</span>
-        </div>
+  <div className="footer-item">
+    <img src="/icono-candado.png" alt="privacidad" />
+    <span>Privacidad</span>
+  </div>
 
-      </footer>
-
+</footer>
     </div>
   );
 }

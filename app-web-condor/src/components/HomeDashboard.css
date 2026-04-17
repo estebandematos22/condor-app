@@ -52,12 +52,45 @@
 .bell-btn {
   position: absolute;
   right: 15px;
-  font-size: 24px;
-  background: transparent;
-  padding: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;  /* 🔥 tamaño del botón */
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* 🔥 IMAGEN CAMPANA */
+.bell-btn img {
+  width: 70px;  /* 🔥 tamaño icono */
+  height: 70px;
+  object-fit: contain;
+}
+
+/* 🔴 BADGE */
+.bell-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  background: #ff4800;
+  color: white;
+
+  font-size: 11px;
+  font-weight: bold;
+
   border-radius: 50%;
-  box-shadow: none;
-  margin-right: 0;
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* BADGE CAMPANITA */
