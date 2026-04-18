@@ -457,3 +457,14 @@
 .chat-option:hover {
   background: #e0e0e0;
 }
+/* esto es para que global para que se acomode todo */
+/* 🔥 WRAPPER GLOBAL APP */
+.app-wrapper {
+  width: 100%;
+  max-width: 420px; /* ancho celular */
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f7f7f7; /* fondo general */
+  display: flex;
+  flex-direction: column;
+}

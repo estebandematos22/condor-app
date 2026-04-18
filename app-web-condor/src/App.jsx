@@ -16,14 +16,12 @@ import Ubicacion from "./pages/Ubicacion";
 
 function App() {
 
-
-const [screen, setScreen] = useState("splash");
+  const [screen, setScreen] = useState("splash");
 
   return (
-    <>
+    <div className="app-wrapper"> {/* 🔥 SOLO AGREGADO */}
 
       {screen === "splash" && (
-      
         <SplashScreen onFinish={() => setScreen("login")} />
       )}
 
@@ -37,13 +35,13 @@ const [screen, setScreen] = useState("splash");
       {screen === "register" && (
         <Register
           onSuccess={() => setScreen("login")}
-          onBack={() => setScreen("login")} // 🔥 CAMBIO
+          onBack={() => setScreen("login")}
         />
       )}
 
       {screen === "login" && (
         <Login
-          onBack={() => setScreen("register")} // 🔥 CAMBIO
+          onBack={() => setScreen("register")}
           onLoginSuccess={() => setScreen("dashboard")}
         />
       )}
@@ -93,7 +91,7 @@ const [screen, setScreen] = useState("splash");
         <Ubicacion onBack={() => setScreen("dashboard")} />
       )}
 
-    </>
+    </div> /* 🔥 SOLO AGREGADO */
   );
 }
 
