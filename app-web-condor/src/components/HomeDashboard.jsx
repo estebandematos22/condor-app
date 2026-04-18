@@ -337,22 +337,24 @@ function HomeDashboard({
 
     <h4>{chatFlow[chatPaso]?.texto || ""}</h4>
 
-    {chatFlow[chatPaso]?.opciones?.map((op, i) => (
-      <div
-        key={i}
-        className="chat-option"
-        onClick={() => {
-          if (op.next === "cerrar") {
-            setChatAbierto(false);
-            setChatPaso("inicio");
-          } else {
-            setChatPaso(op.next);
-          }
-        }}
-      >
-        {op.label}
-      </div>
-    ))}
+    <div className="chat-body">
+      {chatFlow[chatPaso]?.opciones?.map((op, i) => (
+        <div
+          key={i}
+          className="chat-option"
+          onClick={() => {
+            if (op.next === "cerrar") {
+              setChatAbierto(false);
+              setChatPaso("inicio");
+            } else {
+              setChatPaso(op.next);
+            }
+          }}
+        >
+          {op.label}
+        </div>
+      ))}
+    </div>
 
   </div>
 )}

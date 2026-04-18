@@ -272,40 +272,60 @@
 }
 
 /* CHAT */
+/* 🔥 CHAT BOX CORREGIDO */
 .chat-box {
   position: fixed;
-  bottom: 120px; /* arriba del footer */
+  bottom: 110px; /* arriba del footer */
   right: 15px;
 
-  width: 260px;
-  max-height: 300px; /* 🔥 límite para que no crezca de más */
-  overflow-y: auto;  /* 🔥 scroll interno */
+  width: 270px;
+  max-height: 320px;
 
   background: white;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 18px;
 
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+  padding: 12px;
+
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
   z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  overflow: hidden; /* 🔥 ESTO ELIMINA LA BARRA */
+}
+
+/* 🔥 CONTENIDO INTERNO CON SCROLL */
+.chat-body {
+  overflow-y: auto;
+  max-height: 250px;
 
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-/* elimina la barra */
+
+/* TITULO */
 .chat-box h4 {
   margin: 0;
+  font-size: 14px;
 }
 
-.chat-option {
-  margin: 0; /* 🔥 evita espacios raros */
-}
-
+/* OPCIONES */
 .chat-option {
   padding: 10px;
-  margin-top: 5px;
   background: #f1f1f1;
   border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+
+  margin: 0; /* 🔥 elimina espacios raros */
+}
+
+/* HOVER */
+.chat-option:hover {
+  background: #e0e0e0;
 }
 
 /* FOOTER */
