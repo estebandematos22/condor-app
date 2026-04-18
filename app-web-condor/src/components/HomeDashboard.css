@@ -273,13 +273,13 @@
 
 /* CHAT */
 /* 🔥 CHAT BOX CORREGIDO */
+/* 🔥 CHAT BOX FINAL */
 .chat-box {
   position: fixed;
   bottom: 110px; /* arriba del footer */
   right: 15px;
 
   width: 270px;
-  max-height: 320px;
 
   background: white;
   border-radius: 18px;
@@ -293,13 +293,14 @@
   flex-direction: column;
   gap: 10px;
 
-  overflow: hidden; /* 🔥 ESTO ELIMINA LA BARRA */
+  /* 🔥 CLAVE */
+  max-height: 70vh; 
 }
 
-/* 🔥 CONTENIDO INTERNO CON SCROLL */
+/* 🔥 SCROLL SOLO EN CONTENIDO */
 .chat-body {
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 200px;
 
   display: flex;
   flex-direction: column;
@@ -319,11 +320,9 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
-
-  margin: 0; /* 🔥 elimina espacios raros */
+  margin: 0;
 }
 
-/* HOVER */
 .chat-option:hover {
   background: #e0e0e0;
 }
