@@ -276,7 +276,7 @@
 /* 🔥 CHAT BOX FINAL */
 .chat-box {
   position: fixed;
-  bottom: 110px; /* arriba del footer */
+  bottom: 250px; /* arriba del footer */
   right: 15px;
 
   width: 270px;

@@ -14,7 +14,70 @@ const chatFlow = {
     ]
   },
 
-  // ...todo lo demás que te pasé
+  verPuntos: {
+    texto: "Para ver tus puntos ingresá a la sección ⭐ 'Puntos' en la pantalla de inicio.",
+    opciones: [
+      { label: "¿Cómo uso mis puntos?", next: "usarPuntos" },
+      { label: "Volver al menú", next: "inicio" }
+    ]
+  },
+
+  usarPuntos: {
+    texto: "Podés usar tus puntos una vez alcanzados los 80 puntos o más en descuentos en compras.",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  },
+
+  promos: {
+    texto: "Para ver tus beneficios ingresá a 🎁 Mis beneficios o mirá las promos bancarias en el inicio.",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  },
+
+  tarjeta: {
+    texto: "Tu tarjeta te permite sumar puntos y acceder a beneficios. Mostrala en caja antes de pagar.",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  },
+
+  problemas: {
+    texto: "Decime qué problema estás teniendo:",
+    opciones: [
+      { label: "Mis puntos no aparecen", next: "errorPuntos" },
+      { label: "Cambié de celular", next: "cambioCel" },
+      { label: "Hablar con un asesor", next: "asesor" }
+    ]
+  },
+
+  errorPuntos: {
+    texto: "Puede pasar si no presentaste la tarjeta. Si creés que es un error, acercate a Casa Central.",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  },
+
+  cambioCel: {
+    texto: "Podés seguir usando tu cuenta. Solo iniciá sesión nuevamente. Tus datos siguen guardados.",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  },
+
+  asesor: {
+    texto: "Podés acercarte a Casa Central o escribir al WhatsApp 3755 112233",
+    opciones: [
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
+    ]
+  }
 };
 /* 🔥 HASTA ACÁ */
 
