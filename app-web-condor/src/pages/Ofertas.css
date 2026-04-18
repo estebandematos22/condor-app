@@ -1,18 +1,21 @@
 /* CONTENEDOR */
 .of-page {
-  height: 100vh; /* 🔥 CLAVE */
+  height: 100vh;
   width: 100%;
   background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* 🔥 evita scroll general */
+  overflow: hidden; /* 🔥 evita scroll global */
   font-family: "Helvetica", sans-serif;
 }
 
-/* HEADER (FIJO) */
+/* HEADER */
 .of-header {
   width: 100%;
   height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
   background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display: flex;
   align-items: center;
@@ -23,16 +26,14 @@
   border-bottom-right-radius: 25px;
 
   box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-
-  flex-shrink: 0; /* 🔥 CLAVE */
 }
 
 /* LOGO */
 .of-logo {
   position: absolute;
-  left: 0px;
-  width: 120px;
-  height: 120px;
+  left: 10px;
+  width: 110px;
+  height: auto;
 }
 
 /* TITULO */
@@ -46,19 +47,23 @@
 .of-back {
   position: absolute;
   right: 15px;
+
   background: #e5e5e5;
   color: #00512a;
+
   border: none;
   padding: 8px 14px;
   border-radius: 12px;
+
   font-weight: 700;
   cursor: pointer;
 }
 
-/* CONTENIDO (SCROLL SOLO ACA) */
+/* CONTENIDO */
 .of-content {
   flex: 1;
-  overflow-y: auto; /* 🔥 SCROLL AQUÍ */
+  overflow-y: auto; /* 🔥 scroll SOLO acá */
+
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -91,11 +96,14 @@
   text-align: center;
 }
 
-/* FOOTER (FIJO) */
+/* FOOTER */
 .home4-footer {
   width: 100%;
-  height: 100px;
-  background: #0a7a32;
+  height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
+  background: linear-gradient(180deg,#0b8f3a 0%,#0a7a32 100%);
 
   display: flex;
   justify-content: space-around;
@@ -103,8 +111,6 @@
 
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-
-  flex-shrink: 0; /* 🔥 CLAVE */
 }
 
 /* ITEMS */
@@ -119,6 +125,7 @@
 .footer-item img {
   width: 30px;
   height: 30px;
+  object-fit: contain;
 }
 
 /* TEXTO */
