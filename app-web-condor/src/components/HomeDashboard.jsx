@@ -335,9 +335,9 @@ function HomeDashboard({
 {chatAbierto && (
   <div className="chat-box">
 
-    <h4>{chatFlow[chatPaso].texto}</h4>
+    <h4>{chatFlow[chatPaso]?.texto || ""}</h4>
 
-    {chatFlow[chatPaso].opciones.map((op, i) => (
+    {chatFlow[chatPaso]?.opciones?.map((op, i) => (
       <div
         key={i}
         className="chat-option"
