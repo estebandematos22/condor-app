@@ -211,20 +211,15 @@ function HomeDashboard({
 
       <main className="home4-content">
 
-        <div className="top-actions">
+        <div className="action-btn" onClick={onOpenUbicacion}>
+  <img src="/icono-ubicacion.png" alt="ubicacion" />
+  <span>Encontranos</span>
+</div>
 
-          <div className="action-btn" onClick={() => setChatAbierto(!chatAbierto)}>
+<div className="action-btn" onClick={() => setChatAbierto(!chatAbierto)}>
   <img src="/icono-mensajes.png" alt="chat" />
   <span>Hablemos</span>
 </div>
-
-          <div className="action-btn" onClick={() => console.log("abrir chat")}>
-            <img src="/icono-mensajes.png" alt="chat" />
-            <span>Hablemos</span>
-          </div>
-
-        </div>
-
         <div className="quick-access">
 
           <div className="quick-item" onClick={onOpenMiTarjeta}>
