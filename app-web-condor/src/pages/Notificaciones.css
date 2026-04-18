@@ -1,15 +1,19 @@
+/* CONTENEDOR */
 .noti-container {
-  min-height: 100vh;
+  height: 100vh; /* 🔥 antes min-height */
   display: flex;
   flex-direction: column;
   background: #f7f7f7;
-  overflow: hidden;
+  overflow: hidden; /* 🔥 clave */
 }
 
 /* HEADER */
 .noti-header {
   width: 100%;
   height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
   background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display: flex;
   align-items: center;
@@ -58,15 +62,17 @@
   padding: 8px 14px;
 }
 
-/* CONTENT */
+/* CONTENIDO */
 .noti-content {
   flex: 1;
+  overflow-y: auto; /* 🔥 scroll solo acá */
+
   padding: 15px;
+
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
-  overflow-y: auto;
 }
 
 /* CARD */
@@ -84,17 +90,21 @@
 /* FOOTER */
 .home4-footer {
   width: 100%;
-  height: 100px;
-  background: #0a7a32;
+  height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
+  background: linear-gradient(180deg,#0b8f3a 0%,#0a7a32 100%);
+
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  flex-shrink: 0;
 }
 
-/* ITEMS FOOTER */
+/* ITEMS */
 .footer-item {
   display: flex;
   flex-direction: column;

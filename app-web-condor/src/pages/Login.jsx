@@ -18,7 +18,7 @@ function Login({ onBack, onLoginSuccess }) {
   const fakeUser = {
     id: 1,
     nombre: "José",
-    apellido: "Cliente",
+    apellido: "Fritz",
     role: "user" // 🔥 IMPORTANTE (NO admin)
   };
 

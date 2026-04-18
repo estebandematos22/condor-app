@@ -1,53 +1,60 @@
+/* CONTENEDOR */
 .splash-container {
-  width: 100vw;
+  width: 100%;            /* 🔥 cambio */
   height: 100vh;
   background: linear-gradient(to bottom, #006439, #00c06b);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   animation: fadeIn 0.8s ease-in-out;
+  overflow: hidden;       /* 🔥 evita scroll raro */
 }
 
+/* CONTENIDO */
 .splash-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   position: relative;
+
+  width: 90%;             /* 🔥 responsive */
+  max-width: 400px;
 }
 
-/* LOGO DESDE ABAJO HACIA ARRIBA */
+/* LOGO */
 .splash-logo {
-  width: 350px;
-  max-width: 350%;
+  width: 80%;             /* 🔥 responsive real */
+  max-width: 280px;
 
   animation: slideUp 1.2s ease-out forwards;
 }
 
-/* Texto */
+/* TEXTO */
 .splash-tagline {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 /* Línea 1 */
 .linea1 {
-  font-size: 1.4rem;
-  font-weight: 300; /* finita */
-  color: #ffffff;   /* verde */
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #ffffff;
 }
 
 /* Línea 2 */
 .linea2 {
-  font-size: 1.6rem;
-  font-weight: 700; /* gruesa */
-  color: #ffffff;   /* verde */
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
 }
-
 
 /* --- ANIMACIONES --- */
 
@@ -58,16 +65,11 @@
 
 @keyframes slideUp {
   0% {
-    transform: translateY(500px); /* BIEN ABAJO ❗ */
+    transform: translateY(500px);
     opacity: 0;
   }
   100% {
-    transform: translateY(0); /* POSICIÓN FINAL */
+    transform: translateY(0);
     opacity: 1;
   }
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }

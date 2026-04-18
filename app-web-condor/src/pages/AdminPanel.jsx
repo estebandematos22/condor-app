@@ -187,9 +187,7 @@ function AdminPanel({ onBack }) {
     }
   };
 
-  // 🆕 ELIMINAR NOTIFICACIONES DEL DÍA
   const eliminarNotificacionesHoy = async () => {
-
     if (!window.confirm("¿Eliminar notificaciones de hoy?")) return;
 
     try {
@@ -209,112 +207,110 @@ function AdminPanel({ onBack }) {
     }
   };
 
-  // 🆕 DESCARGAR USUARIOS EXCEL
-const descargarUsuarios = async () => {
-  try {
-    const res = await fetch(
-      "http://localhost:4000/api/admin/export-users",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
+  const descargarUsuarios = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:4000/api/admin/export-users",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }
-      }
-    );
+      );
 
-    if (!res.ok) {
-      throw new Error("Error al descargar");
+      if (!res.ok) throw new Error("Error al descargar");
+
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+
+      a.href = url;
+      a.download = "clientes.xlsx";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      window.URL.revokeObjectURL(url);
+
+    } catch (error) {
+      console.error("Error descargando usuarios", error);
+      alert("Error al descargar usuarios");
     }
-
-    const blob = await res.blob();
-
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-
-    a.href = url;
-    a.download = "clientes.xlsx"; // 🔥 ahora sí es Excel real
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    window.URL.revokeObjectURL(url);
-
-  } catch (error) {
-    console.error("Error descargando usuarios", error);
-    alert("Error al descargar usuarios");
-  }
-};
+  };
 
   return (
-
     <div className="admin-container">
 
       <header className="admin-header">
         <h2>Panel Administrador</h2>
       </header>
 
-      <div className="admin-actions">
+      {/* 🔥 CONTENIDO SCROLL */}
+      <div className="admin-content">
 
-        <label className="admin-btn">
-          📊 Subir Excel de Puntos
-          <input type="file" accept=".xlsx,.xls" hidden onChange={subirExcel}/>
-        </label>
+        <div className="admin-actions">
 
-        <label className="admin-btn">
-          🖼 Subir Banner Ofertas
-          <input type="file" accept="image/*" hidden onChange={subirBanner}/>
-        </label>
+          <label className="admin-btn">
+            📊 Subir Excel de Puntos
+            <input type="file" accept=".xlsx,.xls" hidden onChange={subirExcel}/>
+          </label>
 
-        <label className="admin-btn">
-          🎁 Subir Banner Beneficios
-          <input type="file" accept="image/*" hidden onChange={subirBeneficio}/>
-        </label>
+          <label className="admin-btn">
+            🖼 Subir Banner Ofertas
+            <input type="file" accept="image/*" hidden onChange={subirBanner}/>
+          </label>
 
-        <button className="admin-btn" onClick={descargarUsuarios}>
-  📥 Descargar Clientes
-</button>
+          <label className="admin-btn">
+            🎁 Subir Banner Beneficios
+            <input type="file" accept="image/*" hidden onChange={subirBeneficio}/>
+          </label>
 
-      </div>
+          <button className="admin-btn" onClick={descargarUsuarios}>
+            📥 Descargar Clientes
+          </button>
 
-      <div className="admin-banners">
-        <h3>Ofertas</h3>
-        {banners.length === 0 ? <p>No hay banners</p> :
-          banners.map((b)=>(
-            <div key={b.name} className="admin-banner-item">
-              <img src={`http://localhost:4000${b.url}`} alt="banner"/>
-              <button className="admin-delete" onClick={()=>eliminarBanner(b.name)}>Eliminar</button>
-            </div>
-          ))
-        }
+        </div>
 
-        <h3>Beneficios</h3>
-        {beneficios.length === 0 ? <p>No hay beneficios</p> :
-          beneficios.map((b)=>(
-            <div key={b.name} className="admin-banner-item">
-              <img src={`http://localhost:4000${b.url}`} alt="beneficio"/>
-              <button className="admin-delete" onClick={()=>eliminarBeneficio(b.name)}>Eliminar</button>
-            </div>
-          ))
-        }
-      </div>
+        <div className="admin-banners">
+          <h3>Ofertas</h3>
+          {banners.length === 0 ? <p>No hay banners</p> :
+            banners.map((b)=>(
+              <div key={b.name} className="admin-banner-item">
+                <img src={`http://localhost:4000${b.url}`} alt="banner"/>
+                <button className="admin-delete" onClick={()=>eliminarBanner(b.name)}>Eliminar</button>
+              </div>
+            ))
+          }
 
-      <div className="admin-notificaciones">
-        <h3>📢 Enviar Notificación</h3>
+          <h3>Beneficios</h3>
+          {beneficios.length === 0 ? <p>No hay beneficios</p> :
+            beneficios.map((b)=>(
+              <div key={b.name} className="admin-banner-item">
+                <img src={`http://localhost:4000${b.url}`} alt="beneficio"/>
+                <button className="admin-delete" onClick={()=>eliminarBeneficio(b.name)}>Eliminar</button>
+              </div>
+            ))
+          }
+        </div>
 
-        <textarea
-          placeholder="Escribí el mensaje..."
-          value={mensajeNoti}
-          onChange={(e) => setMensajeNoti(e.target.value)}
-          className="admin-textarea"
-        />
+        <div className="admin-notificaciones">
+          <h3>📢 Enviar Notificación</h3>
 
-        <button className="admin-btn" onClick={enviarNotificacion}>
-          Enviar a todos
-        </button>
+          <textarea
+            placeholder="Escribí el mensaje..."
+            value={mensajeNoti}
+            onChange={(e) => setMensajeNoti(e.target.value)}
+            className="admin-textarea"
+          />
 
-        {/* 🆕 BOTÓN NUEVO */}
-        <button className="admin-btn red" onClick={eliminarNotificacionesHoy}>
-          🗑 Eliminar notificaciones de hoy
-        </button>
+          <button className="admin-btn" onClick={enviarNotificacion}>
+            Enviar a todos
+          </button>
+
+          <button className="admin-btn red" onClick={eliminarNotificacionesHoy}>
+            🗑 Eliminar notificaciones de hoy
+          </button>
+        </div>
 
       </div>
 

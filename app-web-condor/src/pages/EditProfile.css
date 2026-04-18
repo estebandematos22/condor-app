@@ -1,6 +1,6 @@
 /* CONTENEDOR PRINCIPAL */
 .editar-perfil-container {
-  height: 100vh; /* 🔥 CLAVE */
+  height: 100vh;
   background: #f7f7f7;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,9 @@
 .edit-header {
   width: 100%;
   height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
   background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
 
   display: flex;
@@ -22,8 +25,6 @@
   border-bottom-right-radius: 25px;
 
   box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-
-  flex-shrink: 0;
 }
 
 /* LOGO */
@@ -42,7 +43,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* CONTENEDOR BOTONES HEADER */
+/* BOTONES HEADER */
 .edit-header-right {
   position: absolute;
   right: 15px;
@@ -50,7 +51,6 @@
   gap: 8px;
 }
 
-/* BOTONES HEADER */
 .btn-volver-header {
   background: #e5e5e5;
   border: none;
@@ -74,12 +74,18 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* CONTENIDO */
-.editar-perfil-container form {
+/* 🔥 CONTENIDO CENTRAL */
+.edit-content {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* FORM */
+.edit-content form {
   width: 100%;
   max-width: 360px;
-  margin: 15px auto;
 
   background: #ffffff;
   border-radius: 18px;
@@ -131,7 +137,7 @@
   cursor: not-allowed;
 }
 
-/* BOTÓN GUARDAR */
+/* BOTONES */
 .btn-guardar {
   margin-top: 10px;
   padding: 12px;
@@ -145,7 +151,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* BOTÓN VOLVER (ABAJO) */
 .btn-volver {
   margin-top: 8px;
   width: 100%;
@@ -174,8 +179,11 @@
 /* FOOTER */
 .home4-footer {
   width: 100%;
-  height: 100px;
-  background: #0a7a32;
+  height: 90px;
+
+  flex-shrink: 0; /* 🔥 clave */
+
+  background: linear-gradient(180deg,#0b8f3a 0%,#0a7a32 100%);
 
   display: flex;
   justify-content: space-around;
@@ -183,8 +191,6 @@
 
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-
-  flex-shrink: 0;
 }
 
 /* ITEMS */
@@ -195,20 +201,17 @@
   gap: 6px;
 }
 
-/* ICONOS */
 .footer-item img {
   width: 30px;
   height: 30px;
 }
 
-/* TEXTO */
 .footer-item span {
   font-size: 13px;
   color: #ffffff;
   font-weight: 700;
 }
 
-/* LINKS */
 .footer-link {
   text-decoration: none;
   color: inherit;

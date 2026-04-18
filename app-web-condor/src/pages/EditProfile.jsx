@@ -1,179 +1,36 @@
-// src/pages/EditProfile.jsx
-import React, { useEffect, useState } from "react";
-import "./EditProfile.css";
+return (
+  <div className="editar-perfil-container">
 
-export default function EditarPerfil({ onBack }) {
-  const token = localStorage.getItem("token");
+    <header className="home4-header">
+      <div className="user-section">
+        <img src="/logo1.png" alt="logo" className="header-logo" />
+        <h2 className="user-name">Editar Perfil</h2>
+      </div>
 
-  const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    telefono: "",
-    localidad: "",
-    domicilio: "",
-    fecha_nacimiento: "",
-  });
+      <div style={{ display: "flex", gap: "10px" }}>
+        <button className="btn-volver" onClick={() => onBack && onBack()}>
+          Volver
+        </button>
 
-  const [loading, setLoading] = useState(false);
-  const [showOk, setShowOk] = useState(false);
-  const [error, setError] = useState("");
+        <button
+          onClick={handleEliminarCuenta}
+          style={{
+            background: "red",
+            color: "white",
+            border: "none",
+            padding: "8px 12px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "bold"
+          }}
+        >
+          Eliminar cuenta
+        </button>
+      </div>
+    </header>
 
-  useEffect(() => {
-    async function fetchUsuario() {
-      try {
-        setError("");
-
-        if (!token) {
-          setError("No hay token. Volvé a iniciar sesión.");
-          return;
-        }
-
-        const res = await fetch("http://localhost:4000/api/usuario/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error(data.message || "Error cargando perfil");
-        }
-
-        setFormData({
-          nombre: data.nombre || "",
-          apellido: data.apellido || "",
-          email: data.email || "",
-          telefono: data.telefono || "",
-          localidad: data.localidad || "",
-          domicilio: data.domicilio || "",
-          fecha_nacimiento: data.fecha_nacimiento
-            ? String(data.fecha_nacimiento).slice(0, 10)
-            : "",
-        });
-      } catch (err) {
-        console.log("Error cargando perfil:", err);
-        setError(err.message || "Error cargando perfil");
-      }
-    }
-
-    fetchUsuario();
-  }, [token]);
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      setError("");
-      setLoading(true);
-
-      if (!token) {
-        throw new Error("No hay token. Volvé a iniciar sesión.");
-      }
-
-      const payload = { ...formData };
-
-      const res = await fetch("http://localhost:4000/api/usuario/me", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await res.json();
-
-      if (!res.ok) {
-        throw new Error(result.message || "Error actualizando");
-      }
-
-      setShowOk(true);
-
-      setTimeout(() => {
-        setShowOk(false);
-        if (onBack) onBack();
-      }, 1200);
-    } catch (err) {
-      console.error("Error actualizando:", err);
-      setError(err.message || "Error actualizando");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // 🔴 SOLO ESTO SE MODIFICÓ (eliminar cuenta)
-  const handleEliminarCuenta = async () => {
-    if (!window.confirm("¿Seguro querés eliminar tu cuenta? Esta acción es irreversible")) return;
-
-    try {
-      const token = localStorage.getItem("token");
-
-      const res = await fetch("http://localhost:4000/api/usuario/eliminar", {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Error eliminando cuenta");
-      }
-
-      // 🔴 LIMPIAR SESIÓN
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-
-      // 🔴 REDIRIGIR AL INICIO (LOGIN / REGISTER)
-      window.location.href = "/";
-
-    } catch (error) {
-      console.error("Error eliminando cuenta:", error);
-      alert("Error eliminando cuenta");
-    }
-  };
-
-  return (
-    <div className="editar-perfil-container">
-
-      {/* 🔴 HEADER AGREGADO */}
-      <header className="home4-header">
-        <div className="user-section">
-          <img src="/logo1.png" alt="logo" className="header-logo" />
-          <h2 className="user-name">Editar Perfil</h2>
-        </div>
-
-        <div style={{ display: "flex", gap: "10px" }}>
-          <button className="btn-volver" onClick={() => onBack && onBack()}>
-            Volver
-          </button>
-
-          <button
-            onClick={handleEliminarCuenta}
-            style={{
-              background: "red",
-              color: "white",
-              border: "none",
-              padding: "8px 12px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: "bold"
-            }}
-          >
-            Eliminar cuenta
-          </button>
-        </div>
-      </header>
+    {/* 🔥 SOLO ESTO SE AGREGA */}
+    <div className="edit-content">
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -256,15 +113,16 @@ export default function EditarPerfil({ onBack }) {
         </button>
       </form>
 
-      {showOk && (
-        <div className="success-overlay">
-          <div className="success-modal">
-            <div className="check">✓</div>
-            <h3>Datos actualizados</h3>
-            <p>Se guardaron correctamente ✅</p>
-          </div>
-        </div>
-      )}
     </div>
-  );
-}
+
+    {showOk && (
+      <div className="success-overlay">
+        <div className="success-modal">
+          <div className="check">✓</div>
+          <h3>Datos actualizados</h3>
+          <p>Se guardaron correctamente ✅</p>
+        </div>
+      </div>
+    )}
+  </div>
+);
