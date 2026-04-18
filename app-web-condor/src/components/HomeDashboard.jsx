@@ -40,6 +40,8 @@ function HomeDashboard({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [notiCount, setNotiCount] = useState(0);
 
+  /*chatt boot */
+  const [chatAbierto, setChatAbierto] = useState(false);
   const [puntosNuevos, setPuntosNuevos] = useState(false);
   const [beneficiosNuevos, setBeneficiosNuevos] = useState(false);
   const [ofertasNuevas, setOfertasNuevas] = useState(false);
@@ -211,10 +213,10 @@ function HomeDashboard({
 
         <div className="top-actions">
 
-          <div className="action-btn" onClick={onOpenUbicacion}>
-            <img src="/icono-ubicacion.png" alt="ubicacion" />
-            <span>Encontranos</span>
-          </div>
+          <div className="action-btn" onClick={() => setChatAbierto(!chatAbierto)}>
+  <img src="/icono-mensajes.png" alt="chat" />
+  <span>Hablemos</span>
+</div>
 
           <div className="action-btn" onClick={() => console.log("abrir chat")}>
             <img src="/icono-mensajes.png" alt="chat" />
@@ -310,6 +312,17 @@ function HomeDashboard({
   </div>
 )}
 
+{chatAbierto && (
+  <div className="chat-box">
+    <h4>¿En qué te podemos ayudar?</h4>
+
+    <div className="chat-option">🛒 ¿Cómo sumo puntos?</div>
+    <div className="chat-option">💳 ¿Cómo uso mi tarjeta?</div>
+    <div className="chat-option">🎁 ¿Cómo canjeo beneficios?</div>
+    <div className="chat-option">📍 ¿Dónde están las sucursales?</div>
+  </div>
+)}
+
       <footer className="home4-footer">
 
   <a
@@ -345,6 +358,9 @@ function HomeDashboard({
     <img src="/icono-candado.png" alt="privacidad" />
     <span>Privacidad</span>
   </div>
+
+
+
 
 </footer>
     </div>

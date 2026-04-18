@@ -113,7 +113,7 @@ function Login({ onBack, onLoginSuccess }) {
 
       <p className="register-text">
         ¿No tienes una cuenta?{" "}
-        <span onClick={onBack}>REGISTRARME</span>
+        <span onClick={onBack}>REGISTRATE</span>
       </p>
 
     </div>
