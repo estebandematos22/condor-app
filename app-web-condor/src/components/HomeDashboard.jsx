@@ -35,6 +35,8 @@ function HomeDashboard({
     }
   });
 
+  const [promoActiva, setPromoActiva] = useState(null);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [notiCount, setNotiCount] = useState(0);
 
@@ -289,19 +291,24 @@ function HomeDashboard({
 
   <div className="promo-cards">
 
-    <div className="promo-card">
-      <img src="/promos-bancarias-02.png" alt="promo1" />
-    </div>
+  <div className="promo-card" onClick={() => setPromoActiva("/promos-bancarias-01.png")}>
+    <img src="/promos-bancarias-01.png" />
+  </div>
 
-    <div className="promo-card">
-      <img src="/promos-bancarias-01.png" alt="promo2" />
-    </div>
-
+  <div className="promo-card" onClick={() => setPromoActiva("/promos-bancarias-02.png")}>
+    <img src="/promos-bancarias-02.png" />
   </div>
 
 </div>
 
+</div>
+
       </main>
+      {promoActiva && (
+  <div className="promo-modal" onClick={() => setPromoActiva(null)}>
+    <img src={promoActiva} className="promo-modal-img" />
+  </div>
+)}
 
       <footer className="home4-footer">
 
