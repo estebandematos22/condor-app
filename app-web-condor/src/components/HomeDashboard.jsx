@@ -1,6 +1,25 @@
 import { useEffect, useState } from "react";
 import "./HomeDashboard.css";
 
+
+/* 🔥 PEGAR ACÁ 👇 */
+const chatFlow = {
+  inicio: {
+    texto: "Hola 👋🏼 ¿En qué te puedo ayudar hoy?",
+    opciones: [
+      { label: "1. Ver mis puntos", next: "verPuntos" },
+      { label: "2. Promociones para mí", next: "promos" },
+      { label: "3. Usar mi tarjeta", next: "tarjeta" },
+      { label: "4. Problemas con mi cuenta", next: "problemas" }
+    ]
+  },
+
+  // ...todo lo demás que te pasé
+};
+/* 🔥 HASTA ACÁ */
+
+
+
 function HomeDashboard({ 
   onOpenMiTarjeta, 
   onOpenEditarPerfil, 
@@ -42,6 +61,8 @@ function HomeDashboard({
 
   /*chatt boot */
   const [chatAbierto, setChatAbierto] = useState(false);
+  const [chatPaso, setChatPaso] = useState("inicio");
+
   const [puntosNuevos, setPuntosNuevos] = useState(false);
   const [beneficiosNuevos, setBeneficiosNuevos] = useState(false);
   const [ofertasNuevas, setOfertasNuevas] = useState(false);
@@ -313,12 +334,26 @@ function HomeDashboard({
 
 {chatAbierto && (
   <div className="chat-box">
-    <h4>¿En qué te podemos ayudar?</h4>
 
-    <div className="chat-option">🛒 ¿Cómo sumo puntos?</div>
-    <div className="chat-option">💳 ¿Cómo uso mi tarjeta?</div>
-    <div className="chat-option">🎁 ¿Cómo canjeo beneficios?</div>
-    <div className="chat-option">📍 ¿Dónde están las sucursales?</div>
+    <h4>{chatFlow[chatPaso].texto}</h4>
+
+    {chatFlow[chatPaso].opciones.map((op, i) => (
+      <div
+        key={i}
+        className="chat-option"
+        onClick={() => {
+          if (op.next === "cerrar") {
+            setChatAbierto(false);
+            setChatPaso("inicio");
+          } else {
+            setChatPaso(op.next);
+          }
+        }}
+      >
+        {op.label}
+      </div>
+    ))}
+
   </div>
 )}
 
