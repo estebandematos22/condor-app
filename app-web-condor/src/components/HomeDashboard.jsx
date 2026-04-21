@@ -124,7 +124,7 @@ function HomeDashboard({
   const [notiCount, setNotiCount] = useState(0);
 
   /*chatt boot */
-  
+  const [escribiendo, setEscribiendo] = useState(false);
   const [chatAbierto, setChatAbierto] = useState(false);
   const [chatPaso, setChatPaso] = useState("inicio");
 
@@ -422,11 +422,22 @@ function HomeDashboard({
     </div>
 
     {/* MENSAJE */}
-    <div className="chat-messages">
-      <div className="msg bot">
-        {chatFlow[chatPaso]?.texto || ""}
-      </div>
+    {/* MENSAJE */}
+<div className="chat-messages">
+
+  <div className="msg bot">
+    {chatFlow[chatPaso]?.texto || ""}
+  </div>
+
+  {escribiendo && (
+    <div className="msg bot typing">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  )}
+
+</div>
 
     {/* OPCIONES */}
     <div className="chat-options">
@@ -434,13 +445,19 @@ function HomeDashboard({
         <button
           key={i}
           onClick={() => {
-            if (op.next === "cerrar") {
-              setChatAbierto(false);
-              setChatPaso("inicio");
-            } else {
-              setChatPaso(op.next);
-            }
-          }}
+  if (op.next === "cerrar") {
+    setChatAbierto(false);
+    setChatPaso("inicio");
+    return;
+  }
+
+  setEscribiendo(true);
+
+  setTimeout(() => {
+    setChatPaso(op.next);
+    setEscribiendo(false);
+  }, 1200); // ⏱ tiempo de "escribiendo"
+}}
         >
           {op.label}
         </button>
