@@ -1,3 +1,4 @@
+import ChatModal from "../components/ChatModal";
 import { useEffect, useState } from "react";
 import "./HomeDashboard.css";
 
@@ -123,6 +124,7 @@ function HomeDashboard({
   const [notiCount, setNotiCount] = useState(0);
 
   /*chatt boot */
+  
   const [chatAbierto, setChatAbierto] = useState(false);
   const [chatPaso, setChatPaso] = useState("inicio");
 
@@ -302,10 +304,12 @@ function HomeDashboard({
     <span>Encontranos</span>
   </div>
 
-  <div className="action-btn" onClick={() => setChatAbierto(!chatAbierto)}>
-    <img src="/icono-mensajes.png" alt="chat" />
-    <span>Hablemos</span>
-  </div>
+  
+
+  <div className="action-btn" onClick={() => setChatAbierto(true)}>
+  <img src="/icono-mensajes.png" alt="chat" />
+  <span>Hablemos</span>
+</div>
 
 </div>
         <div className="quick-access">
@@ -396,15 +400,39 @@ function HomeDashboard({
 )}
 
 {chatAbierto && (
-  <div className="chat-box">
+  <div className="chat-modal">
 
-    <h4>{chatFlow[chatPaso]?.texto || ""}</h4>
+    {/* HEADER */}
+    <div className="chat-header">
+      <button
+        className="chat-back"
+        onClick={() => setChatAbierto(false)}
+      >
+        ←
+      </button>
 
-    <div className="chat-body">
+      <span className="chat-title">Ayuda</span>
+
+      <button
+        className="chat-close"
+        onClick={() => setChatAbierto(false)}
+      >
+        ✕
+      </button>
+    </div>
+
+    {/* MENSAJE */}
+    <div className="chat-messages">
+      <div className="msg bot">
+        {chatFlow[chatPaso]?.texto || ""}
+      </div>
+    </div>
+
+    {/* OPCIONES */}
+    <div className="chat-options">
       {chatFlow[chatPaso]?.opciones?.map((op, i) => (
-        <div
+        <button
           key={i}
-          className="chat-option"
           onClick={() => {
             if (op.next === "cerrar") {
               setChatAbierto(false);
@@ -415,13 +443,12 @@ function HomeDashboard({
           }}
         >
           {op.label}
-        </div>
+        </button>
       ))}
     </div>
 
   </div>
 )}
-
       <footer className="home4-footer">
 
   <a
