@@ -9,7 +9,7 @@ const chatFlow = {
     texto: "Hola 👋🏼 ¿En qué te puedo ayudar hoy?",
     opciones: [
       { label: "1. Ver mis puntos", next: "verPuntos" },
-      { label: "2. Promociones para mí", next: "promos" },
+      { label: "2. Beneficios para mí", next: "promos" },
       { label: "3. Usar mi tarjeta", next: "tarjeta" },
       { label: "4. Problemas con mi cuenta", next: "problemas" }
     ]
@@ -411,7 +411,7 @@ function HomeDashboard({
         ←
       </button>
 
-      <span className="chat-title">Ayuda</span>
+      <span className="chat-title">Hablemos</span>
 
       <button
         className="chat-close"
