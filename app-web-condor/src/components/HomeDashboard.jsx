@@ -8,31 +8,44 @@ const chatFlow = {
   inicio: {
     texto: "Hola 👋🏼 ¿En qué te puedo ayudar hoy?",
     opciones: [
-      { label: "1. Ver mis puntos", next: "verPuntos" },
+      { label: "1. Ver mis puntos ", next: "verPuntos" },
       { label: "2. Beneficios para mí", next: "promos" },
-      { label: "3. Usar mi tarjeta", next: "tarjeta" },
-      { label: "4. Problemas con mi cuenta", next: "problemas" }
+      { label: "3. Mi tarjeta", next: "tarjeta" }, 
+      { label: "4. Ofertas", next: "Ofertas" },
+      { label: "5. Quiero comprar online", next: "Online" },
+      { label: "6. Problemas con mi cuenta", next: "problemas" },
+      
+    ]
+  },
+
+  Ofertas: {
+    texto: "¡Mirá todas las ofertas que tenemos para vos ingresando acá! 👇",
+    opciones: [
+      
+      { label: "Volver al menú", next: "inicio" }
+      
+    ]
+  },
+  Online: {
+    texto: "¡Buenísimo 🙌 ingresá acá para compra online de forma fácil y rápida 👇",
+    opciones: [
+      
+      { label: "Volver al menú", next: "inicio" }
+      
     ]
   },
 
   verPuntos: {
-    texto: "Para ver tus puntos ingresá a la sección ⭐ 'Puntos' en la pantalla de inicio.",
+    texto: "Para ver tus puntos ingresá acá 👇.",
     opciones: [
-      { label: "¿Cómo uso mis puntos?", next: "usarPuntos" },
+      
       { label: "Volver al menú", next: "inicio" }
     ]
   },
 
-  usarPuntos: {
-    texto: "Podés usar tus puntos una vez alcanzados los 80 puntos o más en descuentos en compras.",
-    opciones: [
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" }
-    ]
-  },
 
   promos: {
-    texto: "Para ver tus beneficios ingresá a 🎁 Mis beneficios o mirá las promos bancarias en el inicio.",
+    texto: "Mira todos los beneficios que tenemos para vos ingresando acá 👇.",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -40,7 +53,7 @@ const chatFlow = {
   },
 
   tarjeta: {
-    texto: "Tu tarjeta te permite sumar puntos y acceder a beneficios. Mostrala en caja antes de pagar.",
+    texto: "Si usas tu tarjeta, podaras acceder a un montón de beneficios pensados para vos ✨ <br>Tenés descuentos en tus compras cada día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más. ¡Aprovecharlos cada vez que compres!</br>",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -57,7 +70,7 @@ const chatFlow = {
   },
 
   errorPuntos: {
-    texto: "Puede pasar si no presentaste la tarjeta. Si creés que es un error, acercate a Casa Central.",
+    texto: "Puede pasar si no presentaste la tarjeta. Recordá que los puntos se verán reflejados en tu cuenta transcurridas las 24 hs desde que realizaste tu última compra 😄",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -65,7 +78,7 @@ const chatFlow = {
   },
 
   cambioCel: {
-    texto: "Podés seguir usando tu cuenta. Solo iniciá sesión nuevamente. Tus datos siguen guardados.",
+    texto: "¡Podés seguir usando tu cuenta sin problemas!😄 Sólo tenés que iniciar sesión nuevamente y listo. Tus datos están guardados y seguros.",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -79,6 +92,9 @@ const chatFlow = {
       { label: "Salir", next: "cerrar" }
     ]
   }
+  
+
+
 };
 /* 🔥 HASTA ACÁ */
 
