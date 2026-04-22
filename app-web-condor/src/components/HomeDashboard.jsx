@@ -21,16 +21,16 @@ const chatFlow = {
   Ofertas: {
     texto: "¡Mirá todas las ofertas que tenemos para vos ingresando acá! 👇",
     opciones: [
-      
-      { label: "Volver al menú", next: "inicio" }
+       { label: "Volver al menú", next: "inicio" },
+       { label: "Salir", next: "cerrar" }
       
     ]
   },
   Online: {
     texto: "¡Buenísimo 🙌 ingresá acá para compra online de forma fácil y rápida 👇",
     opciones: [
-      
-      { label: "Volver al menú", next: "inicio" }
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
       
     ]
   },
@@ -38,8 +38,8 @@ const chatFlow = {
   verPuntos: {
     texto: "Para ver tus puntos ingresá acá 👇.",
     opciones: [
-      
-      { label: "Volver al menú", next: "inicio" }
+      { label: "Volver al menú", next: "inicio" },
+      { label: "Salir", next: "cerrar" }
     ]
   },
 
