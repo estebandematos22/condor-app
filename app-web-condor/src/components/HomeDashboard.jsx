@@ -1,5 +1,5 @@
 import ChatModal from "../components/ChatModal";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./HomeDashboard.css";
 
 
@@ -27,7 +27,7 @@ const chatFlow = {
     ]
   },
   Online: {
-    texto: "¡Buenísimo 🙌 ingresá acá para compra online de forma fácil y rápida 👇",
+    texto: "¡Buenísimo! 🙌 ingresá acá para compra online de forma fácil y rápida 👇",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -53,7 +53,7 @@ const chatFlow = {
   },
 
   tarjeta: {
-    texto: "Si usas tu tarjeta, podaras acceder a un montón de beneficios pensados para vos ✨ <br>Tenés descuentos en tus compras cada día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más. ¡Aprovecharlos cada vez que compres!</br>",
+    texto: "Si usás tu tarjeta, podaras acceder a un montón de beneficios pensados para vos ✨ Tenés descuentos en tus compras cada día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más. ¡Aprovechalos cada vez que compres!",
     opciones: [
       { label: "Volver al menú", next: "inicio" },
       { label: "Salir", next: "cerrar" }
@@ -143,6 +143,8 @@ function HomeDashboard({
   const [escribiendo, setEscribiendo] = useState(false);
   const [chatAbierto, setChatAbierto] = useState(false);
   const [chatPaso, setChatPaso] = useState("inicio");
+  const [historial, setHistorial] = useState([]);
+const chatEndRef = useRef(null);
 
   const [puntosNuevos, setPuntosNuevos] = useState(false);
   const [beneficiosNuevos, setBeneficiosNuevos] = useState(false);
@@ -272,6 +274,17 @@ function HomeDashboard({
     fetchOfertas();
   }, []);
 
+  useEffect(() => {
+  if (chatAbierto) {
+    setHistorial([{ from: "bot", text: chatFlow.inicio.texto }]);
+    setChatPaso("inicio");
+  }
+}, [chatAbierto]);
+
+useEffect(() => {
+  chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [historial, escribiendo]);
+
   const handleOpenNotificaciones = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user || !user.id) return;
@@ -289,6 +302,32 @@ function HomeDashboard({
 
     onOpenNotificaciones();
   };
+
+  const handleOption = (op) => {
+  setHistorial(prev => [...prev, { from: "user", text: op.label }]);
+
+  if (op.next === "cerrar") {
+    setTimeout(() => setChatAbierto(false), 500);
+    return;
+  }
+
+  setEscribiendo(true);
+
+  setTimeout(() => {
+    if (op.next === "verPuntos") onOpenPuntos();
+    if (op.next === "promos") onOpenBeneficios();
+    if (op.next === "Ofertas") onOpenOfertas();
+
+    const next = chatFlow[op.next];
+
+    if (next) {
+      setHistorial(prev => [...prev, { from: "bot", text: next.texto }]);
+      setChatPaso(op.next);
+    }
+
+    setEscribiendo(false);
+  }, 1000);
+};
 
   return (
     <div className="home4-container">
@@ -415,66 +454,43 @@ function HomeDashboard({
   </div>
 )}
 
-{chatAbierto && (
+  {chatAbierto && (
   <div className="chat-modal">
 
-    {/* HEADER */}
     <div className="chat-header">
-      <button
-        className="chat-back"
-        onClick={() => setChatAbierto(false)}
-      >
-        ←
-      </button>
-
+      <button className="chat-back" onClick={() => setChatAbierto(false)}>←</button>
       <span className="chat-title">Hablemos</span>
-
-      <button
-        className="chat-close"
-        onClick={() => setChatAbierto(false)}
-      >
-        ✕
-      </button>
+      <button className="chat-close" onClick={() => setChatAbierto(false)}>✕</button>
     </div>
 
-    {/* MENSAJE */}
-    {/* MENSAJE */}
-<div className="chat-messages">
+    <div className="chat-messages">
+      {historial.map((msg, i) => (
+        <div key={i} className={`msg-row ${msg.from}`}>
+          {msg.from === "bot" && (
+            <img src="/avatar.png" className="avatar" alt="avatar" />
+          )}
 
-  <div className="msg bot">
-    {chatFlow[chatPaso]?.texto || ""}
-  </div>
+          <div className={`msg ${msg.from}`}>
+            {msg.text}
+          </div>
+        </div>
+      ))}
 
-  {escribiendo && (
-    <div className="msg bot typing">
-      <span></span>
-      <span></span>
-      <span></span>
+      {escribiendo && (
+        <div className="msg-row bot">
+          <img src="/avatar.png" className="avatar" alt="avatar" />
+          <div className="msg bot typing">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      )}
+
+      <div ref={chatEndRef}></div>
     </div>
-  )}
 
-</div>
-
-    {/* OPCIONES */}
     <div className="chat-options">
       {chatFlow[chatPaso]?.opciones?.map((op, i) => (
-        <button
-          key={i}
-          onClick={() => {
-  if (op.next === "cerrar") {
-    setChatAbierto(false);
-    setChatPaso("inicio");
-    return;
-  }
-
-  setEscribiendo(true);
-
-  setTimeout(() => {
-    setChatPaso(op.next);
-    setEscribiendo(false);
-  }, 1200); // ⏱ tiempo de "escribiendo"
-}}
-        >
+        <button key={i} onClick={() => handleOption(op)}>
           {op.label}
         </button>
       ))}
@@ -482,6 +498,7 @@ function HomeDashboard({
 
   </div>
 )}
+
       <footer className="home4-footer">
 
   <a
