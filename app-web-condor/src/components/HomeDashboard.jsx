@@ -16,13 +16,13 @@ const chatFlow = {
   },
 
   Ofertas: {
-    texto: "¡Mirá todas las ofertas que tenemos para vos! 👇",
-    opciones: [
-      { label: "👉 Ver ofertas", action: "ofertas" },
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
+  texto: "¡Mirá todas las ofertas que tenemos para vos! 👇",
+  cta: { label: "👉 Ver ofertas", action: "ofertas" },
+  opciones: [
+    { label: "Volver al menú", next: "inicio" },
+    { label: "Salir", next: "cerrar" }
+  ]
+},
 
   Online: {
     texto:
@@ -34,32 +34,31 @@ const chatFlow = {
   },
 
   verPuntos: {
-    texto: "Para ver tus puntos ingresá acá 👇",
-    opciones: [
-      { label: "👉 Ver mis puntos", action: "puntos" },
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
+  texto: "Para ver tus puntos ingresá acá 👇",
+  cta: { label: "👉 Ver mis puntos", action: "puntos" },
+  opciones: [
+    { label: "Volver al menú", next: "inicio" },
+    { label: "Salir", next: "cerrar" }
+  ]
+},
 
   promos: {
-    texto: "Mirá todos los beneficios que tenemos para vos ingresando acá 👇",
-    opciones: [
-      { label: "👉 Ver beneficios", action: "beneficios" },
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
+  texto: "Mirá todos los beneficios que tenemos para vos 👇",
+  cta: { label: "👉 Ver beneficios", action: "beneficios" },
+  opciones: [
+    { label: "Volver al menú", next: "inicio" },
+    { label: "Salir", next: "cerrar" }
+  ]
+},
 
   tarjeta: {
-    texto:
-      "Si usás tu tarjeta, podrás acceder a un montón de beneficios pensados para vos ✨ Tenés descuentos en tus compras cada día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más. ¡Aprovechalos cada vez que compres!",
-    opciones: [
-      { label: "👉 Ver mi tarjeta", action: "tarjeta" },
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
+  texto: "Si usás tu tarjeta, podés acceder a un montón de beneficios ✨",
+  cta: { label: "👉 Ver mi tarjeta", action: "tarjeta" },
+  opciones: [
+    { label: "Volver al menú", next: "inicio" },
+    { label: "Salir", next: "cerrar" }
+  ]
+},
 
   problemas: {
     texto: "Decime qué problema estás teniendo:",
@@ -332,13 +331,19 @@ function HomeDashboard({
 
       const next = chatFlow[op.next];
 
-      if (next) {
-        setHistorial((prev) => [
-          ...prev,
-          { from: "bot", text: next.texto },
-        ]);
-        setChatPaso(op.next);
-      }
+if (next) {
+  setHistorial(prev => [
+    ...prev,
+    { from: "bot", text: next.texto },
+
+    // 🔥 AGREGA BOTÓN DENTRO DEL CHAT
+    ...(next.cta
+      ? [{ from: "bot-cta", cta: next.cta }]
+      : [])
+  ]);
+
+  setChatPaso(op.next);
+}
 
       setEscribiendo(false);
     }, 1000);
@@ -477,22 +482,41 @@ function HomeDashboard({
           </div>
 
           <div className="chat-messages">
-            {historial.map((msg, i) => (
-              <div key={i} className={`msg-row ${msg.from}`}>
-                {msg.from === "bot" && (
-                  <div className="avatar-block">
-                    <img
-                      src="/avatar.png"
-                      className="avatar"
-                      alt="avatar"
-                    />
-                    <span className="avatar-name">Martín</span>
-                  </div>
-                )}
+            {historial.map((msg, i) => {
 
-                <div className={`msg ${msg.from}`}>{msg.text}</div>
-              </div>
-            ))}
+  // 🔥 BOTÓN DENTRO DEL CHAT
+  if (msg.from === "bot-cta") {
+    return (
+      <div key={i} className="msg-row bot">
+        <div className="msg bot">
+          <button
+            className="chat-btn"
+            onClick={() => handleOption(msg.cta)}
+          >
+            {msg.cta.label}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div key={i} className={`msg-row ${msg.from}`}>
+
+      {msg.from === "bot" && (
+        <div className="avatar-block">
+          <img src="/avatar.png" className="avatar" />
+          <span className="avatar-name">Martin</span>
+        </div>
+      )}
+
+      <div className={`msg ${msg.from}`}>
+        {msg.text}
+      </div>
+
+    </div>
+  );
+})}
 
             {escribiendo && (
               <div className="msg-row bot">
