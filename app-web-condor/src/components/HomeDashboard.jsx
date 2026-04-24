@@ -505,7 +505,7 @@ if (next) {
 
       {msg.from === "bot" && (
         <div className="avatar-block">
-          <img src="/avatar.png" className="avatar" />
+          <img src="/avatar.webp" className="avatar" />
           <span className="avatar-name">Martin</span>
         </div>
       )}
