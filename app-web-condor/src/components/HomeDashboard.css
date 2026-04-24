@@ -234,7 +234,14 @@
   background: #0a7a32;
 }
 
+.carousel {
+  touch-action: pan-y;
+}
 
+/* 🔥 EVITA SCROLL HORIZONTAL */
+body {
+  overflow-x: hidden;
+}
 /* PROMOS */
 .promo-section {
   width: 90%;
