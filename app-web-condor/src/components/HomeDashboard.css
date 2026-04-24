@@ -234,9 +234,6 @@
   background: #0a7a32;
 }
 
-.carousel {
-  touch-action: pan-y;
-}
 
 /* PROMOS */
 .promo-section {
