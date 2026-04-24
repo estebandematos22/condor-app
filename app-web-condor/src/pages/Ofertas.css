@@ -30,10 +30,12 @@
 
 /* LOGO */
 .of-logo {
+  
   position: absolute;
-  left: 10px;
-  width: 110px;
-  height: auto;
+  left: 5px;
+  width: 100px;
+  height: 97px;
+  
 }
 
 /* TITULO */

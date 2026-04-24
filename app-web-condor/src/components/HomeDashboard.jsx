@@ -146,6 +146,10 @@ function HomeDashboard({
   const [beneficiosNuevos, setBeneficiosNuevos] = useState(false);
   const [ofertasNuevas, setOfertasNuevas] = useState(false);
 
+  /* carrucel  */
+  const [touchStart, setTouchStart] = useState(null);
+const [touchEnd, setTouchEnd] = useState(null); 
+
   const slides = [
     "/proveedores-10.png",
     "/proveedores-07.png",
@@ -274,6 +278,35 @@ function HomeDashboard({
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [historial, escribiendo]);
+
+
+  const handleTouchStart = (e) => {
+  setTouchStart(e.targetTouches[0].clientX);
+};
+
+const handleTouchMove = (e) => {
+  setTouchEnd(e.targetTouches[0].clientX);
+};
+
+const handleTouchEnd = () => {
+  if (!touchStart || !touchEnd) return;
+
+  const distance = touchStart - touchEnd;
+
+  // 👉 swipe izquierda
+  if (distance > 50) {
+    setCurrentSlide((prev) =>
+      prev === slides.length - 1 ? 0 : prev + 1
+    );
+  }
+
+  // 👉 swipe derecha
+  if (distance < -50) {
+    setCurrentSlide((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  }
+};
 
   const handleOpenNotificaciones = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -419,13 +452,18 @@ if (next) {
           )}
         </div>
 
-        <div className="carousel shadow">
-          <img
-            src={slides[currentSlide]}
-            alt="oferta"
-            className="slide active"
-          />
-        </div>
+ <div
+  className="carousel shadow"
+  onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}
+>
+  <img
+    src={slides[currentSlide]}
+    alt="slide"
+    className="slide"
+  />
+</div>
 
         <div className="carousel-dots">
           {slides.map((_, index) => (

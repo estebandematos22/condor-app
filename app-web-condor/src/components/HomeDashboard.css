@@ -162,13 +162,21 @@
   height: 80px;
 }
 
+.quick-item  {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00512a;
+  
+}
 .quick-item span {
   margin-top: 6px;
   font-size: 12px;
   font-weight: 700;
-  color: #ffffff;
+  color: #00512a;
   left: 71px;
 }
+
 
 /* BADGE TARJETAS */
 .card-badge {
@@ -224,6 +232,10 @@
 
 .carousel-dots .active {
   background: #0a7a32;
+}
+
+.carousel {
+  touch-action: pan-y;
 }
 
 /* PROMOS */
