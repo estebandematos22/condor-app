@@ -83,7 +83,7 @@ function Login({ onBack, onLoginSuccess }) {
     {/* CONTENIDO */}
     <div className="login-content">
 
-      <h1>Bienvenido/a!</h1>
+      <h1>¡Bienvenido/a!</h1>
 
       <div className="input-group">
         <span>👤</span>
