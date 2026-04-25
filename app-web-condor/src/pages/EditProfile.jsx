@@ -1,4 +1,3 @@
-// 🔥 IMPORTS (dejá los tuyos igual arriba)
 import React, { useEffect, useState } from "react";
 import "./EditProfile.css";
 
@@ -20,9 +19,137 @@ export default function EditarPerfil({ onBack }) {
   const [showOk, setShowOk] = useState(false);
   const [error, setError] = useState("");
 
-  // 🔥 TUS useEffect y funciones VAN ACÁ (no cambio nada)
-  // fetchUsuario, handleChange, handleSubmit, handleEliminarCuenta, etc...
+  // 🔥 CARGAR DATOS DEL USUARIO DESDE LA BASE
+  useEffect(() => {
+    const cargarUsuario = async () => {
+      try {
+        setError("");
 
+        const res = await fetch("http://localhost:4000/api/usuario/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.message || "Error cargando perfil");
+        }
+
+        setFormData({
+          nombre: data.nombre || "",
+          apellido: data.apellido || "",
+          email: data.email || "",
+          telefono: data.telefono || "",
+          localidad: data.localidad || "",
+          domicilio: data.domicilio || "",
+          fecha_nacimiento: data.fecha_nacimiento
+            ? String(data.fecha_nacimiento).slice(0, 10)
+            : "",
+        });
+
+      } catch (err) {
+        console.error("Error cargando usuario:", err);
+        setError("Error cargando datos del usuario");
+      }
+    };
+
+    if (token) {
+      cargarUsuario();
+    }
+  }, [token]);
+
+  // 🔥 HANDLE CHANGE
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // 🔥 GUARDAR EN LA BASE DE DATOS
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:4000/api/usuario/me", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Error al actualizar perfil");
+      }
+
+      const userActual = JSON.parse(localStorage.getItem("user")) || {};
+
+      const actualizado = {
+        ...userActual,
+        ...formData,
+      };
+
+      localStorage.setItem("user", JSON.stringify(actualizado));
+
+      setShowOk(true);
+
+      setTimeout(() => {
+        setShowOk(false);
+      }, 2000);
+
+    } catch (err) {
+      console.error("Error guardando perfil:", err);
+      setError("Error al guardar datos");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 🔥 ELIMINAR CUENTA
+  const handleEliminarCuenta = async () => {
+  const confirmar = window.confirm("¿Seguro que querés eliminar tu cuenta?");
+  if (!confirmar) return;
+
+  try {
+    // 🔥 1. ELIMINAR EN BACKEND
+    const res = await fetch("http://localhost:4000/api/usuario/me", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.message || "Error al eliminar cuenta");
+    }
+
+    // 🔥 2. LIMPIAR LOCAL
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
+    alert("Cuenta eliminada correctamente");
+
+    // 🔥 3. VOLVER AL LOGIN
+    window.location.reload();
+
+  } catch (err) {
+    console.error(err);
+    alert("Error al eliminar la cuenta");
+  }
+};
   return (
     <div className="editar-perfil-container">
 

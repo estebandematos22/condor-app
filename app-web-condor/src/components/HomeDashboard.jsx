@@ -413,44 +413,46 @@ if (next) {
         </div>
 
         <div className="quick-access">
-          <div className="quick-item" onClick={onOpenMiTarjeta}>
-            <div className="quick-icon">
-              <img src="/icono-tarjeta.png" alt="tarjeta" />
-            </div>
-            <span>Mi tarjeta</span>
-          </div>
 
-          <div className="quick-item" onClick={onOpenOfertas}>
-            {ofertasNuevas && <span className="card-badge">1</span>}
-            <div className="quick-icon">
-              <img src="/icono-peso.png" alt="ofertas" />
-            </div>
-            <span>Ofertas</span>
-          </div>
+  <div className="quick-item" onClick={onOpenMiTarjeta}>
+    <div className="quick-icon">
+      <img src="/icono-tarjeta.png" alt="tarjeta" />
+    </div>
+    <span className="quick-label">Mi tarjeta</span>
+  </div>
 
-          <div className="quick-item" onClick={onOpenPuntos}>
-            {puntosNuevos && <span className="card-badge">1</span>}
-            <div className="quick-icon">
-              <img src="/icono-estrella.png" alt="puntos" />
-            </div>
-            <span>Puntos</span>
-          </div>
+  <div className="quick-item" onClick={onOpenOfertas}>
+    <div className="quick-icon">
+      <img src="/icono-peso.png" alt="ofertas" />
+      {ofertasNuevas && <span className="notif-badge">1</span>}
+    </div>
+    <span className="quick-label">Ofertas</span>
+  </div>
 
-          <div className="quick-item" onClick={onOpenBeneficios}>
-            {beneficiosNuevos && <span className="card-badge">1</span>}
-            <div className="quick-icon">
-              <img src="/icono-regalo.png" alt="beneficios" />
-            </div>
-            <span>Mis beneficios</span>
-          </div>
+  <div className="quick-item" onClick={onOpenPuntos}>
+    <div className="quick-icon">
+      <img src="/icono-estrella.png" alt="puntos" />
+      {puntosNuevos && <span className="notif-badge">1</span>}
+    </div>
+    <span className="quick-label">Puntos</span>
+  </div>
 
-          {isAdmin && (
-            <div className="quick-item" onClick={onOpenAdmin}>
-              <div className="quick-icon">⚙️</div>
-              <span>Admin</span>
-            </div>
-          )}
-        </div>
+  <div className="quick-item" onClick={onOpenBeneficios}>
+    <div className="quick-icon">
+      <img src="/icono-regalo.png" alt="beneficios" />
+      {beneficiosNuevos && <span className="notif-badge">1</span>}
+    </div>
+    <span className="quick-label">Mis beneficios</span>
+  </div>
+
+  {isAdmin && (
+    <div className="quick-item" onClick={onOpenAdmin}>
+      <div className="quick-icon">⚙️</div>
+      <span className="quick-label">Admin</span>
+    </div>
+  )}
+
+</div>
 
  <div
   className="carousel shadow"
