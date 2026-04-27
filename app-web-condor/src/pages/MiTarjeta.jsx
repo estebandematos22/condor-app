@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 function MiTarjeta({ onBack }) {
   const [userName, setUserName] = useState("");
+  const [flip, setFlip] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -36,7 +37,12 @@ function MiTarjeta({ onBack }) {
       </div>
 
       {/* TARJETA */}
-      <div className="card-wrapper">
+<div className="card-wrapper">
+  <div className={`flip-card ${flip ? "flipped" : ""}`} onClick={() => setFlip(!flip)}>
+    <div className="flip-inner">
+
+      {/* ===== FRENTE (TU CODIGO EXACTO) ===== */}
+      <div className="flip-front">
         <div className="condor-card">
 
           <div className="card-top-text">
@@ -44,14 +50,8 @@ function MiTarjeta({ onBack }) {
             <span>TARJETA DE BENEFICIOS</span>
           </div>
 
-          {/* CHIP */}
-          <img
-            src="/chip.gif"
-            alt="chip"
-            className="card-chip"
-          />
+          <img src="/chip.gif" alt="chip" className="card-chip" />
 
-          {/* MAPA */}
           <img
             src="/mapamisiones.png"
             alt="Provincia de Misiones"
@@ -64,14 +64,25 @@ function MiTarjeta({ onBack }) {
 
           <div className="barcode"></div>
 
-          <span className="card-client">CLIENTE:30104</span> 
-         
+          
           <span className="card-dni">DNI: 28803999</span>
 
         </div>
       </div>
 
-      
+      {/* ===== ATRÁS (MINIMO COMO PEDISTE) ===== */}
+      <div className="flip-back">
+        <div className="condor-card">
+
+          <span className="back-client">CLIENTE: 30104</span>
+          <span className="back-points">PUNTOS: 3000</span>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
       {/* FOOTER */}
       <footer className="home4-footer">
