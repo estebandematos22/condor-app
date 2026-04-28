@@ -107,19 +107,23 @@
 /* TARJETA CENTRADA */
 .card-wrapper {
   flex: 1;
-  width: 100%;
+  width: 100%; /* 🔥 ARREGLO CLAVE */
+  max-width: 340px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 0 10px; /* 🔥 clave para mobile */
+  margin: 0 auto; /* 🔥 centra el bloque completo */
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 /* TARJETA */
 .condor-card {
-  width: min(340px, 90vw);
+  width: 100%;
+  max-width: 340px;
+
   height: 190px;
   border-radius: 18px;
   padding: 16px;
