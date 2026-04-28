@@ -70,15 +70,50 @@ function MiTarjeta({ onBack }) {
         </div>
       </div>
 
-      {/* ===== ATRÁS (MINIMO COMO PEDISTE) ===== */}
+      {/* ===== ATRÁS (MINIMo) ===== */}
       <div className="flip-back">
-        <div className="condor-card">
+  <div className="condor-card">
 
-          <span className="back-client">CLIENTE: 30104</span>
-          <span className="back-points">PUNTOS: 3000</span>
+    <div className="card-back-content">
 
+      {/* IZQUIERDA */}
+      <div className="card-left">
+
+        {/* CLIENTE */}
+        <div className="back-block">
+          <span className="back-label">N.º DE CLIENTE</span>
+          <span className="back-value big">30104</span>
         </div>
+
+        {/* PUNTOS */}
+        <div className="back-block">
+          <span className="back-label">PUNTOS ACUMULADOS</span>
+          <span className="back-value">3000</span>
+        </div>
+
       </div>
+
+      {/* DERECHA */}
+      <div className="card-right">
+
+        {/* TITULAR */}
+        <div className="back-block">
+          <span className="back-label">TITULAR</span>
+          <span className="back-value small">{userName}</span>
+        </div>
+
+        {/* FECHA */}
+        <div className="back-block">
+          <span className="back-label">FECHA DE EMISIÓN</span>
+          <span className="back-value small">06/06/26</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
     </div>
   </div>
