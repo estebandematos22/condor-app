@@ -324,11 +324,11 @@
   color: #000;
   font-family: 'Ocra', monospace;
 }
-/* ================= BACK PREMIUM ================= */
+
 
 /* ================= BACK CARD LAYOUT ================= */
 
-/* CONTENEDOR BACK */
+
 /* CONTENEDOR BACK */
 .flip-back .condor-card {
   position: relative;
@@ -348,7 +348,7 @@
 
 /* CONTENIDO GENERAL */
 .card-back-content {
-  margin-top: 95px; /* 🔥 baja todo debajo de la barra */
+  margin-top: 95px;
   display: flex;
   justify-content: space-between;
 }
@@ -365,13 +365,25 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  text-align: right;
+  align-items: flex-end; /* 🔥 CLAVE */
 }
 
-/* BLOQUES */
+/* BLOQUES GENERALES */
 .back-block {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* izquierda */
+}
+
+/* BLOQUES DERECHA */
+.card-right .back-block {
+  align-items: flex-end; /* 🔥 CLAVE */
+}
+
+/* TEXTOS */
+.back-label,
+.back-value {
+  width: 100%; /* 🔥 alinea todo parejo */
 }
 
 /* TITULOS */
