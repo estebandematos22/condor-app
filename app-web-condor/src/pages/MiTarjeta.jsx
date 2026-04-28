@@ -4,20 +4,54 @@ import { useEffect, useState } from "react";
 function MiTarjeta({ onBack }) {
   const [userName, setUserName] = useState("");
   const [flip, setFlip] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+  const cargarUsuario = async () => {
     try {
-      if (storedUser) {
-        const parsed = JSON.parse(storedUser);
-        const fullName =
-          (parsed.nombre || "") + " " + (parsed.apellido || "");
-        setUserName(fullName.toUpperCase());
+      const token = localStorage.getItem("token");
+
+      const res = await fetch("http://localhost:4000/api/usuario/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      console.log(userData);
+
+      if (!res.ok) {
+        throw new Error(data.message || "Error cargando usuario");
       }
-    } catch {
-      console.error("Error leyendo usuario");
+
+      setUserData(data);
+
+      const fullName =
+        (data.nombre || "") + " " + (data.apellido || "");
+
+      setUserName(fullName.toUpperCase());
+
+    } catch (error) {
+      console.error("Error cargando usuario:", error);
+
+      // fallback por si falla el backend
+      const storedUser = localStorage.getItem("user");
+      try {
+        if (storedUser) {
+          const parsed = JSON.parse(storedUser);
+          const fullName =
+            (parsed.nombre || "") + " " + (parsed.apellido || "");
+          setUserName(fullName.toUpperCase());
+          setUserData(parsed);
+        }
+      } catch {
+        console.error("Error leyendo usuario");
+      }
     }
-  }, []);
+  };
+
+  cargarUsuario();
+}, []);
 
   return (
     <div className="mt-page">
@@ -59,13 +93,14 @@ function MiTarjeta({ onBack }) {
           />
 
           <div className="card-map-dot"></div>
+          
 
           <div className="card-name">{userName}</div>
 
           <div className="barcode"></div>
 
           
-          <span className="card-dni">DNI: 28803999</span>
+          <span className="card-dni">DNI: {userData?.dni || "-"}</span>
 
         </div>
       </div>
@@ -88,7 +123,9 @@ function MiTarjeta({ onBack }) {
         {/* PUNTOS */}
         <div className="back-block">
           <span className="back-label">PUNTOS ACUMULADOS</span>
-          <span className="back-value">3000</span>
+          <span className="back-value">
+  {userData?.puntos_actuales || 0}
+</span>
         </div>
 
       </div>

@@ -4,13 +4,23 @@ exports.getMe = async (req, res) => {
   try {
     const userId = req.user.id;
 
-    const [rows] = await db.query(
-  `SELECT id, nombre, apellido, telefono, dni, domicilio, localidad, fecha_nacimiento, beneficio
-   FROM users
-   WHERE id = ?`,
+  const [rows] = await db.query(
+  `SELECT 
+      u.id,
+      u.nombre,
+      u.apellido,
+      u.telefono,
+      u.dni,
+      u.domicilio,
+      u.localidad,
+      u.fecha_nacimiento,
+      u.beneficio,
+      p.puntos_actuales
+   FROM users u
+   LEFT JOIN puntos p ON p.user_id = u.id
+   WHERE u.id = ?`,
   [userId]
 );
-
     if (!rows.length) {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
