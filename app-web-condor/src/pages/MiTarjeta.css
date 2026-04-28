@@ -123,6 +123,7 @@
 .condor-card {
   width: 100%;
   max-width: 340px;
+  transform: translateX(-19px); /* 🔥 la mueve a la izquierda */
 
   height: 190px;
   border-radius: 18px;
