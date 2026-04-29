@@ -54,16 +54,33 @@ export default function ChatModal({ onClose, chatFlow }) {
 
       {/* MENSAJES */}
       <div className="chat-messages">
-        {historial.map((msg, i) => (
-          <div
-            key={i}
-            className={msg.from === "bot" ? "msg bot" : "msg user"}
-          >
-            {msg.text}
-          </div>
-        ))}
-        <div ref={scrollRef} />
+  {historial.map((msg, i) => (
+    <div key={i} className={`msg-row ${msg.from}`}>
+
+  {msg.from === "bot" ? (
+    <div className="bot-container">
+
+      <div className="avatar-top">
+        <img src="/avatar.png" className="avatar" />
+        <span className="avatar-name">Martin</span>
       </div>
+
+      <div className="msg bot">
+        {msg.text}
+      </div>
+
+    </div>
+  ) : (
+    <div className="msg user">
+      {msg.text}
+    </div>
+  )}
+
+</div>
+  ))}
+
+  <div ref={scrollRef} />
+</div>
 
       {/* OPCIONES */}
       <div className="chat-options">

@@ -124,8 +124,8 @@ function MiTarjeta({ onBack }) {
         <div className="back-block">
           <span className="back-label">PUNTOS ACUMULADOS</span>
           <span className="back-value">
-  {userData?.puntos_actuales || 0}
-</span>
+          {userData?.puntos_actuales || 0}
+            </span>
         </div>
 
       </div>

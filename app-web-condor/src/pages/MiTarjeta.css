@@ -26,6 +26,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  
 
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;

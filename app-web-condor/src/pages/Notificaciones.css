@@ -13,6 +13,7 @@
   height: 90px;
 
   flex-shrink: 0; /* 🔥 clave */
+  font-family: 'Poppins', sans-serif;
 
   background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   display: flex;
