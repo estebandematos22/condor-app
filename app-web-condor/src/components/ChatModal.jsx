@@ -48,7 +48,8 @@ export default function ChatModal({ onClose, chatFlow }) {
       {/* HEADER */}
       <div className="chat-header">
         <button className="chat-back" onClick={onClose}>←</button>
-        <span className="chat-title">Ayuda</span>
+         <img src="/icono-mensajes.png" className="chat-icon" />
+           <span>Hablemos</span>
         <button className="chat-close" onClick={onClose}>✕</button>
       </div>
 
