@@ -387,7 +387,7 @@ if (next) {
       <header className="home4-header">
         <div className="user-section" onClick={onOpenEditarPerfil}>
           <img src="/logo1.png" alt="logo" className="header-logo" />
-          <h2 className="user-name">hola {userName}!</h2>
+          <h2 className="user-name">Hola {userName}!</h2>
         </div>
 
         <div className="bell-btn" onClick={handleOpenNotificaciones}>
@@ -506,20 +506,25 @@ if (next) {
       {chatAbierto && (
         <div className="chat-modal">
           <div className="chat-header">
-            <button
-              className="chat-back"
-              onClick={() => setChatAbierto(false)}
-            >
-              ←
-            </button>
-            <span className="chat-title">Hablemos</span>
-            <button
-              className="chat-close"
-              onClick={() => setChatAbierto(false)}
-            >
-              ✕
-            </button>
-          </div>
+  <button
+    className="chat-back"
+    onClick={() => setChatAbierto(false)}
+  >
+    ←
+  </button>
+
+  <div className="chat-title">
+    <img src="/icono-mensajes.png" className="chat-icon" />
+    <span>Hablemos</span>
+  </div>
+
+  <button
+    className="chat-close"
+    onClick={() => setChatAbierto(false)}
+  >
+    ✕
+  </button>
+</div>
 
           <div className="chat-messages">
             {historial.map((msg, i) => {
