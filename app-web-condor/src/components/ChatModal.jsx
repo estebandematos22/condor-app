@@ -46,12 +46,10 @@ export default function ChatModal({ onClose, chatFlow }) {
     <div className="chat-modal">
 
       {/* HEADER */}
-      <div className="chat-header">
-        <button className="chat-back" onClick={onClose}>←</button>
-         <img src="/icono-mensajes.png" className="chat-icon" />
-           <span>Hablemos</span>
-        <button className="chat-close" onClick={onClose}>✕</button>
-      </div>
+      <div className="chat-title">
+  <img src="/icono-mensaje.png" className="chat-icon" />
+  <span>Hablemos</span>
+</div>
 
       {/* MENSAJES */}
       <div className="chat-messages">
@@ -63,7 +61,9 @@ export default function ChatModal({ onClose, chatFlow }) {
 
       <div className="avatar-top">
         <img src="/avatar.png" className="avatar" />
-        <span className="avatar-name">Martin</span>
+        <span className="avatar-name">Martiiiiiiin</span>
+
+        
       </div>
 
       <div className="msg bot">

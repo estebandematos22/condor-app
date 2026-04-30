@@ -9,9 +9,10 @@
 }
 
 /* 🔥 HEADER */
+
 .chat-header {
   height: 70px;
-  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%); /* 🔥 tu verde */
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -22,6 +23,21 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* 🔥 FORZAMOS CENTRADO REAL */
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;   /* 🔥 CLAVE */
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* ICONO MENSAJE */
+.chat-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
 .chat-back,
 .chat-close {
   position: absolute;
