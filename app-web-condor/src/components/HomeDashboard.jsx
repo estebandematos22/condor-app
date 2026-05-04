@@ -52,8 +52,7 @@ const chatFlow = {
 },
 
   tarjeta: {
-  texto: "Si usás tu tarjeta, podés acceder a un montón de beneficios ✨",
-   texto: "Tenés descuentos en tus compras del día a día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más ¡Aprovechalos! ✨",
+  texto: "Si usás tu tarjeta, podés acceder a un montón de beneficios ✨ \n\n Tenés descuentos en tus compras del día a día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más ¡Aprovechalos! ✨",
 
   cta: { label: "👉 Ver mi tarjeta", action: "tarjeta" },
   opciones: [
@@ -553,7 +552,7 @@ if (next) {
       {msg.from === "bot" && (
         <div className="avatar-block">
           <img src="/avatar.webp" className="avatar" />
-          <span className="avatar-name">Martin</span>
+          
         </div>
       )}
 

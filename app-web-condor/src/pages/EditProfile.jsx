@@ -156,7 +156,7 @@ export default function EditarPerfil({ onBack }) {
       <header className="home4-header">
         <div className="user-section">
           <img src="/logo1.png" alt="logo" className="header-logo" />
-          <h2 className="user-name">Editar Perfil</h2>
+          <h2 className="user-name">Perfil</h2>
         </div>
 
         <div style={{ display: "flex", gap: "10px" }}>
