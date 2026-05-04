@@ -61,7 +61,7 @@ export default function ChatModal({ onClose, chatFlow }) {
 
       <div className="avatar-top">
         <img src="/avatar.png" className="avatar" />
-        <span className="avatar-name">Martiiiiiiin</span>
+        <span className="avatar-name"></span>
 
         
       </div>

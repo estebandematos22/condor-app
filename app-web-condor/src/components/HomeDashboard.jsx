@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./HomeDashboard.css";
 
-/* 🔥 CHAT FLOW */
+/* 🔥 CHAT */
 const chatFlow = {
   inicio: {
     texto: "Hola 👋🏼 ¿En qué te puedo ayudar hoy?",
@@ -53,6 +53,8 @@ const chatFlow = {
 
   tarjeta: {
   texto: "Si usás tu tarjeta, podés acceder a un montón de beneficios ✨",
+   texto: "Tenés descuentos en tus compras del día a día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más ¡Aprovechalos! ✨",
+
   cta: { label: "👉 Ver mi tarjeta", action: "tarjeta" },
   opciones: [
     { label: "Volver al menú", next: "inicio" },
