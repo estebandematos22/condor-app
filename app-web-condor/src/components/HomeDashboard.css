@@ -32,6 +32,11 @@
 
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
+.home4-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px; /* 🔥 clave: espacio para el footer */
+}
 
 /* USER */
 .user-section {
