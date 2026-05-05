@@ -1,4 +1,6 @@
 /* CONTENEDOR */
+
+
 .home4-container {
   height: 100vh;
   width: 100%;
@@ -95,10 +97,7 @@
 }
 
 /* 🔥 CONTENIDO SCROLL */
-.home4-content {
-  flex: 1;
-  overflow-y: auto;
-}
+
 
 /* BOTONES SUPERIORES */
 .top-actions {
@@ -261,8 +260,9 @@
 }
 
 /* 🔥 EVITA SCROLL HORIZONTAL */
-body {
-  overflow-x: hidden;
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 /* PROMOS */
 .promo-section {
