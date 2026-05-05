@@ -34,10 +34,9 @@
 }
 .home4-content {
   flex: 1;
-  overflow-y: auto;
-  padding-bottom: 80px; /* 🔥 clave: espacio para el footer */
+  overflow: hidden;
+  padding-bottom: 60px; /* 🔥 espacio para el footer */
 }
-
 /* USER */
 .user-section {
   display: flex;
