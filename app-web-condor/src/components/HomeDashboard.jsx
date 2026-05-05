@@ -623,7 +623,7 @@ if (next) {
 
         <div className="footer-item">
           <img src="/icono-pregunta.png" alt="preguntas" />
-          <span>Preguntas</span>
+          <span>Terminos y Condicines</span>
         </div>
 
         <div className="footer-item" onClick={onOpenEditarPerfil}>
