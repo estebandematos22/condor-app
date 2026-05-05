@@ -123,7 +123,7 @@ export default function EditarPerfil({ onBack }) {
 
   try {
     // 🔥 1. ELIMINAR EN BACKEND
-    const res = await fetch("http://localhost:4000/api/usuario/me", {
+    const res = await fetch("http://localhost:4000/api/usuario/eliminar", {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -153,33 +153,25 @@ export default function EditarPerfil({ onBack }) {
   return (
     <div className="editar-perfil-container">
 
-      <header className="home4-header">
-        <div className="user-section">
-          <img src="/logo1.png" alt="logo" className="header-logo" />
-          <h2 className="user-name">Perfil</h2>
-        </div>
+      <header className="edit-header">
 
-        <div style={{ display: "flex", gap: "10px" }}>
-          <button className="btn-volver" onClick={() => onBack && onBack()}>
-            Volver
-          </button>
+  <div className="edit-left">
+    <img src="/logo1.png" alt="logo" className="edit-logo" />
+  </div>
 
-          <button
-            onClick={handleEliminarCuenta}
-            style={{
-              background: "red",
-              color: "white",
-              border: "none",
-              padding: "8px 12px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: "bold"
-            }}
-          >
-            Eliminar cuenta
-          </button>
-        </div>
-      </header>
+  <div className="edit-center">
+    <h2 className="edit-title">Perfil</h2>
+  </div>
+
+  <div style={{ display: "flex", gap: "10px" }}>
+    <button className="btn-volver" onClick={() => onBack && onBack()}>
+      Volver
+    </button>
+
+    
+  </div>
+
+</header>
 
       <div className="edit-content">
 
@@ -259,9 +251,26 @@ export default function EditarPerfil({ onBack }) {
 
           {error && <p className="form-error">{error}</p>}
 
-          <button className="btn-guardar" type="submit" disabled={loading}>
+          <button className="btn-guardar" type="button" disabled={loading}>
             {loading ? "Guardando..." : "Guardar Cambios"}
           </button>
+          <button
+      onClick={handleEliminarCuenta}
+      style={{
+  background: "#d32f2f",
+  color: "white",
+  border: "none",
+  padding: "14px",
+  borderRadius: "14px",
+  cursor: "pointer",
+  fontWeight: "700",
+  fontFamily: "Poppins, sans-serif",
+  width: "100%",
+  marginTop: "10px"
+}}
+    >
+      Eliminar cuenta
+    </button>
         </form>
 
       </div>

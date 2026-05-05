@@ -386,7 +386,7 @@ if (next) {
   return (
     <div className="home4-container">
       <header className="home4-header">
-        <div className="user-section" onClick={onOpenEditarPerfil}>
+        <div className="user-section" >
           <img src="/logo1.png" alt="logo" className="header-logo" />
           <h2 className="user-name">Hola {userName}!</h2>
         </div>
@@ -626,10 +626,10 @@ if (next) {
           <span>Preguntas</span>
         </div>
 
-        <div className="footer-item">
-          <img src="/icono-candado.png" alt="privacidad" />
-          <span>Privacidad</span>
-        </div>
+        <div className="footer-item" onClick={onOpenEditarPerfil}>
+  <img src="/icono-candado.png" alt="privacidad" />
+  <span>Privacidad</span>
+</div>
       </footer>
     </div>
   );

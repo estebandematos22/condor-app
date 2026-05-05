@@ -18,39 +18,31 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 🔥 clave */
+  justify-content: space-between;
 
-  padding: 0 15px;
+  padding: 0 0px;
+  
 
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 
   box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
 }
-/* LOGO */
 .edit-logo {
-  position: absolute;
-  left: 15px;
   width: 120px;
-  height: auto;
 }
 
-/* TITULO */
 .edit-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /* 🔥 centra perfecto */
-  
+  flex: 1;
+  text-align: center;
+
   font-size: 1.5rem;
   font-weight: 800;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
 }
 
-/* BOTONES HEADER */
 .edit-header-right {
-  position: absolute;
-  right: 15px;
   display: flex;
   gap: 8px;
 }
@@ -58,7 +50,7 @@
 .btn-volver-header {
   background: #e5e5e5;
   border: none;
-  color: #00512a;
+  color: #f0f1f1;
   padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -68,13 +60,14 @@
 }
 
 .btn-eliminar {
+  margin-top: 8px;
+  width: 90%;          /* ocupa todo el ancho */
+  padding: 20px;        /* más alto */
+  border-radius: 14px;
   background: #d32f2f;
   color: white;
   border: none;
-  padding: 6px 10px;
-  border-radius: 10px;
   cursor: pointer;
-  font-size: 12px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -160,9 +153,9 @@
   width: 100%;
   padding: 12px;
   border-radius: 14px;
-  background: #1faa00;
+  background: #dee1de;
   border: none;
-  color: white;
+  color: #046d1b;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
