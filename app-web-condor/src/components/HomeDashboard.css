@@ -35,7 +35,7 @@
 .home4-content {
   flex: 1;
   overflow: hidden;
-  padding-bottom: 60px; /* 🔥 espacio para el footer */
+  padding-bottom: 45px; /* 🔥 espacio para el footer */
 }
 /* USER */
 .user-section {
