@@ -100,139 +100,98 @@ const chatFlow = {
     texto:
       "Para resolver cualquier otra inquietud podés acercarte a Casa Central o comunicarte con nosotros 😊",
 
-    opciones: [
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   modificarDatos: {
     texto:
       "Sí 😊 Podés mantener tu información actualizada sin problemas.\n\nIngresá al botón “Privacidad” desde la pantalla principal para editar tus datos.",
 
-    opciones: [
-      { label: "Volver a Mi Cuenta", next: "miCuenta" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   eliminarCuenta: {
     texto:
       "Sí, podés eliminar tu cuenta desde la sección “Privacidad” presionando el botón rojo “Eliminar cuenta”.",
 
-    opciones: [
-      { label: "Volver a Mi Cuenta", next: "miCuenta" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   eliminarAccidental: {
     texto:
       "Si eliminás tu cuenta, todos tus datos serán borrados automáticamente, incluyendo puntos y beneficios acumulados.",
 
-    opciones: [
-      { label: "Volver a Mi Cuenta", next: "miCuenta" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   olvidePass: {
     texto:
       "Si olvidaste tu contraseña, utilizá la opción “Recuperar contraseña” dentro de la app para restablecer el acceso.",
 
-    opciones: [
-      { label: "Volver a Mi Cuenta", next: "miCuenta" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   cambioCelular: {
     texto:
       "Podés seguir usando tu cuenta sin problemas 😊\n\nSolo iniciá sesión nuevamente y tus datos seguirán guardados.",
 
-    opciones: [
-      { label: "Volver a Mi Cuenta", next: "miCuenta" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   paraQuePuntos: {
     texto:
       "Podés utilizar tus puntos para acceder a descuentos, beneficios especiales y promociones exclusivas 😊",
 
-    opciones: [
-      { label: "Volver a Puntos", next: "puntosMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   acumuloPuntos: {
     texto:
       "Para acumular puntos debés presentar tu tarjeta o número de cliente en cada compra.\n\nTambién podés sumar puntos en compras online 😊",
 
-    opciones: [
-      { label: "Volver a Puntos", next: "puntosMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+   
   },
 
   canjeoPuntos: {
     texto:
       "Tus puntos pueden canjearse por beneficios y promociones especiales disponibles dentro de la app 😊",
 
-    opciones: [
-      { label: "Volver a Puntos", next: "puntosMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   vencenPuntos: {
     texto:
       "Los puntos pueden tener vencimiento dependiendo de las promociones vigentes.",
 
-    opciones: [
-      { label: "Volver a Puntos", next: "puntosMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   tarjetaFisica: {
     texto:
       "Sí 😊 Se entrega tarjeta física a clientes que tengan dificultades para usar la app.",
 
-    opciones: [
-      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   usarTarjeta: {
     texto:
       "Sí 😊 Tu tarjeta funciona en todas las sucursales de Súper El Cóndor.",
 
-    opciones: [
-      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   pierdoTarjeta: {
     texto:
       "Deberás acercarte a Casa Central para solicitar la reposición de tu tarjeta física 😊",
 
-    opciones: [
-      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 
   errorPuntos: {
     texto:
       "Puede pasar si no presentaste la tarjeta. Recordá que los puntos se verán reflejados dentro de las 24 hs posteriores a tu compra 😊",
 
-    opciones: [
-      { label: "Volver a Puntos", next: "puntosMenu" },
-      { label: "Volver al menú", next: "inicio" },
-    ],
+    
   },
 };
 function HomeDashboard({
@@ -278,6 +237,7 @@ function HomeDashboard({
   const [chatAbierto, setChatAbierto] = useState(false);
   const [chatPaso, setChatPaso] = useState("inicio");
   const [historial, setHistorial] = useState([]);
+  const [preguntasUsadas, setPreguntasUsadas] = useState([]);
   const chatEndRef = useRef(null);
 
   const [puntosNuevos, setPuntosNuevos] = useState(false);
@@ -473,6 +433,8 @@ const handleTouchEnd = () => {
     }
 
     setHistorial((prev) => [...prev, { from: "user", text: op.label }]);
+
+    setPreguntasUsadas((prev) => [...prev, op.label]);
     setEscribiendo(true);
 
     setTimeout(() => {
@@ -655,12 +617,7 @@ if (next) {
       {chatAbierto && (
         <div className="chat-modal">
          <div className="chat-header">
-  <button
-    className="chat-back"
-    onClick={() => setChatAbierto(false)}
-  >
-    ←
-  </button>
+  
 
   <img src="/logo1.png" alt="logo" className="chat-logo" />
 
@@ -718,23 +675,25 @@ if (next) {
           </div>
 
           {/* 🔥 SUBPREGUNTAS DENTRO DEL CHAT */}
-          {msg.from === "bot" && msg.opciones && (
-            <div className="chat-inline-options">
+{msg.from === "bot" && msg.opciones && (
+  <div className="chat-inline-options">
 
-              {msg.opciones.map((op, index) => (
+    {msg.opciones
+      .filter((op) => !preguntasUsadas.includes(op.label))
+      .map((op, index) => (
 
-                <button
-                  key={index}
-                  className="chat-option-btn"
-                  onClick={() => handleOption(op)}
-                >
-                  {op.label}
-                </button>
+        <button
+          key={index}
+          className="chat-option-btn"
+          onClick={() => handleOption(op)}
+        >
+          {op.label}
+        </button>
 
-              ))}
+      ))}
 
-            </div>
-          )}
+  </div>
+)}
 
         </div>
 
