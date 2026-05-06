@@ -2,102 +2,239 @@ import { useEffect, useState, useRef } from "react";
 import "./HomeDashboard.css";
 
 /* 🔥 CHAT */
+const user = JSON.parse(localStorage.getItem("user"));
+
 const chatFlow = {
+
   inicio: {
-    texto: "Hola 👋🏼 ¿En qué te puedo ayudar hoy?",
+    texto: `¡Hola ${user?.nombre || ""}! 👋 Mi nombre es Coni ¿En qué te puedo ayudar hoy?`,
     opciones: [
-      { label: "1. Ver mis puntos", next: "verPuntos" },
-      { label: "2. Beneficios para mí", next: "promos" },
-      { label: "3. Mi tarjeta", next: "tarjeta" },
-      { label: "4. Ofertas", next: "Ofertas" },
-      { label: "5. Quiero comprar online", next: "Online" },
-      { label: "6. Problemas con mi cuenta", next: "problemas" },
+      { label: "Mi cuenta", next: "miCuenta" },
+      { label: "Puntos", next: "puntosMenu" },
+      { label: "Tarjeta", next: "tarjetaMenu" },
+      { label: "Otros", next: "otrosMenu" },
     ],
   },
 
-  Ofertas: {
-  texto: "¡Mirá todas las ofertas que tenemos para vos! 👇",
-  cta: { label: "👉 Ver ofertas", action: "ofertas" },
-  opciones: [
-    { label: "Volver al menú", next: "inicio" },
-    { label: "Salir", next: "cerrar" }
-  ]
-},
+  miCuenta: {
+    texto: "¿Qué necesitás saber sobre tu cuenta?",
+    opciones: [
+      {
+        label: "¿Puedo modificar mis datos?",
+        next: "modificarDatos"
+      },
 
-  Online: {
+      {
+        label: "¿Puedo eliminar mi cuenta?",
+        next: "eliminarCuenta"
+      },
+
+      {
+        label: "¿Qué pasa si elimino accidentalmente mi cuenta?",
+        next: "eliminarAccidental"
+      },
+
+      {
+        label: "Olvidé mi contraseña",
+        next: "olvidePass"
+      },
+
+      {
+        label: "Cambié de celular",
+        next: "cambioCelular"
+      },
+    ],
+  },
+
+  puntosMenu: {
+    texto: "¿Qué necesitás saber sobre tus puntos?",
+    opciones: [
+      {
+        label: "¿Para qué sirven los puntos?",
+        next: "paraQuePuntos"
+      },
+
+      {
+        label: "¿Cómo acumulo puntos?",
+        next: "acumuloPuntos"
+      },
+
+      {
+        label: "¿Cómo canjeo mis puntos?",
+        next: "canjeoPuntos"
+      },
+
+      {
+        label: "¿Los puntos vencen?",
+        next: "vencenPuntos"
+      },
+
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos"
+      },
+    ],
+  },
+
+  tarjetaMenu: {
+    texto: "¿Qué necesitás saber sobre tu tarjeta?",
+    opciones: [
+      {
+        label: "¿Existe una tarjeta física?",
+        next: "tarjetaFisica"
+      },
+
+      {
+        label: "¿Puedo usar mi tarjeta en cualquier sucursal?",
+        next: "usarTarjeta"
+      },
+
+      {
+        label: "¿Qué pasa si pierdo mi tarjeta física?",
+        next: "pierdoTarjeta"
+      },
+    ],
+  },
+
+  otrosMenu: {
     texto:
-      "¡Buenísimo! 🙌 ingresá acá para compra online de forma fácil y rápida 👇",
+      "Para resolver cualquier otra inquietud podés acercarte a Casa Central o comunicarte con nosotros 😊",
+
     opciones: [
       { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
     ],
   },
 
-  verPuntos: {
-  texto: "Para ver tus puntos ingresá acá 👇",
-  cta: { label: "👉 Ver mis puntos", action: "puntos" },
-  opciones: [
-    { label: "Volver al menú", next: "inicio" },
-    { label: "Salir", next: "cerrar" }
-  ]
-},
+  modificarDatos: {
+    texto:
+      "Sí 😊 Podés mantener tu información actualizada sin problemas.\n\nIngresá al botón “Privacidad” desde la pantalla principal para editar tus datos.",
 
-  promos: {
-  texto: "Mirá todos los beneficios que tenemos para vos 👇",
-  cta: { label: "👉 Ver beneficios", action: "beneficios" },
-  opciones: [
-    { label: "Volver al menú", next: "inicio" },
-    { label: "Salir", next: "cerrar" }
-  ]
-},
-
-  tarjeta: {
-  texto: "Si usás tu tarjeta, podés acceder a un montón de beneficios ✨ \n\n Tenés descuentos en tus compras del día a día y ofertas especiales que te ayudan a ahorrar mientras disfrutás más ¡Aprovechalos! ✨",
-
-  cta: { label: "👉 Ver mi tarjeta", action: "tarjeta" },
-  opciones: [
-    { label: "Volver al menú", next: "inicio" },
-    { label: "Salir", next: "cerrar" }
-  ]
-},
-
-  problemas: {
-    texto: "Decime qué problema estás teniendo:",
     opciones: [
-      { label: "Mis puntos no aparecen", next: "errorPuntos" },
-      { label: "Cambié de celular", next: "cambioCel" },
-      { label: "Hablar con un asesor", next: "asesor" },
+      { label: "Volver a Mi Cuenta", next: "miCuenta" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  eliminarCuenta: {
+    texto:
+      "Sí, podés eliminar tu cuenta desde la sección “Privacidad” presionando el botón rojo “Eliminar cuenta”.",
+
+    opciones: [
+      { label: "Volver a Mi Cuenta", next: "miCuenta" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  eliminarAccidental: {
+    texto:
+      "Si eliminás tu cuenta, todos tus datos serán borrados automáticamente, incluyendo puntos y beneficios acumulados.",
+
+    opciones: [
+      { label: "Volver a Mi Cuenta", next: "miCuenta" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  olvidePass: {
+    texto:
+      "Si olvidaste tu contraseña, utilizá la opción “Recuperar contraseña” dentro de la app para restablecer el acceso.",
+
+    opciones: [
+      { label: "Volver a Mi Cuenta", next: "miCuenta" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  cambioCelular: {
+    texto:
+      "Podés seguir usando tu cuenta sin problemas 😊\n\nSolo iniciá sesión nuevamente y tus datos seguirán guardados.",
+
+    opciones: [
+      { label: "Volver a Mi Cuenta", next: "miCuenta" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  paraQuePuntos: {
+    texto:
+      "Podés utilizar tus puntos para acceder a descuentos, beneficios especiales y promociones exclusivas 😊",
+
+    opciones: [
+      { label: "Volver a Puntos", next: "puntosMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  acumuloPuntos: {
+    texto:
+      "Para acumular puntos debés presentar tu tarjeta o número de cliente en cada compra.\n\nTambién podés sumar puntos en compras online 😊",
+
+    opciones: [
+      { label: "Volver a Puntos", next: "puntosMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  canjeoPuntos: {
+    texto:
+      "Tus puntos pueden canjearse por beneficios y promociones especiales disponibles dentro de la app 😊",
+
+    opciones: [
+      { label: "Volver a Puntos", next: "puntosMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  vencenPuntos: {
+    texto:
+      "Los puntos pueden tener vencimiento dependiendo de las promociones vigentes.",
+
+    opciones: [
+      { label: "Volver a Puntos", next: "puntosMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  tarjetaFisica: {
+    texto:
+      "Sí 😊 Se entrega tarjeta física a clientes que tengan dificultades para usar la app.",
+
+    opciones: [
+      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  usarTarjeta: {
+    texto:
+      "Sí 😊 Tu tarjeta funciona en todas las sucursales de Súper El Cóndor.",
+
+    opciones: [
+      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
+      { label: "Volver al menú", next: "inicio" },
+    ],
+  },
+
+  pierdoTarjeta: {
+    texto:
+      "Deberás acercarte a Casa Central para solicitar la reposición de tu tarjeta física 😊",
+
+    opciones: [
+      { label: "Volver a Tarjeta", next: "tarjetaMenu" },
+      { label: "Volver al menú", next: "inicio" },
     ],
   },
 
   errorPuntos: {
     texto:
-      "Puede pasar si no presentaste la tarjeta. Recordá que los puntos se verán reflejados en tu cuenta transcurridas las 24 hs desde que realizaste tu última compra 😄",
-    opciones: [
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
+      "Puede pasar si no presentaste la tarjeta. Recordá que los puntos se verán reflejados dentro de las 24 hs posteriores a tu compra 😊",
 
-  cambioCel: {
-    texto:
-      "¡Podés seguir usando tu cuenta sin problemas! 😄 Solo tenés que iniciar sesión nuevamente y listo. Tus datos están guardados y seguros.",
     opciones: [
+      { label: "Volver a Puntos", next: "puntosMenu" },
       { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
-    ],
-  },
-
-  asesor: {
-    texto:
-      "Podés acercarte a Casa Central o escribir al WhatsApp 3755 112233",
-    opciones: [
-      { label: "Volver al menú", next: "inicio" },
-      { label: "Salir", next: "cerrar" },
     ],
   },
 };
-
 function HomeDashboard({
   onOpenMiTarjeta,
   onOpenEditarPerfil,
@@ -363,17 +500,28 @@ const handleTouchEnd = () => {
         return;
       }
 
-      const next = chatFlow[op.next];
+        const next = chatFlow[op.next];
 
 if (next) {
-  setHistorial(prev => [
-    ...prev,
-    { from: "bot", text: next.texto },
 
-    // 🔥 AGREGA BOTÓN DENTRO DEL CHAT
+  setHistorial(prev => [
+
+    ...prev,
+
+    // MENSAJE BOT
+    {
+      from: "bot",
+      text: next.texto,
+
+      // 🔥 ESTA ES LA CLAVE
+      opciones: next.opciones || [],
+    },
+
+    // CTA OPCIONAL
     ...(next.cta
       ? [{ from: "bot-cta", cta: next.cta }]
       : [])
+
   ]);
 
   setChatPaso(op.next);
@@ -506,7 +654,7 @@ if (next) {
 
       {chatAbierto && (
         <div className="chat-modal">
-          <div className="chat-header">
+         <div className="chat-header">
   <button
     className="chat-back"
     onClick={() => setChatAbierto(false)}
@@ -514,8 +662,10 @@ if (next) {
     ←
   </button>
 
+  <img src="/logo1.png" alt="logo" className="chat-logo" />
+
   <div className="chat-title">
-    <img src="/icono-mensajes.png" className="chat-icon" />
+    <img src="/avatar-02.webp" alt="Coni" className="chat-header-avatar" />
     <span>Hablemos</span>
   </div>
 
@@ -523,76 +673,116 @@ if (next) {
     className="chat-close"
     onClick={() => setChatAbierto(false)}
   >
-    ✕
+    volver
   </button>
 </div>
+<div className="chat-messages">
 
-          <div className="chat-messages">
-            {historial.map((msg, i) => {
+  {historial.map((msg, i) => {
 
-  // 🔥 BOTÓN DENTRO DEL CHAT
-  if (msg.from === "bot-cta") {
-    return (
-      <div key={i} className="msg-row bot">
-        <div className="msg bot">
-          <button
-            className="chat-btn"
-            onClick={() => handleOption(msg.cta)}
-          >
-            {msg.cta.label}
-          </button>
+    // 🔥 BOTÓN CTA
+    if (msg.from === "bot-cta") {
+      return (
+        <div key={i} className="msg-row bot">
+
+          <div className="msg bot">
+            <button
+              className="chat-btn"
+              onClick={() => handleOption(msg.cta)}
+            >
+              {msg.cta.label}
+            </button>
+          </div>
+
         </div>
+      );
+    }
+
+    return (
+      <div key={i} className={`msg-row ${msg.from}`}>
+
+        {msg.from === "bot" && (
+          <div className="avatar-block">
+            <img
+              src="/avatar-02.webp"
+              className="avatar"
+              alt="avatar"
+            />
+          </div>
+        )}
+
+        <div className="msg-content">
+
+          <div className={`msg ${msg.from}`}>
+            {msg.text}
+          </div>
+
+          {/* 🔥 SUBPREGUNTAS DENTRO DEL CHAT */}
+          {msg.from === "bot" && msg.opciones && (
+            <div className="chat-inline-options">
+
+              {msg.opciones.map((op, index) => (
+
+                <button
+                  key={index}
+                  className="chat-option-btn"
+                  onClick={() => handleOption(op)}
+                >
+                  {op.label}
+                </button>
+
+              ))}
+
+            </div>
+          )}
+
+        </div>
+
       </div>
     );
-  }
+  })}
 
-  return (
-    <div key={i} className={`msg-row ${msg.from}`}>
+  {escribiendo && (
+    <div className="msg-row bot">
 
-      {msg.from === "bot" && (
-        <div className="avatar-block">
-          <img src="/avatar.webp" className="avatar" />
-          
-        </div>
-      )}
+      <div className="avatar-block">
+        <img
+          src="/avatar-02.webp"
+          className="avatar"
+          alt="avatar"
+        />
+        <span className="avatar-name">Coni</span>
+      </div>
 
-      <div className={`msg ${msg.from}`}>
-        {msg.text}
+      <div className="msg bot typing">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
     </div>
-  );
-})}
+  )}
 
-            {escribiendo && (
-              <div className="msg-row bot">
-                <div className="avatar-block">
-                  <img
-                    src="/avatar.png"
-                    className="avatar"
-                    alt="avatar"
-                  />
-                  <span className="avatar-name">Martín</span>
-                </div>
+  <div ref={chatEndRef}></div>
 
-                <div className="msg bot typing">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            )}
+</div>
 
-            <div ref={chatEndRef}></div>
-          </div>
+{/* 🔥 MENÚ PRINCIPAL FIJO ABAJO */}
+<div className="chat-fixed-menu">
 
-          <div className="chat-options">
-            {chatFlow[chatPaso]?.opciones?.map((op, i) => (
-              <button key={i} onClick={() => handleOption(op)}>
-                {op.label}
-              </button>
-            ))}
-          </div>
+  {chatFlow.inicio.opciones.map((op, index) => (
+
+    <button
+      key={index}
+      className="chat-fixed-btn"
+      onClick={() => handleOption(op)}
+    >
+      {op.label}
+    </button>
+
+  ))}
+
+</div>
         </div>
       )}
 

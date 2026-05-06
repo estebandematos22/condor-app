@@ -535,3 +535,98 @@ html, body {
   width: 50px;
   height: 50px;
 }
+.chat-icon {
+  width: 50px;
+  height: 50px;
+}
+/* 🔥 LOGO IZQUIERDA */
+.chat-logo {
+  position: absolute;
+  left: 45px;
+
+  width: 90px;
+  height: auto;
+}
+
+
+
+/* 🔥 AVATAR HEADER */
+.chat-header-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 🔥 BOTON VOLVER DERECHA */
+.chat-close {
+  position: absolute;
+  right: 15px;
+
+  background: #e5e5e5;
+  border: none;
+
+  padding: 8px 14px;
+  border-radius: 12px;
+
+  font-weight: 700;
+  font-size: 14px;
+
+  color: #00512a;
+  cursor: pointer;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 🔥 FLECHA IZQUIERDA */
+.chat-back {
+  position: absolute;
+  left: 15px;
+
+  background: none;
+  border: none;
+
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+.chat-inline-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chat-option-btn {
+  background: #7c7c7c;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  width: fit-content;
+  max-width: 240px;
+}
+
+.chat-fixed-menu {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: #f3f3f3;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.chat-fixed-btn {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}

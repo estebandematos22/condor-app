@@ -91,7 +91,7 @@ function Puntos({ onBack }) {
 
   <div className="footer-item">
     <img src="/icono-pregunta.png" alt="preguntas" />
-    <span>Preguntas</span>
+    <span>Terminos y Condiciones</span>
   </div>
 
   <div className="footer-item">
