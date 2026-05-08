@@ -7,7 +7,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 const chatFlow = {
 
   inicio: {
-    texto: `¡Hola ${user?.nombre || ""}! 👋 Mi nombre es Coni ¿En qué te puedo ayudar hoy?`,
+    texto: `¡Hola ${user?.nombre || ""}! 👋 Mi nombre es Coni ¿En qué te puedo ayudar hoy? 😊`,
     opciones: [
       { label: "Mi cuenta", next: "miCuenta" },
       { label: "Puntos", next: "puntosMenu" },
@@ -16,183 +16,430 @@ const chatFlow = {
     ],
   },
 
+  /* =========================================================
+     MI CUENTA
+  ========================================================= */
+
   miCuenta: {
-    texto: "¿Qué necesitás saber sobre tu cuenta?",
+    texto:
+      "Para poder ayudarte, por favor indicame qué opción se ajusta más a tu consulta:",
     opciones: [
       {
-        label: "¿Puedo modificar mis datos?",
-        next: "modificarDatos"
+        label: "¿Puedo modificar mis datos personales?",
+        next: "modificarDatos",
       },
 
       {
         label: "¿Puedo eliminar mi cuenta?",
-        next: "eliminarCuenta"
+        next: "eliminarCuenta",
       },
 
       {
         label: "¿Qué pasa si elimino accidentalmente mi cuenta?",
-        next: "eliminarAccidental"
+        next: "eliminarAccidental",
       },
 
       {
         label: "Olvidé mi contraseña",
-        next: "olvidePass"
+        next: "olvidePass",
       },
 
       {
         label: "Cambié de celular",
-        next: "cambioCelular"
+        next: "cambioCelular",
+      },
+
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
       },
     ],
-  },
-
-  puntosMenu: {
-    texto: "¿Qué necesitás saber sobre tus puntos?",
-    opciones: [
-      {
-        label: "¿Para qué sirven los puntos?",
-        next: "paraQuePuntos"
-      },
-
-      {
-        label: "¿Cómo acumulo puntos?",
-        next: "acumuloPuntos"
-      },
-
-      {
-        label: "¿Cómo canjeo mis puntos?",
-        next: "canjeoPuntos"
-      },
-
-      {
-        label: "¿Los puntos vencen?",
-        next: "vencenPuntos"
-      },
-
-      {
-        label: "Mis puntos no aparecen",
-        next: "errorPuntos"
-      },
-    ],
-  },
-
-  tarjetaMenu: {
-    texto: "¿Qué necesitás saber sobre tu tarjeta?",
-    opciones: [
-      {
-        label: "¿Existe una tarjeta física?",
-        next: "tarjetaFisica"
-      },
-
-      {
-        label: "¿Puedo usar mi tarjeta en cualquier sucursal?",
-        next: "usarTarjeta"
-      },
-
-      {
-        label: "¿Qué pasa si pierdo mi tarjeta física?",
-        next: "pierdoTarjeta"
-      },
-    ],
-  },
-
-  otrosMenu: {
-    texto:
-      "Para resolver cualquier otra inquietud podés acercarte a Casa Central o comunicarte con nosotros 😊",
-
-    
   },
 
   modificarDatos: {
     texto:
-      "Sí 😊 Podés mantener tu información actualizada sin problemas.\n\nIngresá al botón “Privacidad” desde la pantalla principal para editar tus datos.",
+      "Sí, lo podés hacer ingresando al botón “privacidad” de la pantalla de inicio 😊",
 
-    
+    opciones: [
+      {
+        label: "¿Puedo eliminar mi cuenta?",
+        next: "eliminarCuenta",
+      },
+
+      {
+        label: "¿Qué pasa si elimino accidentalmente mi cuenta?",
+        next: "eliminarAccidental",
+      },
+
+      {
+        label: "Olvidé mi contraseña",
+        next: "olvidePass",
+      },
+
+      {
+        label: "Cambié de celular",
+        next: "cambioCelular",
+      },
+
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
+      },
+    ],
   },
 
   eliminarCuenta: {
     texto:
-      "Sí, podés eliminar tu cuenta desde la sección “Privacidad” presionando el botón rojo “Eliminar cuenta”.",
+      "Podés eliminarla dentro de “privacidad” de la pantalla de inicio.",
 
-    
+    opciones: [
+      {
+        label: "¿Qué pasa si elimino accidentalmente mi cuenta?",
+        next: "eliminarAccidental",
+      },
+
+      {
+        label: "Olvidé mi contraseña",
+        next: "olvidePass",
+      },
+
+      {
+        label: "Cambié de celular",
+        next: "cambioCelular",
+      },
+
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
+      },
+    ],
   },
 
   eliminarAccidental: {
     texto:
-      "Si eliminás tu cuenta, todos tus datos serán borrados automáticamente, incluyendo puntos y beneficios acumulados.",
+      "Si eliminás tu cuenta todos tus datos serán eliminados automáticamente, incluyendo los puntos y beneficios.",
 
-    
+    opciones: [
+      {
+        label: "Olvidé mi contraseña",
+        next: "olvidePass",
+      },
+
+      {
+        label: "Cambié de celular",
+        next: "cambioCelular",
+      },
+
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
+      },
+    ],
   },
 
   olvidePass: {
     texto:
-      "Si olvidaste tu contraseña, utilizá la opción “Recuperar contraseña” dentro de la app para restablecer el acceso.",
+      "Tendrás que acceder a la opción “recuperar contraseña” dentro de la app y seguir los pasos.",
 
-    
+    opciones: [
+      {
+        label: "Cambié de celular",
+        next: "cambioCelular",
+      },
+
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
+      },
+    ],
   },
 
   cambioCelular: {
     texto:
-      "Podés seguir usando tu cuenta sin problemas 😊\n\nSolo iniciá sesión nuevamente y tus datos seguirán guardados.",
+      "¡Podés seguir usando tu cuenta sin problemas! 😄 Solo tenés que volver a descargar la aplicación e iniciar sesión nuevamente.",
 
-    
+    opciones: [
+      {
+        label: "Si eliminé mi cuenta ¿Puedo restablecerla?",
+        next: "restablecerCuenta",
+      },
+    ],
+  },
+
+  restablecerCuenta: {
+    texto:
+      "No, en ese caso tendrás que crear una cuenta nueva y volver a registrarte.",
+
+    opciones: [
+      {
+        label: "SI",
+        next: "inicio",
+      },
+
+      {
+        label: "NO",
+        next: "cerrar",
+      },
+    ],
+  },
+
+  /* =========================================================
+     PUNTOS
+  ========================================================= */
+
+  puntosMenu: {
+    texto:
+      "Para poder ayudarte, por favor indicame qué opción se ajusta más a tu consulta:",
+
+    opciones: [
+      {
+        label: "¿Para qué sirven los puntos?",
+        next: "paraQuePuntos",
+      },
+
+      {
+        label: "¿Cómo acumulo puntos?",
+        next: "acumuloPuntos",
+      },
+
+      {
+        label: "¿Cómo canjeo mis puntos?",
+        next: "canjeoPuntos",
+      },
+
+      {
+        label: "¿Los puntos vencen?",
+        next: "vencenPuntos",
+      },
+
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos",
+      },
+    ],
   },
 
   paraQuePuntos: {
     texto:
-      "Podés utilizar tus puntos para acceder a descuentos, beneficios especiales y promociones exclusivas 😊",
+      "Podés utilizarlos para acceder a descuentos, beneficios especiales o promociones exclusivas.",
 
-    
+    opciones: [
+      {
+        label: "¿Cómo acumulo puntos?",
+        next: "acumuloPuntos",
+      },
+
+      {
+        label: "¿Cómo canjeo mis puntos?",
+        next: "canjeoPuntos",
+      },
+
+      {
+        label: "¿Los puntos vencen?",
+        next: "vencenPuntos",
+      },
+
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos",
+      },
+    ],
   },
 
   acumuloPuntos: {
     texto:
-      "Para acumular puntos debés presentar tu tarjeta o número de cliente en cada compra.\n\nTambién podés sumar puntos en compras online 😊",
+      "Acumulás puntos cada vez que realizás una compra tanto en nuestras sucursales como de manera online.",
 
-   
+    opciones: [
+      {
+        label: "¿Cómo canjeo mis puntos?",
+        next: "canjeoPuntos",
+      },
+
+      {
+        label: "¿Los puntos vencen?",
+        next: "vencenPuntos",
+      },
+
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos",
+      },
+    ],
   },
 
   canjeoPuntos: {
     texto:
-      "Tus puntos pueden canjearse por beneficios y promociones especiales disponibles dentro de la app 😊",
+      "Podés canjearlos si tenés 80 puntos o más mostrando tu tarjeta o número de cliente.",
 
-    
+    opciones: [
+      {
+        label: "¿Los puntos vencen?",
+        next: "vencenPuntos",
+      },
+
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos",
+      },
+    ],
   },
 
   vencenPuntos: {
     texto:
-      "Los puntos pueden tener vencimiento dependiendo de las promociones vigentes.",
+      "Sí vencen. Luego de 6 meses sin actividad se reducen al 50%, y después de 1 año se eliminan.",
 
-    
-  },
-
-  tarjetaFisica: {
-    texto:
-      "Sí 😊 Se entrega tarjeta física a clientes que tengan dificultades para usar la app.",
-
-    
-  },
-
-  usarTarjeta: {
-    texto:
-      "Sí 😊 Tu tarjeta funciona en todas las sucursales de Súper El Cóndor.",
-
-    
-  },
-
-  pierdoTarjeta: {
-    texto:
-      "Deberás acercarte a Casa Central para solicitar la reposición de tu tarjeta física 😊",
-
-    
+    opciones: [
+      {
+        label: "Mis puntos no aparecen",
+        next: "errorPuntos",
+      },
+    ],
   },
 
   errorPuntos: {
     texto:
-      "Puede pasar si no presentaste la tarjeta. Recordá que los puntos se verán reflejados dentro de las 24 hs posteriores a tu compra 😊",
+      "Puede pasar si olvidás presentar la tarjeta. Recordá que los puntos aparecen después de las 24 hs de tu compra.",
 
-    
+    opciones: [
+      {
+        label: "SI",
+        next: "inicio",
+      },
+
+      {
+        label: "NO",
+        next: "cerrar",
+      },
+    ],
   },
+
+  /* =========================================================
+     TARJETA
+  ========================================================= */
+
+  tarjetaMenu: {
+    texto:
+      "Para poder ayudarte, por favor indicame qué opción se ajusta más a tu consulta:",
+
+    opciones: [
+      {
+        label: "¿Existe una tarjeta física?",
+        next: "tarjetaFisica",
+      },
+
+      {
+        label: "¿Puedo usar mi tarjeta en cualquier sucursal?",
+        next: "usarTarjeta",
+      },
+
+      {
+        label: "¿Qué pasa si pierdo mi tarjeta física?",
+        next: "pierdoTarjeta",
+      },
+
+      {
+        label: "¿La reposición de la tarjeta física tiene costo?",
+        next: "costoTarjeta",
+      },
+    ],
+  },
+
+  tarjetaFisica: {
+    texto:
+      "Sí, se otorga una tarjeta física exclusivamente a clientes que tengan dificultades para utilizar la aplicación o el celular.",
+
+    opciones: [
+      {
+        label: "¿Puedo usar mi tarjeta en cualquier sucursal?",
+        next: "usarTarjeta",
+      },
+
+      {
+        label: "¿Qué pasa si pierdo mi tarjeta física?",
+        next: "pierdoTarjeta",
+      },
+
+      {
+        label: "¿La reposición de la tarjeta física tiene costo?",
+        next: "costoTarjeta",
+      },
+    ],
+  },
+
+  usarTarjeta: {
+    texto:
+      "La tarjeta funciona tanto en nuestros locales comerciales como en la tienda online.",
+
+    opciones: [
+      {
+        label: "¿Qué pasa si pierdo mi tarjeta física?",
+        next: "pierdoTarjeta",
+      },
+
+      {
+        label: "¿La reposición de la tarjeta física tiene costo?",
+        next: "costoTarjeta",
+      },
+    ],
+  },
+
+  pierdoTarjeta: {
+    texto:
+      "Deberás acercarte a Casa Central para solicitar la reposición de la misma.",
+
+    opciones: [
+      {
+        label: "¿La reposición de la tarjeta física tiene costo?",
+        next: "costoTarjeta",
+      },
+    ],
+  },
+
+  costoTarjeta: {
+    texto:
+      "Sí, en caso de necesitar una nueva tarjeta física deberás abonar un costo mínimo.",
+
+    opciones: [
+      {
+        label: "SI",
+        next: "inicio",
+      },
+
+      {
+        label: "NO",
+        next: "cerrar",
+      },
+    ],
+  },
+
+  /* =========================================================
+     OTROS
+  ========================================================= */
+
+  otrosMenu: {
+    texto:
+      "Para resolver cualquier otra inquietud podés acercarte a nuestra Casa Central o comunicarte por WhatsApp al 3755 112233 😊",
+
+    opciones: [
+      {
+        label: "SI",
+        next: "inicio",
+      },
+
+      {
+        label: "NO",
+        next: "cerrar",
+      },
+    ],
+  },
+
+  cerrar: {
+    texto:
+      "¡Gracias por comunicarte con nosotros! 😊",
+    opciones: [],
+  },
+
 };
 function HomeDashboard({
   onOpenMiTarjeta,
@@ -674,7 +921,7 @@ if (next) {
             {msg.text}
           </div>
 
-          {/* 🔥 SUBPREGUNTAS DENTRO DEL CHAT */}
+          {/*  SUBPREGUNTAS DENTRO DEL CHAT */}
 {msg.from === "bot" && msg.opciones && (
   <div className="chat-inline-options">
 
@@ -683,12 +930,18 @@ if (next) {
       .map((op, index) => (
 
         <button
-          key={index}
-          className="chat-option-btn"
-          onClick={() => handleOption(op)}
-        >
-          {op.label}
-        </button>
+  key={index}
+  className={`chat-option-btn ${
+    op.label === "SI"
+      ? "btn-si"
+      : op.label === "NO"
+      ? "btn-no"
+      : ""
+  }`}
+  onClick={() => handleOption(op)}
+>
+  {op.label}
+</button>
 
       ))}
 
@@ -772,7 +1025,7 @@ if (next) {
 
         <div className="footer-item">
           <img src="/icono-pregunta.png" alt="preguntas" />
-          <span>Terminos y Condicines</span>
+          <span>Términos y C.</span>
         </div>
 
         <div className="footer-item" onClick={onOpenEditarPerfil}>

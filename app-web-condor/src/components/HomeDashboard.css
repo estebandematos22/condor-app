@@ -630,3 +630,16 @@ html, body {
   font-weight: 600;
   cursor: pointer;
 }
+/* 🔥 BOTÓN SI */
+.btn-si {
+  background: #3dbb5d !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+/* 🔥 BOTÓN NO */
+.btn-no {
+  background: #ff9800 !important;
+  color: white !important;
+  font-weight: 700;
+}
