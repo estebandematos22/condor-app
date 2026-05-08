@@ -2,14 +2,14 @@
 
 
 .home4-container {
-  height: 100dvh; /* 🔥 mejor que 100vh en mobile */
+  height: 100dvh; 
   width: 100%;
   background: #f7f7f7;
 
   display: flex;
   flex-direction: column;
 
-  overflow: hidden; /* 🔥 dejamos esto */
+  overflow: hidden; 
   
   font-family: 'Poppins', sans-serif;
 }
@@ -35,7 +35,7 @@
 .home4-content {
   flex: 1;
   overflow: hidden;
-  padding-bottom: 45px; /* 🔥 espacio para el footer */
+  padding-bottom: 45px; 
 }
 /* USER */
 .user-section {
@@ -99,7 +99,7 @@
   justify-content: center;
 }
 
-/* 🔥 CONTENIDO SCROLL */
+
 
 
 /* BOTONES SUPERIORES */
@@ -152,7 +152,7 @@
 
 /* ICONO */
 .quick-icon {
-  position: relative; /* 🔥 necesario para posicionar el badge */
+  position: relative; 
 
   width: 90px;
   height: 90px;
@@ -262,7 +262,7 @@
   touch-action: pan-y;
 }
 
-/* 🔥 EVITA SCROLL HORIZONTAL */
+/*  EVITA SCROLL HORIZONTAL */
 html, body {
   height: 100%;
   overflow: hidden;
@@ -314,7 +314,7 @@ html, body {
 }
 
 /* ========================= */
-/* 🔥 CHAT WHATSAPP STYLE */
+/*  MI CHAT ESTILO WHATSAPP  */
 /* ========================= */
 
 .chat-modal {
@@ -504,7 +504,7 @@ html, body {
 
   position: fixed;
 
-  bottom: env(safe-area-inset-bottom); /* 🔥 CLAVE REAL */
+  bottom: env(safe-area-inset-bottom); /* CLAVE REAL */
   left: 0;
 
   z-index: 10;
@@ -539,7 +539,7 @@ html, body {
   width: 50px;
   height: 50px;
 }
-/* 🔥 LOGO IZQUIERDA */
+/*  LOGO IZQUIERDA */
 .chat-logo {
   position: absolute;
   left: 45px;
@@ -550,7 +550,7 @@ html, body {
 
 
 
-/* 🔥 AVATAR HEADER */
+/*  AVATAR HEADER */
 .chat-header-avatar {
   width: 42px;
   height: 42px;
@@ -558,7 +558,7 @@ html, body {
   object-fit: cover;
 }
 
-/* 🔥 BOTON VOLVER DERECHA */
+/*  BOTON VOLVER DERECHA */
 .chat-close {
   position: absolute;
   right: 15px;
@@ -578,7 +578,7 @@ html, body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* 🔥 FLECHA IZQUIERDA */
+/*  FLECHA IZQUIERDA */
 .chat-back {
   position: absolute;
   left: 15px;
@@ -630,14 +630,14 @@ html, body {
   font-weight: 600;
   cursor: pointer;
 }
-/* 🔥 BOTÓN SI */
+/* BOTON SI */
 .btn-si {
   background: #3dbb5d !important;
   color: white !important;
   font-weight: 700;
 }
 
-/* 🔥 BOTÓN NO */
+/*  BOTON NO */
 .btn-no {
   background: #ff9800 !important;
   color: white !important;
