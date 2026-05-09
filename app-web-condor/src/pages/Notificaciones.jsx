@@ -96,6 +96,73 @@ function Notificaciones({ onBack }) {
       )}
 
       {/* CONTENIDO */}
+
+      {/* CONTENIDO */}
+<main className="noti-content">
+
+  {/* 🎉 CUMPLEAÑOS */}
+  <div className="notif-demo cumple">
+
+    <div className="notif-header-demo">
+      🎉 FELIZ CUMPLEAÑOS
+    </div>
+
+    <div className="notif-body">
+      <h3>¡Feliz cumpleaños José! 🎂</h3>
+
+      <p>
+        Te saluda Supermercado El Cóndor ❤️
+        Esperamos que tengas un hermoso día.
+      </p>
+
+      <small>hoy • 08:00 hs</small>
+    </div>
+
+  </div>
+
+  {/* 🛒 PROMOCIONES */}
+
+  
+  <div className="notif-demo promo">
+
+    <div className="notif-header-demo">
+      🔥 PROMOCIONES DEL DÍA
+    </div>
+
+    <div className="notif-body">
+      <h3>¡Hoy es sábado! 🛒</h3>
+
+      <p>
+        Disfrutá de nuestras promociones
+        exclusivas y beneficios especiales.
+      </p>
+
+      <small>hoy • 09:30 hs</small>
+    </div>
+
+  </div>
+
+  {/* 💳 TARJETA */}
+  <div className="notif-demo tarjeta">
+
+    <div className="notif-header-demo">
+      💳 BENEFICIOS CON TARJETA
+    </div>
+
+    <div className="notif-body">
+      <h3>¡Pagando con tu tarjeta ahorrás más!</h3>
+
+      <p>
+        Aprovechá descuentos especiales
+        disponibles esta semana.
+      </p>
+
+      <small>hoy • 11:15 hs</small>
+    </div>
+
+  </div>
+
+</main>
       <main className="noti-content">
 
         {notificaciones.length === 0 ? (
@@ -111,6 +178,7 @@ function Notificaciones({ onBack }) {
               {n.mensaje}
             </div>
           ))
+          
         )}
         
 

@@ -138,3 +138,69 @@
   text-decoration: none;
   color: inherit;
 }
+
+/*demo*/
+/* DEMO PRESENTACIÓN */
+
+.notif-demo {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+  animation: subir .4s ease;
+}
+
+.notif-header-demo {
+  padding: 14px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.notif-body {
+  padding: 22px;
+}
+
+.notif-body h3 {
+  margin: 0 0 10px;
+  color: #1b5e20;
+  font-size: 19px;
+}
+
+.notif-body p {
+  color: #555;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.notif-body small {
+  display: block;
+  margin-top: 15px;
+  color: #999;
+}
+
+.cumple .notif-header-demo {
+  background: linear-gradient(135deg, #ff4081, #ff9800);
+}
+
+.promo .notif-header-demo {
+  background: linear-gradient(135deg, #1b8f3b, #59c36a);
+}
+
+.tarjeta .notif-header-demo {
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
