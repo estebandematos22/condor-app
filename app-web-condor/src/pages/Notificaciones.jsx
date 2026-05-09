@@ -112,6 +112,7 @@ function Notificaciones({ onBack }) {
             </div>
           ))
         )}
+        
 
 
       </main>

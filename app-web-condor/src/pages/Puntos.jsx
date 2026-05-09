@@ -60,6 +60,8 @@ function Puntos({ onBack }) {
 
        
 
+       
+
       </main>
 
       {/* FOOTER */}

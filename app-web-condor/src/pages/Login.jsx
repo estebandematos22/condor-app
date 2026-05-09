@@ -75,7 +75,7 @@ function Login({ onBack, onLoginSuccess }) {
   <div className="login-container">
 
     {/* FONDO */}
-    <img src="/fondocarrito.png" className="login-bg" />
+    <img src="/fondonuevo.png" className="login-bg" />
 
     {/* OVERLAY OSCURO */}
     <div className="login-overlay"></div>

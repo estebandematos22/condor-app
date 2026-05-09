@@ -59,6 +59,7 @@ function Ofertas({ onBack }) {
           <div className="of-placeholder">
             No hay ofertas disponibles
           </div>
+          
 
         ) : (
           
@@ -79,7 +80,7 @@ function Ofertas({ onBack }) {
 
         )}
        
-
+      
       </main>
 
       {/* FOOTER */}
