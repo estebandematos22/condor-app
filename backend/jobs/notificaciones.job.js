@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-// 🧹 LIMPIAR NOTIFICACIONES VIEJAS (NUEVO)
+//  LIMPIA NOTIFICACIONES VIEJAS 
 const limpiarNotificaciones = async () => {
   try {
 
@@ -16,7 +16,7 @@ const limpiarNotificaciones = async () => {
 };
 
 
-// 🎂 CUMPLEAÑOS
+//  CUMPLEAÑOS
 const ejecutarCumpleanios = async () => {
 
   try {
@@ -44,7 +44,7 @@ const ejecutarCumpleanios = async () => {
 
       if (existe.length > 0) continue;
 
-      // 🎯 👉 ACA CAMBIÁS EL MENSAJE
+      //   EL MENSAJE
       const mensaje = `🎂 ¡Feliz cumpleaños ${user.nombre}, te desea El SUPERMERCADO EL CONDOR! 🎉`;
 
       await db.query(
@@ -63,7 +63,7 @@ const ejecutarCumpleanios = async () => {
 };
 
 
-// 💪 BUEN COMIENZO DE SEMANA (LUNES)
+// BUEN COMIENZO DE SEMANA 
 const notificacionLunes = async () => {
 
   try {
@@ -86,7 +86,7 @@ const notificacionLunes = async () => {
 
       if (existe.length > 0) continue;
 
-      const mensaje = "💪 ¡Buen comienzo de semana! Aprovechá nuestras ofertas 🛒";
+      const mensaje = "¡Buen comienzo de semana! Aprovechá nuestras ofertas 🛒";
 
       await db.query(
         "INSERT INTO notificaciones (user_id, mensaje, leida, fecha) VALUES (?, ?, 0, NOW())",
@@ -104,7 +104,7 @@ const notificacionLunes = async () => {
 };
 
 
-// 🥳 BUEN FINDE (VIERNES)
+//  BUEN FINDE (VIERNES)
 const notificacionFinde = async () => {
 
   try {

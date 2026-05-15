@@ -28,7 +28,7 @@ function MisBeneficios({ onBack }) {
 
         setBeneficio(data.beneficio || "");
 
-        // 🔴 NUEVO: marcar beneficio como visto
+        //  marca beneficio como visto
         localStorage.setItem("beneficios_vistos", data.beneficio || "");
 
       } catch (error) {
@@ -63,6 +63,8 @@ function MisBeneficios({ onBack }) {
 
 
       {/* CONTENIDO */}
+
+
       <main className="ben-content">
 
         <div className="ben-beneficios-list">
@@ -82,7 +84,8 @@ function MisBeneficios({ onBack }) {
             </div>
 
           ) : (
-
+           
+          
             <div className="ben-placeholder">
               No hay beneficios disponibles
             </div>

@@ -6,6 +6,8 @@ function Login({ onBack, onLoginSuccess }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showRecover, setShowRecover] = useState(false);
+
 
   const handleLogin = async () => {
   if (!dni || !password) {
@@ -104,6 +106,12 @@ function Login({ onBack, onLoginSuccess }) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+      <p
+  className="forgot-password"
+  onClick={() => setShowRecover(true)}
+>
+  ¿Olvidaste tu contraseña?
+</p>
 
       {error && <p className="form-error">{error}</p>}
 
@@ -117,8 +125,44 @@ function Login({ onBack, onLoginSuccess }) {
       </p>
 
     </div>
+
+    {/* MODAL RECUPERAR */}
+{showRecover && (
+  <div className="recover-overlay">
+
+    <div className="recover-modal">
+
+      <h2>Recuperar contraseña</h2>
+
+      <p>
+        Ingresá el correo con el que te registraste
+      </p>
+
+      <input
+        type="email"
+        placeholder="Correo electrónico"
+        className="recover-input"
+      />
+
+      <button className="recover-btn">
+        Recuperar contraseña
+      </button>
+
+      <button
+        className="recover-close"
+        onClick={() => setShowRecover(false)}
+      >
+        Cancelar
+      </button>
+
+    </div>
+
   </div>
+)}
+  </div>
+  
 );
+
 }
 
 export default Login;

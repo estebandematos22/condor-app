@@ -18,7 +18,7 @@ router.get("/test", (req, res) => {
     message: "Auth routes funcionando correctamente"
   });
 });
-
+  
 
 // ==========================
 // REGISTRO
@@ -27,17 +27,18 @@ router.post("/register", async (req, res) => {
   try {
 
     const {
-      nombre,
-      apellido,
-      telefono,
-      domicilio,
-      localidad,
-      dni,
-      fecha_nacimiento,
-      password
-    } = req.body;
+  nombre,
+  apellido,
+  telefono,
+  email,
+  domicilio,
+  localidad,
+  dni,
+  fecha_nacimiento,
+  password
+} = req.body;
 
-    if (!dni || !password) {
+    if (!dni || !password || !email ) {
       return res.status(400).json({
         ok: false,
         message: "DNI y contraseña son obligatorios"
@@ -49,20 +50,21 @@ router.post("/register", async (req, res) => {
 
     const sql = `
       INSERT INTO users
-      (nombre, apellido, telefono, domicilio, localidad, dni, fecha_nacimiento, password_hash)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+(nombre, apellido, telefono, email, domicilio, localidad, dni, fecha_nacimiento, password_hash)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     await db.execute(sql, [
-      nombre || null,
-      apellido || null,
-      telefono || null,
-      domicilio || null,
-      localidad || null,
-      dni,
-      fecha_nacimiento || null,
-      hashedPassword
-    ]);
+  nombre || null,
+  apellido || null,
+  telefono || null,
+  email || null,
+  domicilio || null,
+  localidad || null,
+  dni,
+  fecha_nacimiento || null,
+  hashedPassword
+]);
 
     res.status(201).json({
       ok: true,
@@ -104,7 +106,7 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Buscar usuario (incluye role)
+    // Buscar usuario, incluye role
     const [rows] = await db.execute(
       "SELECT id, nombre, apellido, dni, password_hash, role FROM users WHERE dni = ? LIMIT 1",
       [dni]
@@ -129,7 +131,7 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Crear token JWT (incluye role)
+    // Crear token JWT,incluye role
     const token = jwt.sign(
       {
         id: user.id,

@@ -38,7 +38,7 @@ exports.uploadExcel = async (req, res) => {
 
       if (!dni) continue;
 
-      // 🔎 buscar usuario por DNI
+      // buscar usuario por DNI
       const [users] = await db.execute(
         "SELECT id FROM users WHERE dni = ?",
         [dni]
@@ -48,7 +48,7 @@ exports.uploadExcel = async (req, res) => {
 
       const userId = users[0].id;
 
-      // 🔎 verificar si ya tiene registro en puntos
+      // verifica si ya tiene registro en puntos
       const [registro] = await db.execute(
         "SELECT id FROM puntos WHERE user_id = ?",
         [userId]
@@ -72,13 +72,13 @@ exports.uploadExcel = async (req, res) => {
 
       }
 
-      // ⭐ guardar beneficio
+      //  guardar beneficio
       await db.execute(
         "UPDATE users SET beneficio = ? WHERE id = ?",
         [beneficio, userId]
       );
 
-      // 🔴 NUEVO: NOTIFICACIÓN DE PUNTOS (SIN DUPLICAR EN EL DÍA)
+      //  NUEVO: NOTIFICACIÓN DE PUNTOS (SIN DUPLICAR EN EL DÍA)
       const [existeNoti] = await db.execute(
         `SELECT id FROM notificaciones 
          WHERE user_id = ? 

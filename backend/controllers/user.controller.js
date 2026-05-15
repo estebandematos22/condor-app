@@ -70,7 +70,7 @@ exports.updateMe = async (req, res) => {
 
   } catch (error) {
 
-    console.error("🔥 Error updateMe:", error);
+    console.error(" Error updateMe:", error);
 
     res.status(500).json({
       message: "Error interno del servidor"
@@ -83,19 +83,19 @@ exports.eliminarCuenta = async (req, res) => {
 
     const userId = req.user.id; // 🔐 viene del token
 
-    // 🔴 borrar notificaciones
+    //  borra notificaciones
     await db.query(
       "DELETE FROM notificaciones WHERE user_id = ?",
       [userId]
     );
 
-    // 🔴 borrar puntos
+    //  borra puntos
     await db.query(
       "DELETE FROM puntos WHERE user_id = ?",
       [userId]
     );
 
-    // 🔴 borrar usuario
+    //  borra usuario
     await db.query(
       "DELETE FROM users WHERE id = ?",
       [userId]

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-// 🔐 Middleware para verificar token
+//  Middleware para verificar token
 const requireAuth = (req, res, next) => {
   try {
     const auth = req.headers.authorization || "";
@@ -12,7 +12,7 @@ const requireAuth = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // 🔥 Ahora guardamos id, dni y role
+    //  guarda id, dni y role
     req.user = {
       id: decoded.id,
       dni: decoded.dni,
@@ -25,7 +25,7 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-// 🔐 Middleware solo para administradores
+//  Middleware solo para administradores
 const requireAdmin = (req, res, next) => {
   if (!req.user || req.user.role !== "admin") {
     return res.status(403).json({ message: "Acceso solo para administradores" });

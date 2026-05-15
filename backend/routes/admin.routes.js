@@ -12,13 +12,13 @@ const { requireAdmin } = require("../middlewares/admin.middleware");
 const excelController = require("../controllers/excel.controller");
 const { exportUsers } = require("../controllers/export.controller");
 
-// 🔴 NUEVO (SOLO ESTA LÍNEA AGREGADA)
+
 const { enviarNotificacionAdmin } = require("../controllers/notificaciones.controller");
 
 const { eliminarNotificacionesHoy } = require("../controllers/notificaciones.controller");
 
 
-// 🔹 ASEGURAR QUE EXISTAN LAS CARPETAS
+//  ASEGURA QUE EXISTAN LAS CARPETAS
 const ensureDir = (dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -30,7 +30,7 @@ ensureDir("uploads/beneficios");
 ensureDir("uploads/excel");
 
 
-// 🔹 CONFIGURAR MULTER
+//  CONFIGURAR MULTER
 const storage = multer.diskStorage({
 
   destination: function (req, file, cb) {
@@ -67,7 +67,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-// 🔹 TEST ADMIN
+//  TEST ADMIN
 router.get("/panel", requireAuth, requireAdmin, (req, res) => {
 
   res.json({
@@ -78,7 +78,7 @@ router.get("/panel", requireAuth, requireAdmin, (req, res) => {
 });
 
 
-// 🔹 SUBIR EXCEL DE PUNTOS
+// SUBIR EXCEL DE PUNTOS
 router.post(
   "/upload-excel",
   requireAuth,
@@ -88,7 +88,7 @@ router.post(
 );
 
 
-// 🔹 SUBIR BANNER OFERTA
+//  SUBIR BANNER OFERTA
 router.post(
   "/upload-banner",
   requireAuth,
@@ -111,7 +111,7 @@ router.post(
 );
 
 
-// 🔹 SUBIR BANNER BENEFICIO
+//  SUBIR BANNER BENEFICIO
 router.post(
   "/upload-beneficio",
   requireAuth,
@@ -134,7 +134,7 @@ router.post(
 );
 
 
-// 🔹 LISTAR BANNERS OFERTAS
+//  LISTAR BANNERS OFERTAS
 router.get(
   "/banners",
   requireAuth,
@@ -158,7 +158,7 @@ router.get(
 );
 
 
-// 🔹 LISTAR BENEFICIOS
+// LISTAR BENEFICIOS
 router.get(
   "/beneficios",
   requireAuth,
@@ -182,7 +182,7 @@ router.get(
 );
 
 
-// 🔹 ELIMINAR BANNER
+//  ELIMINAR BANNER
 router.delete(
   "/delete-banner/:name",
   requireAuth,
@@ -229,7 +229,7 @@ router.delete(
 );
 
 
-// 🔹 ELIMINAR BENEFICIO
+// ELIMINAR BENEFICIO
 router.delete(
   "/delete-beneficio/:name",
   requireAuth,
@@ -276,7 +276,7 @@ router.delete(
 );
 
 
-// 🔴 NUEVO: ENVIAR NOTIFICACIÓN A TODOS
+//  ENVIAR NOTIFICACIÓN A TODOS
 router.post(
   "/notificacion",
   requireAuth,
@@ -291,6 +291,6 @@ router.delete(
   eliminarNotificacionesHoy
 );
 
-// 🔴 NUEVO: para exportar ususrios en el excel
+//  para exportar ususrios en el excel
 router.get("/export-users", requireAuth, requireAdmin, exportUsers);
 module.exports = router;

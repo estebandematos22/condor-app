@@ -1,7 +1,7 @@
 const ExcelJS = require("exceljs");
 const db = require("../config/db");
 
-// 🆕 EXPORTAR USUARIOS A EXCEL REAL
+// EXPORTAR USUARIOS A EXCEL REAL
 const exportUsers = async (req, res) => {
   try {
 
@@ -18,7 +18,7 @@ const exportUsers = async (req, res) => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Clientes");
 
-    // 🔥 COLUMNAS
+    //  COLUMNAS
     worksheet.columns = [
       { header: "Nombre", key: "nombre", width: 20 },
       { header: "Apellido", key: "apellido", width: 20 },
@@ -27,15 +27,15 @@ const exportUsers = async (req, res) => {
       { header: "Localidad", key: "localidad", width: 20 },
     ];
 
-    // 🔥 DATOS
+    //  DATOS
     rows.forEach((user) => {
       worksheet.addRow(user);
     });
 
-    // 🔥 HEADER EN NEGRITA
+    //  HEADER EN NEGRITA
     worksheet.getRow(1).font = { bold: true };
 
-    // 🔥 RESPUESTA EXCEL REAL
+    //   RESPUESTA EXCEL REAL
     res.setHeader(
       "Content-Type",
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"

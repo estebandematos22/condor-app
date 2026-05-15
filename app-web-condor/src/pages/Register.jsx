@@ -6,6 +6,7 @@ function Register({ onSuccess, onBack }) {
     nombre: "",
     apellido: "",
     telefono: "",
+    email: "",
     domicilio: "",
     localidad: "",
     dni: "",
@@ -56,15 +57,16 @@ function Register({ onSuccess, onBack }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nombre: form.nombre,
-          apellido: form.apellido,
-          telefono: form.telefono,
-          domicilio: form.domicilio,
-          localidad: form.localidad,
-          dni: form.dni,
-          fecha_nacimiento: form.fecha_nacimiento,
-          password: form.password,
-        }),
+  nombre: form.nombre,
+  apellido: form.apellido,
+  telefono: form.telefono,
+  email: form.email,
+  domicilio: form.domicilio,
+  localidad: form.localidad,
+  dni: form.dni,
+  fecha_nacimiento: form.fecha_nacimiento,
+  password: form.password,
+}),
       });
 
       const data = await response.json();
@@ -102,6 +104,7 @@ function Register({ onSuccess, onBack }) {
           <input name="nombre" placeholder="Nombre" onChange={handleChange} required />
           <input name="apellido" placeholder="Apellido" onChange={handleChange} required />
           <input name="telefono" placeholder="Teléfono" onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Correo electrónico" onChange={handleChange} required/>
           <input name="dni" placeholder="DNI" onChange={handleChange} required />
 
           <div className="row-two">

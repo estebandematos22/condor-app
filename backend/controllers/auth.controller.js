@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
       password
     } = req.body;
 
-    // Validación básica
+    // Validación 
     if (!dni || !password || !nombre || !apellido) {
       return res.status(400).json({ message: "Faltan datos obligatorios" });
     }
