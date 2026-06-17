@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-//  OBTENER NOTIFICACIONES (SOLO DEL DÍA)
+//  OBTIENE NOTIFICACIONES SOLO DEL DÍA)
 exports.getNotificaciones = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -74,7 +74,7 @@ exports.marcarComoLeidas = async (req, res) => {
 };
 
 
-// ELIMINAR TODAS LAS NOTIFICACIONES (OPCIONAL)
+// ELIMINAR TODAS LAS NOTIFICACIONES 
 exports.eliminarTodas = async (req, res) => {
   try {
 
@@ -94,7 +94,7 @@ exports.eliminarTodas = async (req, res) => {
 };
 
 
-// ELIMINAR NOTIFICACIONES DEL DÍA (ADMIN)
+// ELIMINAR NOTIFICACIONES DEL DÍA, ADMIN
 exports.eliminarNotificacionesHoy = async (req, res) => {
   try {
 

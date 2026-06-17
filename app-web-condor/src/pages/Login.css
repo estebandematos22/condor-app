@@ -2,10 +2,10 @@
 .login-container {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* 🔥 cambio clave */
+  min-height: 100vh; 
   overflow: hidden;
 
-  display: flex; /* 🔥 mejora layout */
+  display: flex; 
   flex-direction: column;
 }
 
@@ -38,7 +38,7 @@
   position: relative;
   z-index: 2;
 
-  flex: 1; /* 🔥 clave */
+  flex: 1; 
 
   display: flex;
   flex-direction: column;
@@ -49,14 +49,14 @@
   text-align: center;
 
   width: 100%;
-  max-width: 420px; /* 🔥 centrado tipo app */
+  max-width: 420px; 
   margin: 0 auto;
 }
 
 /* TITULO */
 .login-content h1 {
   color: white;
-  font-size: 1.8rem; /* 🔥 un poco más adaptable */
+  font-size: 1.8rem; 
   margin-bottom: 25px;
 }
 
@@ -70,7 +70,7 @@
   gap: 10px;
 
   border-radius: 30px;
-  background: rgba(255,255,255,0.15); /* 🔥 mejor que borde */
+  background: rgba(255,255,255,0.15); 
   backdrop-filter: blur(6px);
 
   padding: 12px 15px;
@@ -137,7 +137,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-/* 🔥 FIX BARRA BLANCA INPUT (clave) */
+/*  FIX BARRA BLANCA INPUT */
 .input-group input:-webkit-autofill,
 .input-group input:-webkit-autofill:hover,
 .input-group input:-webkit-autofill:focus,

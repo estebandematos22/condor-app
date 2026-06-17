@@ -81,7 +81,7 @@ exports.updateMe = async (req, res) => {
 exports.eliminarCuenta = async (req, res) => {
   try {
 
-    const userId = req.user.id; // 🔐 viene del token
+    const userId = req.user.id; //  viene del token
 
     //  borra notificaciones
     await db.query(

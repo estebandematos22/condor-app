@@ -17,7 +17,7 @@ function Ofertas({ onBack }) {
 
         setOfertas(data);
 
-        // 🔴 NUEVO: marcar ofertas como vistas
+        //  marcar ofertas como vistas
         localStorage.setItem("ofertas_vistas", JSON.stringify(data));
 
       } catch (error) {

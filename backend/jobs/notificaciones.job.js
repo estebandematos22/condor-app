@@ -104,7 +104,7 @@ const notificacionLunes = async () => {
 };
 
 
-//  BUEN FINDE (VIERNES)
+//  BUEN FINDE, LOS DIAS VIERNES
 const notificacionFinde = async () => {
 
   try {
@@ -146,7 +146,7 @@ const notificacionFinde = async () => {
 
 
 module.exports = {
-  limpiarNotificaciones, // 🔥 NUEVO
+  limpiarNotificaciones, 
   ejecutarCumpleanios,
   notificacionLunes,
   notificacionFinde

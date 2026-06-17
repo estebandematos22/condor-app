@@ -15,13 +15,13 @@ function Login({ onBack, onLoginSuccess }) {
     return;
   }
 
-  // 🔥 LOGIN DEMO (SIN BACKEND)
+  //  LOGIN DEMO,SIN BACKEND
   if (dni === "123" && password === "123") {
   const fakeUser = {
     id: 1,
     nombre: "José",
     apellido: "Fritz",
-    role: "user" // 🔥 IMPORTANTE (NO admin)
+    role: "user" 
   };
 
   localStorage.setItem("token", "demo-token");
@@ -34,7 +34,7 @@ function Login({ onBack, onLoginSuccess }) {
   return;
 }
 
-  // 🔥 LOGIN REAL (tu backend)
+  //  LOGIN REAL CON MI BACKEND
   setError("");
   setLoading(true);
 

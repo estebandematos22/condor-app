@@ -169,14 +169,14 @@
   height: 80px;
 }
 
-/* 🔴 BADGE NOTIFICACIÓN */
+/*  NOTIFICACIÓN */
 .notif-badge {
   position: absolute;
   top: -6px;
   right: -6px;
 
-  background: linear-gradient(135deg, #ff3d00, #ff6d00); /* 🔥 naranja-rojo */
-  color: #fff; /* número blanco */
+  background: linear-gradient(135deg, #ff3d00, #ff6d00); 
+  color: #fff; 
 
   font-size: 10px;
   font-weight: bold;
@@ -202,7 +202,7 @@
 }
 
 
-/* BADGE TARJETAS */
+/*  TARJETAS */
 .card-badge {
   position: absolute;
   top: -3px;
@@ -313,9 +313,9 @@ html, body {
   max-width: 400px;
 }
 
-/* ========================= */
-/*  MI CHAT ESTILO WHATSAPP  */
-/* ========================= */
+
+/*  MI CHAT ESTILO WHATSAPPEE  */
+
 
 .chat-modal {
   position: fixed;
@@ -330,7 +330,7 @@ html, body {
 /* HEADER */
 .chat-header {
   height: 70px;
-  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%); /* 🔥 tu verde */
+  background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%); 
   color: white;
   display: flex;
   align-items: center;
@@ -369,7 +369,7 @@ html, body {
   gap: 12px;
   font-family: 'Poppins', sans-serif;
 
-  /* 🔥 fondo tipo WhatsApp */
+  /*  fondo tipo WPP */
   background: linear-gradient(
     180deg,
     #ffffff 0%,
@@ -504,7 +504,7 @@ html, body {
 
   position: fixed;
 
-  bottom: env(safe-area-inset-bottom); /* CLAVE REAL */
+  bottom: env(safe-area-inset-bottom); 
   left: 0;
 
   z-index: 10;

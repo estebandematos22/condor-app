@@ -16,7 +16,7 @@ router.get("/me", requireAuth, userController.getMe);
 // Actualizar perfil del usuario logueado
 router.put("/me", requireAuth, userController.updateMe);
 
-// 🔴 CORREGIDO ACÁ (ANTES authMiddleware ❌)
+
 router.delete("/eliminar", requireAuth, eliminarCuenta);
 
 

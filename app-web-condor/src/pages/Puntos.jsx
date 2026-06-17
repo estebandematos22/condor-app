@@ -24,7 +24,7 @@ function Puntos({ onBack }) {
         if (response.ok) {
           setPuntos(data.puntos);
 
-          // 🔴 NUEVO: marcar como visto
+          //  marcar como visto
           localStorage.setItem("puntos_vistos", data.puntos);
         }
 

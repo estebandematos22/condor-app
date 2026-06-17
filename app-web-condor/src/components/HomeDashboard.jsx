@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./HomeDashboard.css";
 
-/* 🔥 CHAT */
+/*  CHATBOOT */
 const user = JSON.parse(localStorage.getItem("user"));
 
 const chatFlow = {
@@ -16,9 +16,9 @@ const chatFlow = {
     ],
   },
 
-  /* =========================================================
+  /* 
      MI CUENTA
-  ========================================================= */
+   */
 
   miCuenta: {
     texto:
@@ -183,9 +183,9 @@ const chatFlow = {
     ],
   },
 
-  /* =========================================================
+  /* 
      PUNTOS
-  ========================================================= */
+   */
 
   puntosMenu: {
     texto:
@@ -314,9 +314,7 @@ const chatFlow = {
     ],
   },
 
-  /* =========================================================
-     TARJETA
-  ========================================================= */
+  /* TARJETA*/
 
   tarjetaMenu: {
     texto:
@@ -413,9 +411,7 @@ const chatFlow = {
     ],
   },
 
-  /* =========================================================
-     OTROS
-  ========================================================= */
+
 
   otrosMenu: {
     texto:
@@ -638,14 +634,14 @@ const handleTouchEnd = () => {
 
   const distance = touchStart - touchEnd;
 
-  // 👉 swipe izquierda
+  //  izquierda
   if (distance > 50) {
     setCurrentSlide((prev) =>
       prev === slides.length - 1 ? 0 : prev + 1
     );
   }
 
-  // 👉 swipe derecha
+  //  derecha
   if (distance < -50) {
     setCurrentSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
@@ -722,11 +718,11 @@ if (next) {
       from: "bot",
       text: next.texto,
 
-      // 🔥 ESTA ES LA CLAVE
+      
       opciones: next.opciones || [],
     },
 
-    // CTA OPCIONAL
+    // CUENTA OPCIONAL
     ...(next.cta
       ? [{ from: "bot-cta", cta: next.cta }]
       : [])
@@ -885,7 +881,7 @@ if (next) {
 
   {historial.map((msg, i) => {
 
-    // 🔥 BOTÓN CTA
+    //  BOTON CUENTA
     if (msg.from === "bot-cta") {
       return (
         <div key={i} className="msg-row bot">
@@ -980,7 +976,7 @@ if (next) {
 
 </div>
 
-{/* 🔥 MENÚ PRINCIPAL FIJO ABAJO */}
+{/* MENÚ PRINCIPAL  */}
 <div className="chat-fixed-menu">
 
   {chatFlow.inicio.opciones.map((op, index) => (

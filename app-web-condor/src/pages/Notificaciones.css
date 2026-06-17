@@ -1,10 +1,10 @@
 /* CONTENEDOR */
 .noti-container {
-  height: 100vh; /* 🔥 antes min-height */
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   background: #f7f7f7;
-  overflow: hidden; /* 🔥 clave */
+  overflow: hidden; 
 }
 
 /* HEADER */
@@ -12,7 +12,7 @@
   width: 100%;
   height: 90px;
 
-  flex-shrink: 0; /* 🔥 clave */
+  flex-shrink: 0; 
   font-family: 'Poppins', sans-serif;
 
   background: linear-gradient(180deg, #0b8f3a 0%, #0a7a32 100%);
@@ -43,7 +43,7 @@
   margin: 0;
 }
 
-/* BOTÓN VOLVER */
+/* BOTON VOLVER */
 .noti-back-btn {
   position: absolute;
   right: 15px;
@@ -66,7 +66,7 @@
 /* CONTENIDO */
 .noti-content {
   flex: 1;
-  overflow-y: auto; /* 🔥 scroll solo acá */
+  overflow-y: auto; 
 
   padding: 15px;
 
@@ -93,7 +93,7 @@
   width: 100%;
   height: 90px;
 
-  flex-shrink: 0; /* 🔥 clave */
+  flex-shrink: 0; 
 
   background: linear-gradient(180deg,#0b8f3a 0%,#0a7a32 100%);
 
@@ -139,8 +139,8 @@
   color: inherit;
 }
 
-/*demo*/
-/* DEMO PRESENTACIÓN */
+
+/* DEMO PRESENTACION MAÑANA JOSE */
 
 .notif-demo {
   background: white;

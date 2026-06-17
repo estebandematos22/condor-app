@@ -1,9 +1,9 @@
 .puntos-container {
-  height: 100vh; /* 🔥 CLAVE */
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   background: #f7f7f7;
-  overflow: hidden; /* 🔥 sin scroll general */
+  overflow: hidden; 
 }
 
 /* HEADER */
@@ -23,7 +23,7 @@
 
   box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
 
-  flex-shrink: 0; /* 🔥 CLAVE */
+  flex-shrink: 0; 
 }
 
 /* LOGO */
@@ -43,7 +43,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* BOTÓN VOLVER */
+/* BOTON VOLVER */
 .puntos-back-btn-header {
   position: absolute;
   right: 15px;
@@ -73,7 +73,7 @@
   justify-content: center;
   padding: 15px;
 
-  overflow-y: auto; /* 🔥 scroll solo acá */
+  overflow-y: auto; 
 }
 
 /* CARD */
@@ -118,7 +118,7 @@
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 
-  flex-shrink: 0; /* 🔥 CLAVE */
+  flex-shrink: 0; 
 }
 
 /* ITEMS */

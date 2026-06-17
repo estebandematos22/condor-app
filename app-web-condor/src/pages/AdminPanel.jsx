@@ -245,7 +245,7 @@ function AdminPanel({ onBack }) {
         <h2>Panel Administrador</h2>
       </header>
 
-      {/* 🔥 CONTENIDO SCROLL */}
+      {/*  CONTENIDO  */}
       <div className="admin-content">
 
         <div className="admin-actions">

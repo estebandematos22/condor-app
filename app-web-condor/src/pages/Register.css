@@ -1,4 +1,4 @@
-/* FONDO GENERAL CON DEGRADADO */
+/* FONDO GENERAL  */
 .register-container {
   min-height: 100vh;
   background: linear-gradient(to bottom, #ffffff, #64B15D);
@@ -64,7 +64,7 @@
   margin-right: 6px;
 }
 
-/* BOTÓN PRINCIPAL */
+/* BOTOON PRINCIPAL */
 .register-card button {
   margin-top: 10px;
   padding: 15px;
@@ -76,7 +76,7 @@
   border: none;
 }
 
-/* BOTÓN VOLVER */
+/* BOTON VOLVER */
 .btn-secondary-full {
   margin-top: 14px;
   padding: 14px;
@@ -94,7 +94,7 @@
   font-size: 13px;
 }
 
-/* MODAL */
+/* MI VENTANA LINDA MODAL */
 .success-overlay {
   position: fixed;
   inset: 0;
@@ -140,7 +140,7 @@
   color: #c62828;
 }
 
-/* 📱 MOBILE */
+/*  CELULRES  */
 @media (max-width: 480px) {
   .register-container {
     padding-top: 20px;
@@ -155,7 +155,7 @@
   }
 }
 
-/* 📲 TABLET */
+/* TABLET */
 @media (max-width: 768px) {
   .register-card {
     max-width: 95%;

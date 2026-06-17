@@ -25,7 +25,7 @@
   font-size: 16px;
 
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;          /* 👈 BLACK */
+  font-weight: 400;          
   color: #005C1F;
 
   line-height: 1.5;
@@ -35,7 +35,7 @@
   margin-bottom: 30px;
 }
 
-/* opcional limpieza */
+/* POR SI QUIEOR limpieza */
 .home-benefits p {
   margin: 0;
 }
@@ -57,7 +57,7 @@
   gap: 15px;
 }
 
-/* BOTÓN PRINCIPAL (CREAR CUENTA) */
+/* BOTON PRINCIPAL  */
 .btn-primary {
   width: 100%;
   padding: 14px;
@@ -76,7 +76,7 @@
   box-shadow: 0 10px 20px rgba(0, 80, 20, 0.3);
 }
 
-/* BOTÓN SECUNDARIO */
+/* BOTON SECUNDARIO */
 .btn-secondary {
   width: 100%;
   padding: 14px;
@@ -96,7 +96,7 @@
   box-shadow: 0 10px 20px rgba(0, 120, 20, 0.2);
 }
 
-/* ANIMACIÓN SUAVE */
+/* ANIMACION MAS TRANQUI */
 @keyframes fadeSlide {
   from {
     opacity: 0;

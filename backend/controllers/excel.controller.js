@@ -78,7 +78,7 @@ exports.uploadExcel = async (req, res) => {
         [beneficio, userId]
       );
 
-      //  NUEVO: NOTIFICACIÓN DE PUNTOS (SIN DUPLICAR EN EL DÍA)
+      //   NOTIFICACIÓN DE PUNTOS, SIN DUPLICAR EN EL DÍA)
       const [existeNoti] = await db.execute(
         `SELECT id FROM notificaciones 
          WHERE user_id = ? 

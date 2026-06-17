@@ -75,7 +75,7 @@ function MiTarjeta({ onBack }) {
   <div className={`flip-card ${flip ? "flipped" : ""}`} onClick={() => setFlip(!flip)}>
     <div className="flip-inner">
 
-      {/* ===== FRENTE (TU CODIGO EXACTO) ===== */}
+      {/* FRENTE  */}
       <div className="flip-front">
         <div className="condor-card">
 
@@ -105,7 +105,7 @@ function MiTarjeta({ onBack }) {
         </div>
       </div>
 
-      {/* ===== ATRÁS (MINIMo) ===== */}
+      {/* ATRÁS  */}
       <div className="flip-back">
   <div className="condor-card">
 

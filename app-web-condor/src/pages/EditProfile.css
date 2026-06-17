@@ -4,7 +4,7 @@
   background: #f7f7f7;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* 🔥 sin scroll global */
+  overflow: hidden; 
 }
 
 /* HEADER */
@@ -61,8 +61,8 @@
 
 .btn-eliminar {
   margin-top: 8px;
-  width: 90%;          /* ocupa todo el ancho */
-  padding: 20px;        /* más alto */
+  width: 90%;          
+  padding: 20px;        
   border-radius: 14px;
   background: #d32f2f;
   color: white;
@@ -71,7 +71,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* 🔥 CONTENIDO CENTRAL */
+/*  CONTENIDO CENTRAL */
 .edit-content {
   flex: 1;
   display: flex;
@@ -94,7 +94,7 @@
   flex-direction: column;
   gap: 10px;
 
-  overflow-y: auto; /* 🔥 scroll solo acá */
+  overflow-y: auto; 
 }
 
 /* GRUPOS */
@@ -126,7 +126,7 @@
   box-shadow: 0 0 0 3px rgba(31, 170, 0, 0.18);
 }
 
-/* INPUT DISABLED */
+/* INPUT  */
 .input-disabled {
   background: #f3f4f6;
   color: #6b7280;
@@ -178,7 +178,7 @@
   width: 100%;
   height: 90px;
 
-  flex-shrink: 0; /* 🔥 clave */
+  flex-shrink: 0; 
 
   background: linear-gradient(180deg,#0b8f3a 0%,#0a7a32 100%);
 

@@ -19,7 +19,7 @@ export default function EditarPerfil({ onBack }) {
   const [showOk, setShowOk] = useState(false);
   const [error, setError] = useState("");
 
-  // 🔥 CARGAR DATOS DEL USUARIO DESDE LA BASE
+  // CARGA DATOS DEL USUARIO DESDE LA BASE DE DATOS
   useEffect(() => {
     const cargarUsuario = async () => {
       try {
@@ -60,7 +60,7 @@ export default function EditarPerfil({ onBack }) {
     }
   }, [token]);
 
-  // 🔥 HANDLE CHANGE
+  //  HANDLE CHANGE
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -70,7 +70,7 @@ export default function EditarPerfil({ onBack }) {
     }));
   };
 
-  // 🔥 GUARDAR EN LA BASE DE DATOS
+  //  GUARDAR EN LA BASE DE DATOS
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -116,13 +116,13 @@ export default function EditarPerfil({ onBack }) {
     }
   };
 
-  // 🔥 ELIMINAR CUENTA
+  //  ELIMINAR CUENTA
   const handleEliminarCuenta = async () => {
   const confirmar = window.confirm("¿Seguro que querés eliminar tu cuenta?");
   if (!confirmar) return;
 
   try {
-    // 🔥 1. ELIMINAR EN BACKEND
+    //  ELIMINA DEL  BACKEND
     const res = await fetch("http://localhost:4000/api/usuario/eliminar", {
       method: "DELETE",
       headers: {
@@ -136,13 +136,13 @@ export default function EditarPerfil({ onBack }) {
       throw new Error(data.message || "Error al eliminar cuenta");
     }
 
-    // 🔥 2. LIMPIAR LOCAL
+    //  LIMPIAR LOCAL
     localStorage.removeItem("user");
     localStorage.removeItem("token");
 
     alert("Cuenta eliminada correctamente");
 
-    // 🔥 3. VOLVER AL LOGIN
+    //  VOLVE AL LOGIN
     window.location.reload();
 
   } catch (err) {

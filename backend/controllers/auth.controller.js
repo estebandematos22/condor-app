@@ -34,7 +34,7 @@ exports.register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Guardar usuario (IMPORTANTE: password_hash)
+    // Guardar usuario ( password_hash)
     const [result] = await db.query(
       `INSERT INTO users 
       (nombre, apellido, telefono, domicilio, localidad, dni, fecha_nacimiento, password_hash)
@@ -51,7 +51,7 @@ exports.register = async (req, res) => {
       ]
     );
 
-    // 🔥 Crear registro en tabla puntos automáticamente
+    // Crea registro en la tabla puntos automáticamente
     await db.query(
       "INSERT INTO puntos (user_id, puntos_actuales) VALUES (?, 0)",
       [result.insertId]

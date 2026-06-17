@@ -7,10 +7,10 @@ function Notificaciones({ onBack }) {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // 🔴 NUEVO: verificar si es admin
+  // aca solo verificar si es admin
   const isAdmin = user?.role === "admin";
 
-  // 🔄 cargar notificaciones
+  //  carga notificaciones
   const cargarNotificaciones = () => {
     if (!user) return;
 
@@ -23,7 +23,7 @@ function Notificaciones({ onBack }) {
  useEffect(() => {
   cargarNotificaciones();
 
-  // 🔴 NUEVO: marcar como leídas automáticamente
+  //  marcar como leidas automaticamente
   if (user && user.id) {
     fetch(`http://localhost:4000/api/notificaciones/leer/${user.id}`, {
       method: "PUT"
@@ -33,7 +33,7 @@ function Notificaciones({ onBack }) {
 }, []);
 
 
-  // 🔴 MARCAR COMO LEÍDAS
+  //  MARCA COMO LEIDAS
   const marcarLeidas = async () => {
     try {
 
@@ -49,7 +49,7 @@ function Notificaciones({ onBack }) {
   };
 
 
-  // 🔴 ELIMINAR TODAS
+  //  ELIMINAR TODAS
   const eliminarTodas = async () => {
 
     if (!window.confirm("¿Eliminar todas las notificaciones?")) return;
@@ -80,7 +80,7 @@ function Notificaciones({ onBack }) {
 </button>
       </header>
 
-      {/* 🔴 SOLO ADMIN VE LOS BOTONES */}
+      {/* SOLO EL ADMINISTRADOR VE LOS BOTONES */}
       {isAdmin && (
         <div style={{ display: "flex", gap: "10px", padding: "10px 20px" }}>
           
@@ -100,7 +100,7 @@ function Notificaciones({ onBack }) {
       {/* CONTENIDO */}
 <main className="noti-content">
 
-  {/* 🎉 CUMPLEAÑOS */}
+  {/*  CUMPLEAÑOS */}
   <div className="notif-demo cumple">
 
     <div className="notif-header-demo">
@@ -120,7 +120,7 @@ function Notificaciones({ onBack }) {
 
   </div>
 
-  {/* 🛒 PROMOCIONES */}
+  {/*  PROMOCIONES */}
 
   
   <div className="notif-demo promo">

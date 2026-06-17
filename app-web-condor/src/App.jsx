@@ -19,7 +19,7 @@ function App() {
   const [screen, setScreen] = useState("splash");
 
   return (
-    <div className="app-wrapper"> {/* 🔥 SOLO AGREGADO */}
+    <div className="app-wrapper"> {/*  SOLO AGREGADO */}
 
       {screen === "splash" && (
         <SplashScreen onFinish={() => setScreen("login")} />
@@ -91,7 +91,7 @@ function App() {
         <Ubicacion onBack={() => setScreen("dashboard")} />
       )}
 
-    </div> /* 🔥 SOLO AGREGADO */
+    </div> 
   );
 }
 

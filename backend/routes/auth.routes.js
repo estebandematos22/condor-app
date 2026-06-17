@@ -170,7 +170,7 @@ router.post("/login", async (req, res) => {
 
 
 // ==========================
-// PERFIL DEL USUARIO (ME)
+// PERFIL DEL USUARIO 
 // ==========================
 router.get("/me", requireAuth, async (req, res) => {
 

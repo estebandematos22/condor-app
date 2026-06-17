@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const db = require("./config/db");
 
-// 🔴 ACTUALIZADO (agregamos limpieza también)
+//  limpieza 
 const { 
   limpiarNotificaciones,
   ejecutarCumpleanios,
@@ -23,7 +23,7 @@ const notificacionesRoutes = require("./routes/notificaciones.routes");
 
 const app = express();
 
-// 🔐 CORS preparado para producción futura
+//  CORS preparado para producción futura
 const allowedOrigins = [
   "http://localhost:5173"
 ];
@@ -44,41 +44,41 @@ app.use(
   })
 );
 
-// 🔧 Middleware JSON
+//  Middleware JSON
 app.use(express.json());
 
-// 📂 Servir archivos subidos
+// Servir archivos subidos
 app.use("/uploads", express.static("uploads"));
 
-// 🌐 Ruta test
+//  Ruta test
 app.get("/", (req, res) => {
   res.send("Backend Supermercado El Cóndor funcionando ✅");
 });
 
-// 🔐 AUTH
+//  AUTH
 app.use("/api/auth", authRoutes);
 
-// 👤 USUARIO
+//  USUARIO
 app.use("/api/usuario", userRoutes);
 
-// ⭐ PUNTOS
+//  PUNTOS
 app.use("/api/puntos", puntosRoutes);
 
-// ⭐ OFERTAS
+//  OFERTAS
 app.use("/api/ofertas", ofertasRoutes);
 
-// ⭐ BENEFICIOS
+//  BENEFICIOS
 app.use("/api/beneficios", beneficiosRoutes);
 
-// 👑 ADMIN
+// ADMIN
 app.use("/api/admin", adminRoutes);
 
-// 🔔 NOTIFICACIONES
+// NOTIFICACIONES
 app.use("/api/notificaciones", notificacionesRoutes);
 
 const PORT = process.env.PORT || 4000;
 
-// 🚀 Levantar servidor SOLO si conecta la DB
+// Levantar servidor SOLO si conecta la DB
 (async () => {
   try {
 
@@ -91,7 +91,7 @@ const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
       console.log(`🚀 Servidor backend corriendo en puerto ${PORT}`);
 
-      // 🔥 EJECUTA TODO AUTOMÁTICO
+      // EJECUTA TODO AUTOMÁTICO
       setInterval(() => {
         limpiarNotificaciones();   // 🧹 NUEVO
         ejecutarCumpleanios();

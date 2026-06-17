@@ -122,7 +122,7 @@ function Register({ onSuccess, onBack }) {
             required
           />
 
-          {/* 🔴 VISUAL MEJORADO */}
+          {/* CONTRSEÑA LAS CARACTERISTICAS */}
           <div className="password-rules">
             <p className={hasMinLength ? "ok" : "bad"}>• 8 caracteres mínimo</p>
             <p className={hasUppercase ? "ok" : "bad"}>• Una mayúscula</p>
